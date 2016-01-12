@@ -1,7 +1,7 @@
 # Hotline-BLin
 An RPG--A quest to help BLin find his Rubik's Cube.
 
-Collaborators:
+# Collaborators:
 Jongyoul Lee
 Nancy Li
 
