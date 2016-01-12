@@ -4,12 +4,6 @@
 |-------------|----------|---------------------------------------------|
 | NL&JL       |  1/9     |  initial commit                             |
 | NL&JL       |  1/12    |  successfully rendered rubik's cube graphics|
-| SA          |  N\A     |  added originals                            |
-| JC          |  N\A     |  added ideas                                |
-| SA          |  N\A     |  added ideas                                |
-| JC          |  N\A     |  added ideas                                |
-| SA          | 1/11/16  |  created devlog, updated readme             |
-| JC          | 1/11/16  |  created FINAL                              |
 |             |          |                                             |
 |             |          |                                             |
 |             |          |                                             |
