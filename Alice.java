@@ -1,3 +1,3 @@
-public class Alice  extends Character implements ArtKid {
+public class Alice extends Character implements ArtKid {
 
 }
