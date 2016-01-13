@@ -6,7 +6,7 @@
 | NL&JL       |  1/12    |  successfully rendered rubik's cube graphics|
 |   JL        |  1/12    |  added description to README                |
 |  NL&JL      |  1/12    |  formed basic heirarchy                     |
-|             |          |                                             |
+|  NL&JL      |  1/13    |  wrote basic constructors for players       |
 |             |          |                                             |
 |             |          |                                             |
 |             |          |                                             |
