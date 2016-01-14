@@ -60,8 +60,8 @@ public class Hotline {
 	s += "\t2: Drake: He is skilled in Math.\n";
 	s += "\t3: MooCow: He is skilled in CS.\n";
 	s += "\t4: Mr.Brown: He is skilled in CS.\n";
-	s += "\t5: Ernie: He is skilled in Art Appreciation";
-	s += "\t6: Alice: She is skilled in Art Appreciation";
+	s += "\t5: Ernie: He is skilled in Art Appreciation.\n";
+	s += "\t6: Alice: She is skilled in Art Appreciation.";
 	
 	System.out.println(s);
 	
