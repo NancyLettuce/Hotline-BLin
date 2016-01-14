@@ -1,13 +1,24 @@
 public class Drake extends Character implements MathKid {
+	
+	public Drake() {
+		super();
+		HP = 100;
+		def = 10;
+		str = 20;
+		type = "math";
+		talent = "Only Character skilled in math";
+	}
+	
     public String about() {
-        String drake = "";
-	drake += "Your name is Drake.\n";
-	drake += "Despite a lucrative stint in the music industry,\n
-your true calling is math.\n";
-	drake += "BLin recruited you after a touching recount of his \nlove 
-story in an appeal to pathos.\n";
-	drake += "Now you are ready to help him and the rest of the squad \n
-find Rubik's Cube\n";
-	return drake;
+		story += "Your name is Drake.\n";
+		story += "Despite a lucrative stint in the music industry, your true calling is math.\n";
+		story += "BLin recruited you after a touching recount of his love story in an appeal to pathos.\n";
+		story += "Now you are ready to help him and the rest of the squad find Rubik's Cube\n";
+		return story;
     }
+    
+    
+    
+    
+    
 }
