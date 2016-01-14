@@ -1,22 +1,22 @@
 
 #Devlog
-| Contributor |   Date   |  Work                                       |
-|-------------|----------|---------------------------------------------|
-| NL&JL       |  1/9     |  initial commit                             |
-| NL&JL       |  1/12    |  successfully rendered rubik's cube graphics|
-|   JL        |  1/12    |  added description to README                |
-|  NL&JL      |  1/12    |  formed basic heirarchy                     |
-|  NL&JL      |  1/13    |  wrote basic constructors for players       |
-|             |          |                                             |
-|             |          |                                             |
-|             |          |                                             |
-|             |          |                                             |
-|             |          |                                             |
-|             |          |                                             |
-|             |          |                                             |
-|             |          |                                             |
-|             |          |                                             |
-|             |          |                                             |
-|             |          |                                             |
+| Contributor |   Date   |  Work                                         |
+|-------------|----------|-----------------------------------------------|
+| NL&JL       |  1/9     |  initial commit                               |
+| NL&JL       |  1/12    |  successfully rendered rubik's cube graphics  |
+|   JL        |  1/12    |  added description to README                  |
+|  NL&JL      |  1/12    |  formed basic heirarchy                       |
+|  NL&JL      |  1/13    |  wrote basic constructors for players         |
+|  JL         |  1/13    |  establish basic characteristic of each player|
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
 
 
