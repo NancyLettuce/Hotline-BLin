@@ -8,8 +8,8 @@
 |  NL&JL      |  1/12    |  formed basic heirarchy                       |
 |  NL&JL      |  1/13    |  wrote basic constructors for players         |
 |  JL         |  1/13    |  establish basic characteristic of each player|
-|             |          |                                               |
-|             |          |                                               |
+|  JL         |  1/13    |  wrote basics of Character.java               |
+|  NL         |  1/13    |  fixed errors                                 |
 |             |          |                                               |
 |             |          |                                               |
 |             |          |                                               |
