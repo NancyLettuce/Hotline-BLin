@@ -35,7 +35,5 @@ public abstract class Monster{
         other.HP -= damage;
         return damage;
     }
-    
 }
-  
-}
+
