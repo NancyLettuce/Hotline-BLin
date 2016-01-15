@@ -21,6 +21,7 @@ public class Teacher extends Monster {
         story += "They will ask you questions to impede your progress.\n";
         story += "If you subdue this monster by giving the right answer, \n";
         story += "they will leave you with a clue to aid you in assembling your team.\n";
+        story += "However, you may also choose to fight it in the traditional fashion.\n";
         return story;
     }    
 }
