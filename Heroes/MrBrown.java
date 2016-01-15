@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class MrBrown extends Character implements CSKid {
     public MrBrown() {
 	super();
