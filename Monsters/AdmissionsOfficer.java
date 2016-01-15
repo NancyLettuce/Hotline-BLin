@@ -1,5 +1,16 @@
 
 public class AdmissionsOfficer extends Monster {
+    
+    public AdmissionsOfficer() {
+        super();
+        HP = 200; 
+        def = 50;
+        str = 150;
+        //too op
+    }
+    
+    //you can fight them, or you can go on expedition to find object
+    //this object will bypass the Admissions officers
 
     public String about() {
         String story = "";
