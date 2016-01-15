@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Character {
     
     //Basic properties of all characters.
@@ -6,7 +8,9 @@ public abstract class Character {
     public int def;
     public int str;
     public String type; //the skill they possess
-    protected String talent;
+    protected String talent; //their special talent
+    
+    public ArrayList moves; //the attacks they can use
     
     //properties
     int strInitial = 0;
