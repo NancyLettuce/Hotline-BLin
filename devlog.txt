@@ -12,7 +12,7 @@
 |  NL         |  1/13    |  fixed errors                                 |
 |             |          |  basic player characteristics                 |
 |  JL         |  1/14    |  reordered github repo                        |
-|             |          |                                               |
+|  NL         |  1/14    |  updated the Monsters                         |
 |             |          |                                               |
 |             |          |                                               |
 |             |          |                                               |
