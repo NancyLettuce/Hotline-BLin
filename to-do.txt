@@ -1,2 +1,3 @@
 #To Do:
-Create different folders for type of class/interface
+-Create different folders for type of class/interface
+-Have clear directions for "How to Launch" in the read.md file
