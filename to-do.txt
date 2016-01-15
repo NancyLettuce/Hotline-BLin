@@ -1,8 +1,24 @@
 To Do:
--Create different folders for type of class/interface
+-Create different folders for type of class/interface 
+  -1/14/16 5 minutes
 -Have clear directions for "How to Launch" in the read.md file
--write code for quests BLin has to go through
--assign different attributes to each team member
+  -1/14/16 5 minutes
+-Expand on special attributes of each Character and Monster Class
+  -1/15/16-1/17/16 3 hours
+-Robustify attacks and the asking of questions
+  -1/15/16 2 hours
+-Enable answering of questions/special methods for each interface and character
+  -1/15/16 3 hours
+-Expand on Quests 1 and 2
+  -1/16/16 4 hours
+-Add and expand on NPCs
+  -1/16/16 1 hour
+-Add storyline and dialogue 
+  -1/17/16 2-3 hours
 -Make the game "flow" the way it should--order of events
--enable creating accounts&saving
--allow for modified playing 2nd time around
+  -1/17/16-1/25/16 10 hours
+-Enable user to create accounts and allow user to save a game
+  -1/21/16 5 hours
+-Allow for modified playing 2nd time around
+  -1/22/16 1 hour
+-
