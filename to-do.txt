@@ -1,3 +1,8 @@
 To Do:
 -Create different folders for type of class/interface
 -Have clear directions for "How to Launch" in the read.md file
+-write code for quests BLin has to go through
+-assign different attributes to each team member
+-Make the game "flow" the way it should--order of events
+-enable creating accounts&saving
+-allow for modified playing 2nd time around
