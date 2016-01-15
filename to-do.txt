@@ -19,6 +19,8 @@ To Do:
   -1/17/16-1/25/16 (10 hours)
 -Enable user to create accounts and allow user to save a game
   -1/20/16 (5 hours)
+-Add levels and expand on character stats
+  -1/21/16 (2 hours)
 -Allow for modified playing 2nd time around
   -1/22/16 (1 hour)
 -Robustify Quests
