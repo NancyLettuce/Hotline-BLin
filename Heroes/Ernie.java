@@ -9,6 +9,7 @@ public class Ernie extends Character implements ArtKid {
 	str = 5;
 	type = "art";
 	talent = "failure";
+	name = "Ernie";
     }
 	
     public String about() {
