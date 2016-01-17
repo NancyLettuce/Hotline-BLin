@@ -86,19 +86,21 @@ public class Hotline {
 		    vocation = Integer.parseInt( in.readLine() );
 		    //instantiate the player's character
 		    if (vocation == 1 ){
-			player = new BLinCS( );
-			System.out.println(player.about());	
+			player = new BLinCS( );	
 		    }
-		    if (vocation == 2 ){
-			player = new BLinMath( );
-			System.out.println(player.about());	
+		    else if (vocation == 2 ){
+			player = new BLinMath( );	
 		    }
-		    if (vocation == 3 ){
-			player = new BLinArt( );
-			System.out.println(player.about());	
+		    else if (vocation == 3 ){
+			player = new BLinArt( );	
 		    }
+		    
 		}
-		catch ( IOException e ) { }
+		catch ( IOException e ) {
+		    player = new BLinCS( );	
+		}
+		System.out.println(player.about());
+		System.out.println("Onwards to assembling a team!");
 	    }
 	
 	    else if (hero == 2) {//if choose Drake
@@ -272,14 +274,14 @@ public class Hotline {
 
 	int encounters = 0;
 	game.newGame();
-	/*
-	  while( encounters < MAX_ENCOUNTERS ) {
-	  if ( !game.playTurn() )
-	  break;
-	  encounters++;
-	  System.out.println();
-	  }
-	*/
+       
+	while( encounters < MAX_ENCOUNTERS ) {
+	    if ( !game.battle() )
+		break;
+	    encounters++;
+	    System.out.println();
+	}
+       
 	System.out.println( "Game over." );
 
     }//end main
