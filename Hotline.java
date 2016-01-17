@@ -4,10 +4,6 @@
 
 import java.io.*;
 import java.util.*;
-//import Monsters.*;
-import Heroes.*;
-import Kids.*;
-import BLins.*;
 
 public class Hotline {
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
@@ -74,61 +70,54 @@ public class Hotline {
 	
 	try {
 	    hero = Integer.parseInt( in.readLine() );
-	    if (hero == 1) {//If choose BLin
-		b = "Think of the subject you are the most capable in:\n";
-		b += "\t1: CS\n";
-		b += "\t2: Math\n";
-		b += "\t3: Art Appreciation\n";
-		b += "Selection: ";
-		System.out.print( b );
-		
-		try {
-		    vocation = Integer.parseInt( in.readLine() );
-		    //instantiate the player's character
-		    if (vocation == 1 ){
-			player = new BLinCS( );	
-		    }
-		    else if (vocation == 2 ){
-			player = new BLinMath( );	
-		    }
-		    else if (vocation == 3 ){
-			player = new BLinArt( );	
-		    }
-		    
-		}
-		catch ( IOException e ) {
-		    player = new BLinCS( );	
-		}
-		System.out.println(player.about());
-		System.out.println("Onwards to assembling a team!");
-	    }
-	
-	    else if (hero == 2) {//if choose Drake
-		player = new Drake();
-		System.out.println(player.about());
-	    }
-	    else if (hero == 3) {//if choose MooCow
-		player = new MooCow();
-		System.out.println(player.about());
-	    }
-		
-	    else if (hero == 4) {//if choose Mr.Brown
-		player = new MrBrown();
-		System.out.println(player.about());
-	    }
-		
-	    else if (hero == 5) {//if choose Ernie
-		player = new Ernie();
-		System.out.println(player.about());
-	    }
-		
-	    else if (hero == 6) {//if choose Alice
-		player = new Alice();
-		System.out.println(player.about());
-	    }
 	}
 	catch ( IOException e ) { }
+	
+	if (hero == 1) {//If choose BLin
+	    b = "Think of the subject you are the most capable in:\n";
+	    b += "\t1: CS\n";
+	    b += "\t2: Math\n";
+	    b += "\t3: Art Appreciation\n";
+	    b += "Selection: ";
+	    System.out.print( b );
+		
+	    try {
+		vocation = Integer.parseInt( in.readLine() );
+		//instantiate the player's character		    
+	    }
+	    catch ( IOException e ) {
+		player = new BLinCS( );	
+	    }
 
+	    if (vocation == 1 ){
+		player = new BLinCS( );	
+	    }
+	    else if (vocation == 2 ){
+		player = new BLinMath( );	
+	    }
+	    else if (vocation == 3 ){
+		player = new BLinArt( );	
+	    }
+	    System.out.println(player.about());
+	    System.out.println("Onwards to assembling a team!");
+	}//close BLin
+	
+	else if (hero == 2) {//if choose Drake
+	    player = new Drake();
+	}//close Drake
+	else if (hero == 3) {//if choose MooCow
+	    player = new MooCow();
+	}//close MooCow		
+	else if (hero == 4) {//if choose Mr.Brown
+	    player = new MrBrown();
+	}//close MrBrown	
+	else if (hero == 5) {//if choose Ernie
+	    player = new Ernie();
+	}//close Ernie	
+	else if (hero == 6) {//if choose Alice
+	    player = new Alice();
+	}//close Alice      
+	System.out.println(player.about());
     }//end newGame()
 
     public boolean battle() {
@@ -244,7 +233,7 @@ public class Hotline {
 		d2 = teach.attack( player );
 		System.out.println( "\n" + player.getName() + " dealt " + d1 +
 				    " points of damage.");
-		System.out.println( "\n" + "Teacher dealt" + player.getName() +
+		System.out.println( "\n" + "Teacher dealt " + player.getName() + " " +
 				    d2 + " points of damage.");	
 	    }//ends Teacher choice
 	}//ends while loop
@@ -273,7 +262,6 @@ public class Hotline {
 	Hotline game = new Hotline();
 
 	int encounters = 0;
-	game.newGame();
        
 	while( encounters < MAX_ENCOUNTERS ) {
 	    if ( !game.battle() )
