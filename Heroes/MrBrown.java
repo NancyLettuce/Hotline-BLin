@@ -8,6 +8,7 @@ public class MrBrown extends Character implements CSKid {
 	str = 8;
 	type = "cs";
 	talent = "extra credit";
+	name = "Mr.Brown";
     }
 	
     public String about() {
