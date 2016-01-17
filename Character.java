@@ -11,6 +11,7 @@ public abstract class Character {
     protected String talent; //their special talent
     
     public ArrayList moves; //the attacks they can use
+    public String answer; //to store answers to the questions
     
     //properties
     int strInitial = 0;
@@ -43,7 +44,10 @@ public abstract class Character {
     //
     public int attack (Character other){
         int damage = (int)(Math.random() * (this.str - other.def));
-        other.HP -= damage;
+        if (damage < 0) {
+            damage = 0;//damage cannot be negative
+        }
+        other.lowerHP(damage);
         return damage;
     }
     
