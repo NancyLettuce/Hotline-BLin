@@ -120,15 +120,15 @@ public class Hotline {
 	System.out.println(player.about());
     }//end newGame()
 
-    public boolean battle() {
+    //takes a Monster and simulates combat with that Monster
+    //returns false if dead, true if alice
+    public boolean battle(Monster generic) {
 	
-	int descrip = 0;//used for printing decision
+	int descrip = 0;//used for printing description
 	int i = 1;
 	int choice = 0;//used when deciding whether or not to fight
 	int d1, d2;
 	
-	//generic = new Monster();
-
 	//for Monster's description		
 	try {
 	    System.out.println("You see a Monster approaching.\n Do you wish to view its credentials?");
@@ -171,7 +171,7 @@ public class Hotline {
 		d2 = student.attack( player );
 		System.out.println( "\n" + player.getName() + " dealt " + d1 +
 				    " points of damage.");
-		System.out.println( "\n" + "Competitor dealt" + player.getName() +
+		System.out.println( "\n" + "Competitor dealt " + player.getName() + " " +
 				    d2 + " points of damage.");	
 	    } //ends Competitor choice
 			
@@ -255,6 +255,12 @@ public class Hotline {
 	}
 	return true;
     }//end battle()
+    
+    //implements battle
+    public boolean questOne() {
+    	teach = new Teacher();
+    	return battle(teach);
+    }
 
     public static void main( String[] args ) {
 
@@ -264,7 +270,7 @@ public class Hotline {
 	int encounters = 0;
        
 	while( encounters < MAX_ENCOUNTERS ) {
-	    if ( !game.battle() )
+	    if ( !game.questOne() )
 		break;
 	    encounters++;
 	    System.out.println();
