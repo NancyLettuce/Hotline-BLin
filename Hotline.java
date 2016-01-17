@@ -4,6 +4,10 @@
 
 import java.io.*;
 import java.util.*;
+//import Monsters.*;
+import Heroes.*;
+import Kids.*;
+import BLins.*;
 
 public class Hotline {
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
@@ -12,8 +16,11 @@ public class Hotline {
     public final static int MAX_ENCOUNTERS = 5;
 
     //each round, a Warrior and a Monster will be instantiated
-    private Character player;   //Is it man or woman?
-    private Monster smaug; //Friendly generic monster name, eh?
+    private Character player;   
+    private Monster generic;
+    private AdmissionsOfficer admin;
+    private Teacher teach;
+    private Competitor student;
     int hero; //the role/number they choose to play
 
     private int moveCount;
@@ -121,6 +128,142 @@ public class Hotline {
 	catch ( IOException e ) { }
 
     }//end newGame()
+
+    public boolean battle() {
+	
+	int descrip = 0;//used for printing decision
+	int i = 1;
+	int choice = 0;//used when deciding whether or not to fight
+	int d1, d2;
+	
+	//generic = new Monster();
+
+	//for Monster's description		
+	try {
+	    System.out.println("You see a Monster approaching.\n Do you wish to view its credentials?");
+	    System.out.println("\t1: Yes\n\t2: No");
+	    descrip = Integer.parseInt( in.readLine() );
+	}
+	catch ( IOException e ) { }
+		
+	if (descrip == 1) {
+	    if (generic instanceof AdmissionsOfficer){
+		admin = (AdmissionsOfficer)generic; //typecast generic to AdmissionsOfficer
+		System.out.println(admin.about());
+	    }
+	    else if (generic instanceof Competitor) {
+		student = (Competitor)generic;//typecast generic to Competitor
+		System.out.println(student.about());
+	    }
+	    else if (generic instanceof Teacher) {
+		teach = (Teacher)generic;//typecast generic to Teacher
+		System.out.println(teach.about());
+	    }
+	}
+	/////ends part regarding description
+		
+	while (generic.isAlive() && player.isAlive()) {
+	    if (generic instanceof Competitor) {
+		student = (Competitor)generic;
+		try {
+		    System.out.println( "What will you do?" );
+		    System.out.println("\t1: Attack\n\t2: Special" );
+		    i = Integer.parseInt( in.readLine() );
+		}
+		catch ( IOException e ) { }
+		if ( i == 2 )
+		    player.specialize();
+		else
+		    player.normalize();
+		    		
+		d1 = player.attack( student );
+		d2 = student.attack( player );
+		System.out.println( "\n" + player.getName() + " dealt " + d1 +
+				    " points of damage.");
+		System.out.println( "\n" + "Competitor dealt" + player.getName() +
+				    d2 + " points of damage.");	
+	    } //ends Competitor choice
+			
+	    else if (generic instanceof AdmissionsOfficer) {
+		admin = (AdmissionsOfficer)generic; 
+		try {
+		    System.out.println( "What will you do?" );	
+		    System.out.println("\t1: Fight\n\t2: Answer Question" );
+		    choice =  Integer.parseInt( in.readLine() );
+		    if (choice == 1) {
+			try{
+			    System.out.println("\t1: Attack\n\t2: Special" );
+			    i = Integer.parseInt( in.readLine() );
+			}
+			catch ( IOException e ) { }
+		    }
+		    else if (choice == 2) {
+			System.out.println("lol maybe later");
+		    }
+		}
+		catch ( IOException e ) { }
+		if ( i == 2 )
+		    player.specialize();
+		else
+		    player.normalize();
+		    		
+		d1 = player.attack( admin );
+		d2 = admin.attack( player );
+		System.out.println( "\n" + player.getName() + " dealt " + d1 +
+				    " points of damage.");
+		System.out.println( "\n" + "AdmissionsOfficer dealt" + player.getName() +
+				    d2 + " points of damage.");	
+	    }//ends Admission officer choice
+			
+	    else if (generic instanceof Teacher) {
+		teach = (Teacher)generic;
+		try {
+		    System.out.println( "What will you do?" );	
+		    System.out.println("\t1: Fight\n\t2: Answer Question" );
+		    choice =  Integer.parseInt( in.readLine() );
+		    if (choice == 1) {
+			try{
+			    System.out.println("\t1: Attack\n\t2: Special" );
+			    i = Integer.parseInt( in.readLine() );
+			}
+			catch ( IOException e ) { }
+		    }
+		    else if (choice == 2) {
+			System.out.println("lol maybe later");
+		    }
+		}
+		catch ( IOException e ) { }
+		if ( i == 2 )
+		    player.specialize();
+		else
+		    player.normalize();
+		    		
+		d1 = player.attack( teach );
+		d2 = teach.attack( player );
+		System.out.println( "\n" + player.getName() + " dealt " + d1 +
+				    " points of damage.");
+		System.out.println( "\n" + "Teacher dealt" + player.getName() +
+				    d2 + " points of damage.");	
+	    }//ends Teacher choice
+	}//ends while loop
+		
+	//option 1: both die
+	if ( !generic.isAlive() && !player.isAlive() ) {
+	    System.out.println( "Oops you both die" );
+	    return false;
+	}
+	//option 2: you defeat the Monster
+	else if ( !generic.isAlive() ) {
+	    System.out.println( "You have defeated the Monster!" );
+	    return true;
+	}
+	//option 3: the monster kills you
+	else if ( !player.isAlive() ) {
+	    System.out.println( "You are dead." );
+	    return false;
+	}
+	return true;
+    }//end battle()
 
     public static void main( String[] args ) {
 
