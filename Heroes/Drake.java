@@ -9,6 +9,7 @@ public class Drake extends Character implements MathKid {
 	str = 20;
 	type = "math";
 	talent = "Only Character skilled in math";
+	name = "Drake";
     }
 	
     public String about() {
