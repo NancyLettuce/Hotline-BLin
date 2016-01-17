@@ -6,6 +6,7 @@ public class BLinMath extends Character implements MathKid {
 	str = 10;
 	type = "math";
 	talent = "lol";
+	name = "BLin";
     }
 	
     public String about() {
