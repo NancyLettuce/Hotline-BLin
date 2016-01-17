@@ -8,6 +8,7 @@ public class MooCow extends Character implements CSKid {
 	str = 20;
 	type = "cs";
 	talent = "MIT";
+	name = "MooCow";
     }
 	
     public String about() {
