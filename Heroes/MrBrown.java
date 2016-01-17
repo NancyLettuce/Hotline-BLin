@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class MrBrown extends Character implements CSKid {
     public MrBrown() {
 	super();
@@ -6,6 +8,7 @@ public class MrBrown extends Character implements CSKid {
 	str = 8;
 	type = "cs";
 	talent = "extra credit";
+	name = "Mr.Brown";
     }
 	
     public String about() {

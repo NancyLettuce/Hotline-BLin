@@ -1,11 +1,14 @@
+import java.util.ArrayList;
+
 public class MooCow extends Character implements CSKid {
     public MooCow() {
 	super();
 	HP = 50;
 	def = 10;
-	str = 10;
+	str = 20;
 	type = "cs";
 	talent = "MIT";
+	name = "MooCow";
     }
 	
     public String about() {

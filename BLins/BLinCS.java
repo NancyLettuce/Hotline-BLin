@@ -6,6 +6,7 @@ public class BLinCS extends Character implements CSKid {
 	str = 10;
 	type = "cs";
 	talent = "lol";
+	name = "BLin";
     }
 	
     public String about() {

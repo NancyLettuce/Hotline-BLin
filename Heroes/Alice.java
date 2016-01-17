@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Alice extends Character implements  ArtKid {
 	
     public Alice() {
@@ -6,6 +8,7 @@ public class Alice extends Character implements  ArtKid {
 	def = 5;
 	str = 15;
 	type = "art";
+	name ="Alice";
     }
 	
     public String about() {

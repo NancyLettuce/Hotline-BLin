@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Ernie extends Character implements ArtKid {
 
     public Ernie() {
@@ -7,6 +9,7 @@ public class Ernie extends Character implements ArtKid {
 	str = 5;
 	type = "art";
 	talent = "failure";
+	name = "Ernie";
     }
 	
     public String about() {

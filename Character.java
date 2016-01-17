@@ -16,9 +16,9 @@ public abstract class Character{
     public String answer; //to store answers to the questions
     
     /*      WHAT IS THIS USED FOR?**********************************************
-	    int strInitial = 0;
-	    int defInitial = 0;
-	    int hpInitial = 0;
+    int strInitial = 0;
+    int defInitial = 0;
+    int hpInitial = 0;
     */
     
     //Dead or alive?
@@ -31,9 +31,9 @@ public abstract class Character{
         return def;
     }
   
-    public String getName() {
-	return name;
-    }//end of accessors
+	 public String getName() {
+	 return name;
+	 }//end of accessors
 
     
     public abstract String about();

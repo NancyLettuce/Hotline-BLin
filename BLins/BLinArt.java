@@ -7,6 +7,7 @@ public class BLinArt extends Character implements ArtKid {
 	str = 10;
 	type = "art";
 	talent = "lol";
+	name = "BLin";
     }
 	
     public String about() {
