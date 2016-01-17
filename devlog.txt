@@ -13,8 +13,8 @@
 |             |          |  basic player characteristics                 |
 |  JL         |  1/14    |  reordered github repo                        |
 |  NL         |  1/14    |  updated the Monsters                         |
-|             |          |                                               |
-|             |          |                                               |
+|  JL         |  1/15    |  rendered beaver graphics                     |
+|  NL         |  1/16    |  added battle method to Hotline               |
 |             |          |                                               |
 |             |          |                                               |
 |             |          |                                               |
