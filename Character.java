@@ -31,9 +31,17 @@ public abstract class Character{
         return def;
     }
   
-	 public String getName() {
-	 return name;
-	 }//end of accessors
+    public String getName() {
+	return name;
+    }//end of accessors
+
+    public String toString() {//prints out ArrayList moves
+        String stuff = "";
+        for (int i = 0; i < moves.size(); i ++) {
+            stuff += "\t" + (i+1) + ": " + moves.get(i) + "\n";
+        }
+        return stuff;
+    }
 
     
     public abstract String about();
