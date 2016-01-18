@@ -11,6 +11,9 @@ public class MrBrown extends Character implements CSKid {
 	type = "cs";
 	talent = "extra credit";
 	name = "Mr.Brown";
+	moves = new ArrayList<String>();
+	moves.add("Convert");
+	moves.add("Binary");
     }
 	
     public String about() {

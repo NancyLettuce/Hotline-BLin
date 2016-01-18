@@ -266,7 +266,8 @@ public class Hotline {
     }
 
     public static void main( String[] args ) {
-
+	System.out.println("This does not work yet for anything other than BLinCS because of organization+lack of code.");
+	System.out.println("Also, we need a helper function for answering questions because these nested if statements will will us before the quests do");
 	//loading...
 	Hotline game = new Hotline();
 

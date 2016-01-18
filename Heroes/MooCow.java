@@ -11,6 +11,9 @@ public class MooCow extends Character implements CSKid {
 	type = "cs";
 	talent = "MIT";
 	name = "MooCow";
+	moves = new ArrayList<String>();
+	moves.add("Convert");
+	moves.add("Binary");
     }
 	
     public String about() {
