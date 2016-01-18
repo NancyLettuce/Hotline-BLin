@@ -181,7 +181,7 @@ public class Hotline {
 		    System.out.println( "What will you do?" );	
 		    System.out.println("\t1: Fight\n\t2: Answer Question" );
 		    choice =  Integer.parseInt( in.readLine() );
-		    if (choice == 1) {
+		    if (choice == 1) {//if fight
 			try{
 			    System.out.println("\t1: Attack\n\t2: Special" );
 			    i = Integer.parseInt( in.readLine() );
@@ -198,11 +198,11 @@ public class Hotline {
 					    + d1 +" points of damage.");
 			System.out.println( "\n" + "AdmissionsOfficer dealt" +
 				  player.getName() +d2 + " points of damage.");	
-		    }
-		    else if (choice == 2) {
+		    }//ends fight
+		    else if (choice == 2) {//if question
 			System.out.println("lol maybe later");
 			System.out.println(player.toString());
-		    }
+		    }//ends question
 		}
 		catch ( IOException e ) { }
 
@@ -214,7 +214,7 @@ public class Hotline {
 		    System.out.println( "What will you do?" );	
 		    System.out.println("\t1: Fight\n\t2: Answer Question" );
 		    choice =  Integer.parseInt( in.readLine() );
-		    if (choice == 1) {
+		    if (choice == 1) {//if fight
 			try{
 			    System.out.println("\t1: Attack\n\t2: Special" );
 			    i = Integer.parseInt( in.readLine() );
@@ -231,11 +231,11 @@ public class Hotline {
 					    + d1 + " points of damage.");
 			System.out.println( "\n" + "Teacher dealt " +
 			   player.getName() + " " + d2 + " points of damage.");	
-		    }
-		    else if (choice == 2) {
+		    }//end fight
+		    else if (choice == 2) {//if question
 			System.out.println("lol maybe later");
 			System.out.println(player.toString());
-		    }
+		    }//end question
 		}
 		catch ( IOException e ) { }
 	    }//ends Teacher choice
