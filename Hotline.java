@@ -201,6 +201,7 @@ public class Hotline {
 		    }
 		    else if (choice == 2) {
 			System.out.println("lol maybe later");
+			System.out.println(player.toString());
 		    }
 		}
 		catch ( IOException e ) { }
@@ -233,6 +234,7 @@ public class Hotline {
 		    }
 		    else if (choice == 2) {
 			System.out.println("lol maybe later");
+			System.out.println(player.toString());
 		    }
 		}
 		catch ( IOException e ) { }

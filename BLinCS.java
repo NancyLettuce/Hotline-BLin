@@ -12,6 +12,9 @@ public class BLinCS extends Character implements CSKid {
 	type = "cs";
 	talent = "lol";
 	name = "BLin";
+	moves = new ArrayList<String>();
+	moves.add("Convert");
+	moves.add("Binary");
     }
 	
     public String about() {
