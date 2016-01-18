@@ -33,7 +33,7 @@ public class BLinCS extends Character implements CSKid {
     }
 
         //convert binary to another base(2 to 16)
-    public static String convert(int num, int base){
+    public String convert(int num, int base){
 	if (base < 2 || base > 16) {
 	    return "Please enter a base between 2 and 16";
       	}

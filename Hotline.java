@@ -187,23 +187,24 @@ public class Hotline {
 			    i = Integer.parseInt( in.readLine() );
 			}
 			catch ( IOException e ) { }
+			if ( i == 2 )
+			    player.specialize();
+			else
+			    player.normalize();
+		    		
+			d1 = player.attack( admin );
+			d2 = admin.attack( player );
+			System.out.println( "\n" + player.getName() + " dealt "
+					    + d1 +" points of damage.");
+			System.out.println( "\n" + "AdmissionsOfficer dealt" +
+				  player.getName() +d2 + " points of damage.");	
 		    }
 		    else if (choice == 2) {
 			System.out.println("lol maybe later");
 		    }
 		}
 		catch ( IOException e ) { }
-		if ( i == 2 )
-		    player.specialize();
-		else
-		    player.normalize();
-		    		
-		d1 = player.attack( admin );
-		d2 = admin.attack( player );
-		System.out.println( "\n" + player.getName() + " dealt " + d1 +
-				    " points of damage.");
-		System.out.println( "\n" + "AdmissionsOfficer dealt" + player.getName() +
-				    d2 + " points of damage.");	
+
 	    }//ends Admission officer choice
 			
 	    else if (generic instanceof Teacher) {
@@ -218,23 +219,23 @@ public class Hotline {
 			    i = Integer.parseInt( in.readLine() );
 			}
 			catch ( IOException e ) { }
+			if ( i == 2 )
+			    player.specialize();
+			else
+			    player.normalize();
+		    		
+			d1 = player.attack( teach );
+			d2 = teach.attack( player );
+			System.out.println( "\n" + player.getName() + " dealt "
+					    + d1 + " points of damage.");
+			System.out.println( "\n" + "Teacher dealt " +
+			   player.getName() + " " + d2 + " points of damage.");	
 		    }
 		    else if (choice == 2) {
 			System.out.println("lol maybe later");
 		    }
 		}
 		catch ( IOException e ) { }
-		if ( i == 2 )
-		    player.specialize();
-		else
-		    player.normalize();
-		    		
-		d1 = player.attack( teach );
-		d2 = teach.attack( player );
-		System.out.println( "\n" + player.getName() + " dealt " + d1 +
-				    " points of damage.");
-		System.out.println( "\n" + "Teacher dealt " + player.getName() + " " +
-				    d2 + " points of damage.");	
 	    }//ends Teacher choice
 	}//ends while loop
 		

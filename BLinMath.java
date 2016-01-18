@@ -1,4 +1,5 @@
 public class BLinMath extends Character implements MathKid {
+    
     public BLinMath() {
 	super();
 	HP = 50;
