@@ -16,7 +16,17 @@
 |  JL         |  1/15    |  rendered beaver graphics                     |
 |  NL         |  1/16    |  added battle method to Hotline               |
 |             |          |  fixed errors                                 |
+|  NL         |  1/17    |  worked on attacks                            |
+|             |          |  expanded battle                              |
+|  JL         |  1/17    |  questions                                    |
+|  JL         |  1/18    |  Add more questions                           |
 |             |          |                                               |
 |             |          |                                               |
-
-
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
+|             |          |                                               |
