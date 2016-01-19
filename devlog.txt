@@ -20,8 +20,8 @@
 |             |          |  expanded battle                              |
 |  JL         |  1/17    |  questions                                    |
 |  JL         |  1/18    |  Add more questions                           |
-|             |          |                                               |
-|             |          |                                               |
+|  NL         |          |  Added more attacks                           |
+|             |          |  Added helper function to answer questions    |
 |             |          |                                               |
 |             |          |                                               |
 |             |          |                                               |
