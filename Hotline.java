@@ -298,7 +298,7 @@ public class Hotline {
 	    encounters++;
 	    System.out.println();
 	}
-       
+        System.out.println("please let us finish");
 	System.out.println( "Game over." );
 
     }//end main
