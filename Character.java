@@ -12,7 +12,7 @@ public abstract class Character{
     protected String type; //the skill they possess
     protected String talent; //their special talent
     
-    public ArrayList moves; //the attacks they can use
+    protected ArrayList<String> moves; //the attacks they can use
     public String answer; //to store answers to the questions
     
     /*      WHAT IS THIS USED FOR?**********************************************

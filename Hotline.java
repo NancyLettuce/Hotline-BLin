@@ -120,6 +120,27 @@ public class Hotline {
 	System.out.println(player.about());
     }//end newGame()
 
+    ////For answering questions
+    ////should call the thing Jongyoul wrote to ask the actual question
+    public void questions(Monster generic) {
+    	int i = 0;
+    	String move = "";
+    	System.out.println("lol maybe later");
+    	System.out.println("Choose your course of action: ");
+	System.out.println(player.toString());
+	try {
+	    i = Integer.parseInt( in.readLine() );
+	    move = player.moves.get(i-1);//the move you chose 
+	}
+	catch ( IOException e ) { }
+	if (i == 1) {
+	    System.out.println("we won't finish");
+	}
+	else if (i ==2) {
+	    System.out.println("so much left");
+	}
+    }
+
     //takes a Monster and simulates combat with that Monster
     //returns false if dead, true if alice
     public boolean battle(Monster generic) {
@@ -200,8 +221,7 @@ public class Hotline {
 				  player.getName() +d2 + " points of damage.");	
 		    }//ends fight
 		    else if (choice == 2) {//if question
-			System.out.println("lol maybe later");
-			System.out.println(player.toString());
+		        questions(admin);
 		    }//ends question
 		}
 		catch ( IOException e ) { }
@@ -233,8 +253,7 @@ public class Hotline {
 			   player.getName() + " " + d2 + " points of damage.");	
 		    }//end fight
 		    else if (choice == 2) {//if question
-			System.out.println("lol maybe later");
-			System.out.println(player.toString());
+		        questions(teach);
 		    }//end question
 		}
 		catch ( IOException e ) { }
