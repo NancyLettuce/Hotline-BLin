@@ -62,4 +62,20 @@ public class BLinCS extends Character implements CSKid {
 	}
 	return dec;
     }
+
+    public static void Sort( ArrayList<Comparable> data ) {
+	int pass = 0; //index of next value to be compared
+	while (pass < data.size()) {
+	    //separates sorted from unsorted
+	    for( int i = pass; i > 0; i-- ) {
+		// swap the numbers if they are not in order
+		if ( data.get(i).compareTo( data.get(i-1) ) < 0 ) {
+		    data.set( i, data.set( i-1, data.get(i) ) ); 
+		}
+		else 
+		    break; 
+	    }
+	    pass ++;
+	}
+    }
 }
