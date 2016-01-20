@@ -15,6 +15,7 @@ public class BLinCS extends Character implements CSKid {
 	moves = new ArrayList<String>();
 	moves.add("Convert");
 	moves.add("Decimal");
+	moves.add("Sort");
     }
 	
     public String about() {

@@ -14,6 +14,7 @@ public class MrBrown extends Character implements CSKid {
 	moves = new ArrayList<String>();
 	moves.add("Convert");
 	moves.add("Binary");
+	moves.add("Sort");
     }
 	
     public String about() {
