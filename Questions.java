@@ -2,14 +2,11 @@ import java.io.*;
 import java.util.*;
 
 public class Questions {
-    int a = (int) (Math.random()*5+1);
     //Math
-    public static void askRoot() {
+    public static boolean askRoot() {
+        int a = (int) (Math.random()*5+1);
         System.out.println("Find a root of the quadratic:");
         System.out.println("x^2+"+2*a+"x"+"+"+a*a);
-    }
-    
-    public static boolean checkRoot() {
         try {
             Scanner sc = new Scanner(System.in);
             int ans = sc.nextInt();
@@ -32,77 +29,58 @@ public class Questions {
     	return retAL;
     }
     //Art
+    
+    
     public static void askArtist() {
-        System.out.println("");
-    }
-    
-    public static boolean checkArtist() {
-        try {
-            Scanner sc = new Scanner(System.in);
-            int ans = sc.nextInt();
-            if (ans==a) return true;
-        }
-        catch (Exception e) { 
-        return false;
-        }
-        return false;
-    }
-    
-    
-    public static askArtist {
-    String[] multiChoice1;
-    Scanner input = new Scanner(System.in);
+        String multiChoice1[] = {"Who is the artist who has a well-known painting of haystacks?"};
+        int scorePro;
+        int score;
+        Scanner input = new Scanner(System.in);
+        String userSelect1 =  multiChoice1[0];
 
-    multiChoice1 = new String[5];
-    multiChoice1[0] = "1. Which country currently emits the most greenhouse gases?\n";
-    multiChoice1[1] = "blah blah";
-    multiChoice1[2] = "blah blah";
-    multiChoice1[3] = "blah blah";
-    multiChoice1[4] = "blah blah";
+        if (userSelect1.equals(multiChoice1[0])) {
+            System.out.println(multiChoice1[0]);
+            System.out.println("A. Claude Monet");
+            System.out.println("B. Pierre Renoir");
+            System.out.println("C. Edgar Degas");
+            System.out.println("D. Paul Cezanne");
+            System.out.println();
+            System.out.print("Your answer: ");
+            String uSelect1 = input.next();
 
-    String userSelect1 = multiChoice1[0];
+            switch (uSelect1.toUpperCase()){
+                case "A":
+                    uSelect1 = "Claude Monet";
+                    System.out.println("Correct Answer :p\n\n");
+                    break;
+                case "B":
+                    uSelect1 = "Pierre Renoir";
+                    System.out.println("Nope\n\n");;
+                    break;
+                case "C":
+                    uSelect1 = "Edgar Degas";
+                    System.out.println("Nope\n\n");
+                    break;
+                case "D":
+                    uSelect1 = "Paul Cezanne";
+                    System.out.println("Nope\n\n");
+                    break;
+                default: 
+                    uSelect1 = "Nope.\n\n";
+                    System.out.println("Please select an option from the provided options!!!");
+                    askArtist();
+                }
 
-    if(userSelect1==multiChoice1[0]){
-        System.out.println(multiChoice1[0]);
-        System.out.println("A. United States");
-        System.out.println("B. China");
-        System.out.println("C. India");
-        System.out.println("D. England");
-        System.out.println();
-        System.out.print("Your answer: ");
-        String uSelect1 = input.next();
-
-        switch (uSelect1.toUpperCase()){
-            case "A":
-                uSelect1 = "United States";
-                System.out.println("Incorrect!\n\n");
-                break;
-            case "B":
-                uSelect1 = "China";
-                System.out.println("Correct!\n\n");
-                scorePro++;
-                score++;
-                break;
-            case "C":
-                uSelect1 = "India";
-                System.out.println("Incorrect!\n\n");
-                break;
-            case "D":
-                uSelect1 = "England";
-                System.out.println("Incorrect!\n\n");
-                break;
-            default: 
-                uSelect1 = "Incorrect, choice.\n\n";
-                break;
         }
     }
+    
     // more multiple choice questions with similar structure
-}
 
 
     
     //testing
     public static void main(String[] args) {
-        System.out.println(generatePF());
+        System.out.println(askRoot());
+        askArtist();
     }
 }
