@@ -20,9 +20,11 @@
 |             |          |  expanded battle                              |
 |  JL         |  1/17    |  questions                                    |
 |  JL         |  1/18    |  Add more questions                           |
-|  NL         |          |  Added more attacks                           |
-|  JL         |  1/2     |  Added helper function to answer questions    |
-|  JL         |  1/20    |  Split up question method to enable user input|
+|  NL         |  1/18    |  Added more attacks                           |
+|  NL         |  1/19    |  Added questions helper method                |
+|  NL         |  1/20    |  Added sorting attack                         |
+|  JL         |  1/20    |  Added helper function to answer questions    |
+|  JL         |          |  Split up question method to enable user input|
 |             |          |  Declare Arraylist for teammates              |
 |             |          |                                               |
 |             |          |                                               |
