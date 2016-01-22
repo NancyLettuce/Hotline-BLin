@@ -181,7 +181,7 @@ public class Hotline {
 	//for Monster's description		
 	try {
 	    System.out.println("You see a Monster approaching.\n Do you wish to view its credentials?");
-	    System.out.println("\t1: Yes\n\t2: No\nSelection: ");
+	    System.out.print("\t1: Yes\n\t2: No\nSelection: ");
 	    descrip = Integer.parseInt( in.readLine() );
 	}
 	catch ( IOException e ) { 
@@ -230,11 +230,11 @@ public class Hotline {
 		admin = (AdmissionsOfficer)generic; 
 		try {
 		    System.out.println( "What will you do?" );	
-		    System.out.println("\t1: Fight\n\t2: Answer Question\nSelection: " );
+		    System.out.print("\t1: Fight\n\t2: Answer Question\nSelection: " );
 		    choice =  Integer.parseInt( in.readLine() );
 		    if (choice == 1) {//fight
 			try{
-			    System.out.println("\t1: Attack\n\t2: Special\nSelection: " );
+			    System.out.print("\t1: Attack\n\t2: Special\nSelection: " );
 			    i = Integer.parseInt( in.readLine() );
 			}
 			catch ( IOException e ) { }
@@ -262,11 +262,11 @@ public class Hotline {
 		teach = (Teacher)generic;
 		try {
 		    System.out.println( "What will you do?" );	
-		    System.out.println("\t1: Fight\n\t2: Answer Question\nSelection: " );
+		    System.out.print("\t1: Fight\n\t2: Answer Question\nSelection: " );
 		    choice =  Integer.parseInt( in.readLine() );
 		    if (choice == 1) {//fight
 			try{
-			    System.out.println("\t1: Attack\n\t2: Special\nSelection: " );
+			    System.out.print("\t1: Attack\n\t2: Special\nSelection: " );
 			    i = Integer.parseInt( in.readLine() );
 			}
 			catch ( IOException e ) { }

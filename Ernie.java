@@ -10,6 +10,10 @@ public class Ernie extends Character implements ArtKid {
 	type = "art";
 	talent = "failure";
 	name = "Ernie";
+	moves = new ArrayList<String>();
+	moves.add("Move1");
+	moves.add("Move2");
+	moves.add("Move3");
     }
 	
     public String about() {

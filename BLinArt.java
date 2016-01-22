@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class BLinArt extends Character implements ArtKid {
 
     public BLinArt() {
@@ -8,6 +10,10 @@ public class BLinArt extends Character implements ArtKid {
 	type = "art";
 	talent = "lol";
 	name = "BLin";
+	moves = new ArrayList<String>();
+	moves.add("Move1");
+	moves.add("Move2");
+	moves.add("Move3");
     }
 	
     public String about() {

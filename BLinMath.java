@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class BLinMath extends Character implements MathKid {
     
     public BLinMath() {
@@ -8,6 +10,10 @@ public class BLinMath extends Character implements MathKid {
 	type = "math";
 	talent = "lol";
 	name = "BLin";
+	moves = new ArrayList<String>();
+	moves.add("Move1");
+	moves.add("Move2");
+	moves.add("Move3");
     }
 	
     public String about() {
