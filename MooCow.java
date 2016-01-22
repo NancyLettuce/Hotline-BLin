@@ -24,6 +24,28 @@ public class MooCow extends Character implements CSKid {
 	story += "Now, you are ready to help him and the rest of the squad fight evil and spread love.\n";
 	return story;
     }
+
+    //convert to Decimal from any base
+    public String specialOne(String a, String b) {
+	//String a is the number being converted to base 10
+	//String b is the base it is being converted from
+	int base = Integer.parseInt(b);
+	String s = a;
+	String answer ="";
+	int dec = 0;
+	int power = 0;
+	for (int ctr = 0; ctr < s.length(); ctr ++ ) {
+	    power = s.length() - ctr - 1;
+	    //ctr and power increment at opposite ends
+	    dec += (DIGITS.indexOf(s.substring(ctr,ctr+1))
+		    //goes through each char in string s
+		    //returns corresponding index of char in string HEXDIGITS
+		    * Math.pow(base, power));
+	    //number multiplied by base raised to the correct power
+	}
+	answer += dec;
+	return answer;
+    }
     
     //convert binary to another base(2 to 16)
     public static String convert(int num, int base){
@@ -35,22 +57,6 @@ public class MooCow extends Character implements CSKid {
 	    DIGITS.substring(num%base, (num%base)+1);
       	//n divided by base goes into each recursion until it reaches 0
       	//adds on the hexdigit that corresponds with the remainder of n%bas
-    }
-
-    //convert to Decimal from any base
-    public int decimal(String s, int base) {
-	int dec = 0;
-	int power = 0;
-	for (int ctr = 0; ctr < s.length(); ctr ++ ) {
-	    power = s.length() - ctr - 1;
-	    //ctr and power increment at opposite ends
-	    dec += (DIGITS.indexOf(s.substring(ctr,ctr+1))
-		    //goes through each char in string s
-		    //returns corresponding index of char in string HEXDIGITS
-		    * Math.pow(base, power));
-	    //number multiplied by base raised to th correct power
-	}
-	return dec;
     }
 
     public static void Sort( ArrayList<Comparable> data ) {

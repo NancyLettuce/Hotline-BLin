@@ -19,4 +19,8 @@ public class Alice extends Character implements  ArtKid {
 	alice += "Now you are ready to help him and the rest of the squad find your painting model.\n";
 	return alice;
     }
+    
+    public String specialOne(String a, String b) {
+    	return "hi";
+    }
 }

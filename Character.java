@@ -60,7 +60,14 @@ public abstract class Character{
     	def*=.8;
     }
     
-    //
+    //special moves
+    public abstract String specialOne(String a, String b);
+    
+    //    public abstract String specialTwo(Object a, Object b, Object c);
+    
+    //    public abstract String specialThree(Object a);
+    
+    
     public int attack (Monster other){
         int damage = (int)( (str * attack) - other.getDefense() );
         if (damage < 0) {

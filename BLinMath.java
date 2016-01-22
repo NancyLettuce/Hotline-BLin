@@ -26,5 +26,9 @@ public class BLinMath extends Character implements MathKid {
 	    "|   |   |   | /\n" +
 	    "|___|___|___|/\n";
 	return story;
-    }  
+    }
+
+    public String specialOne(String a, String b) {
+    	return "hi";
+    }
 }

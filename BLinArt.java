@@ -27,4 +27,9 @@ public class BLinArt extends Character implements ArtKid {
 	    "|___|___|___|/\n";
 	return story;
     }
+
+    public String specialOne(String a, String b) {
+    	return "hi";
+    }
+    
 }

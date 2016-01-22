@@ -20,4 +20,8 @@ public class Ernie extends Character implements ArtKid {
 	ernie += "Now you are ready to help him and the rest of the squad to make sure BLin has a great prom night.\n";
 	return ernie;
     }
+
+    public String specialOne(String a, String b) {
+    	return "hi";
+    }
 }
