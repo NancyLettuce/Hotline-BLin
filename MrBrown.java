@@ -45,16 +45,25 @@ public class MrBrown extends Character implements CSKid {
 	return answer;
     }
     
-    //convert binary to another base(2 to 16)
-    public static String convert(int num, int base){
+    //convert binary to another base(2 to 16)   	
+    public String specialTwo(String a, String b) {
+	//String a is the binary number
+	//String b is the base a is converted to
+	int num = Integer.parseInt(a);
+	int base = Integer.parseInt(b);
+
 	if (base < 2 || base > 16) {
 	    return "Please enter a base between 2 and 16";
       	}
       	if (num == 0) return "";
-      	return convert(num/base, base) +
-	    DIGITS.substring(num%base, (num%base)+1);
+      	answer = specialTwo(Integer.toString(num/base), Integer.toString(base)) 
+	    + DIGITS.substring(num%base, (num%base)+1);
+      		
+      	return specialTwo(Integer.toString(num/base), Integer.toString(base)) 
+	    + DIGITS.substring(num%base, (num%base)+1);
       	//n divided by base goes into each recursion until it reaches 0
       	//adds on the hexdigit that corresponds with the remainder of n%bas
+   		
     }
 
     public static void Sort( ArrayList<Comparable> data ) {
