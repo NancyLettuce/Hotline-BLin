@@ -28,4 +28,8 @@ public class Ernie extends Character implements ArtKid {
     public String specialOne(String a, String b) {
     	return "hi";
     }
+
+    public String specialTwo(String a, String b){
+    	return "please work";
+    }
 }

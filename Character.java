@@ -63,7 +63,7 @@ public abstract class Character{
     //special moves
     public abstract String specialOne(String a, String b);
     
-    //    public abstract String specialTwo(Object a, Object b, Object c);
+    public abstract String specialTwo(String a, String b);
     
     //    public abstract String specialThree(Object a);
     

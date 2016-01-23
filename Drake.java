@@ -27,7 +27,10 @@ public class Drake extends Character implements MathKid {
     public String specialOne(String a, String b) {
     	return "hi";
     }
-    
+
+    public String specialTwo(String a, String b){
+    	return "please work";
+    }
     
     
 }
