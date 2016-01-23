@@ -14,6 +14,7 @@ public class Drake extends Character implements MathKid {
 	moves.add("Move1");
 	moves.add("Move2");
 	moves.add("Move3");
+	answer = "Where is your answer";
     }
 	
     public String about() {

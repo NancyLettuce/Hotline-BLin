@@ -149,7 +149,7 @@ public class Hotline {
 
     //=============================================
     //
-    public void questions(Monster generic) {
+    public void answering(Monster generic) {
     	int i = 0;
     	String move = "";
     	System.out.println("lol maybe later");
@@ -167,6 +167,10 @@ public class Hotline {
 	else if (i ==2) {
 	    System.out.println("so much left");
 	}
+	else if (i == 3) {
+	    System.out.println("third move");
+	}
+	return player.answer; //initialized in Character.java
     }
       
     public boolean battle(Monster generic) {
@@ -251,7 +255,7 @@ public class Hotline {
 					    player.getName() +d2 + " points of damage.");	
 		    }//end fight
 		    else if (choice == 2) {//question
-			questions(admin);
+		        answering(admin);
 		    }//end question
 		}
 		catch ( IOException e ) { }
@@ -283,7 +287,7 @@ public class Hotline {
 					    player.getName() + " " + d2 + " points of damage.");	
 		    }//end fight
 		    else if (choice == 2) {//question
-			questions(teach);
+			answering(teach);
 		    }//end question
 		}
 		catch ( IOException e ) { }
