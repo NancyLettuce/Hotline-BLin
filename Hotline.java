@@ -336,6 +336,24 @@ public class Hotline {
 		System.out.println("This does not work yet for anything other than BLinCS because of organization+lack of code.");
 		System.out.println("Also, we need a helper function for answering questions because these nested if statements will will us before the quests do");
 		story = "This is Hotline BLin.\n";
+		story += "\n+          (.,------...__" +"\n"
+		+"         _.'\"             `."+"\n"
+		+"       .'  .'   `, `. `.    `"+"\n"
+		+"      . .'   .'/''--...__`.  \\"+"\n"
+		+"      . .--.`.  ' \"-.     '.  |"+"\n"
+		+"      ''  .'  _.' .())  .--\":/"+"\n"
+		+"      ''(  \\_\\      '   (()("+"\n"
+		+"      ''._'          (   \\ '"+"\n"
+		+"      ' `.            `--'  '"+"\n"
+		+"       `.:    .   `-.___.'  '"+"\n"
+		+"        `.     .    _  _  .'"+"\n"
+		+"          )       .____.-'"+"\n"
+		+"        .'`.        (--.."+"\n"
+		+"      .' \\  /\\      / /  `."+"\n"
+		+"    .'    \\(  \\    /|/     `."+"\n"
+		+"  .'           \\__/          `."+"\n"
+		+"/      |        o      |      \\"+"\n"
+		+"       |               |      |";
 		System.out.println(story);
 		story = "Starting last week, your girlfriend, Rubik's Cube, has been acting quite distant.\n";
 		story += "She did not return your texts, calls, or emails. Then you finally realized: She's missing.\n";
