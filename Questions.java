@@ -2,24 +2,62 @@ import java.io.*;
 import java.util.*;
 
 public class Questions {
+    
+    public ArrayList<String> types;//no real use, just to track methods
+    private Map<String, String> map = new HashMap<String, String>();
+    int random = -1; //randomly generated number to determine which method to use/type of question to ask
+
+    int a;//for the math question
+    String title; //should store the thing you are looking for
+    //for artists, stores painting names
+    
+    public Questions() {
+        //random = (int)(Math.random() * (types.size()-1));
+        types = new ArrayList<String>();
+        random = (int)(Math.random() * (types.size()+1));
+        types.add("askRoot");
+        types.add("askArtist");
+        types.add("populate");
+        map.put("haystacks", "Claude Monet");
+        title = "haystacks";
+        
+    }
+    
+    //WE ARE INSTANTIATING THIS IN THE EXECUTING FILE, SO NONE OF THEM NEED TO BE STATIC
     //Math
-    public static boolean askRoot() {
-        int a = (int) (Math.random()*5+1);
+    public void askRoot() {
+        a = (int) (Math.random()*5+1);
         System.out.println("Find a root of the quadratic:");
         System.out.println("x^2+"+2*a+"x"+"+"+a*a);
-        try {
-            Scanner sc = new Scanner(System.in);
-            int ans = sc.nextInt();
-            if (ans==a) return true;
+
+    }
+    
+    public boolean answer(){
+        if (types.get(random) == "askRoot"){
+            try {
+                Scanner sc = new Scanner(System.in);
+                int ans = sc.nextInt();
+                if (ans==a) return true;
+            }
+            catch (Exception e) { 
+                return false;
+            }
         }
-        catch (Exception e) { 
-        return false;
+        else if (types.get(random) == "askArtist") {
+            try {
+                Scanner sc = new Scanner(System.in);
+                String ans = sc.next();
+                if (ans == map.get(title)) return true;
+            }
+            catch (Exception e) { 
+                return false;
+            }
         }
         return false;
     }
     
     //CS array generator
-    public static ArrayList populate( int size, int lo, int hi ) {
+    public ArrayList populate( int size, int lo, int hi ) {
     	ArrayList<Integer> retAL = new ArrayList<Integer>();
     	while( size > 0 ) {
     	    //     offset + rand int on interval [lo,hi]
@@ -31,8 +69,8 @@ public class Questions {
     //Art
     
     
-    public static void askArtist() {
-        String multiChoice1[] = {"Who is the artist who has a well-known painting of haystacks?"};
+    public void askArtist() {
+        String multiChoice1[] = {"Who is the artist who has a well-known painting of " + title + "?"};
         int scorePro;
         int score;
         Scanner input = new Scanner(System.in);
@@ -46,6 +84,8 @@ public class Questions {
             System.out.println("D. Paul Cezanne");
             System.out.println();
             System.out.print("Your answer: ");
+            
+            /*
             String uSelect1 = input.next();
 
             switch (uSelect1.toUpperCase()){
@@ -70,6 +110,7 @@ public class Questions {
                     System.out.println("Please select an option from the provided options!!!");
                     askArtist();
                 }
+                */
 
         }
     }
@@ -80,7 +121,21 @@ public class Questions {
     
     //testing
     public static void main(String[] args) {
+        Questions q = new Questions();
+        System.out.println(q.random);
+        /*
+        if (q.random == 0) {
+            q.askRoot();
+            System.out.println(q.answer());
+        }
+        */
+        if (q.random == 0) {
+            q.askArtist();
+            System.out.println(q.answer());
+        }
+        /*
         System.out.println(askRoot());
         askArtist();
+        */
     }
 }
