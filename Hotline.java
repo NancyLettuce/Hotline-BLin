@@ -149,7 +149,7 @@ public class Hotline {
 
     //=============================================
     //
-    public void answering(Monster generic) {
+    public String answering(Monster generic) {
     	int i = 0;
     	String move = "";
     	System.out.println("lol maybe later");
