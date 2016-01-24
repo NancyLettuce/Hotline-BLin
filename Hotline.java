@@ -211,7 +211,21 @@ public class Hotline {
                 return false;
             }
         }
-        
+	else if (gen.types.get(gen.randMethod) == "askSort") {
+	    try {
+		Scanner sc = new Scanner(System.in);
+		String ans = sc.nextLine();
+		if (ans.compareTo(gen.sorted) ==0) {
+		    return true;
+		}
+		else {
+		    System.out.println("why");
+		}
+	    }
+	    catch (Exception e) { 
+                return false;
+            }
+        }
         return false;
     }
     

@@ -18,6 +18,10 @@ public abstract class Monster{
     private Map<String, String> map = new HashMap<String, String>();
     private ArrayList<String> names;
     private ArrayList<String> works;
+    
+    public ArrayList<Integer> data; //for sorting
+    private ArrayList<Integer> holder;//to copy data
+    
     int random = -1; //randomly generated number 
     int randMethod = -1; //number to keep track of methods
     
@@ -30,7 +34,7 @@ public abstract class Monster{
     //correct answer for the math isPrime question
     private String title; //should store the thing you are looking for
     //for artists, stores painting names
-    
+    protected String sorted;//correct answer for sorted array
     protected int correctArt; //stores correct answer;
     //======================================================
     
@@ -40,7 +44,7 @@ public abstract class Monster{
         random = (int)(Math.random() * (types.size()+1));
         types.add("askRoot");
         types.add("askArtist");
-        types.add("populate");
+        types.add("askSort");
         types.add("askPrime");
         map.put("\"The Water Lily Pond\"", "Claude Monet");
         map.put("Ballet Rehearsal", "Edgar Degas");
@@ -91,7 +95,9 @@ public abstract class Monster{
         works = new ArrayList<String>(map.keySet());
         //ArrayList works populated with values of dictionary map
     }
+
     
+    //====prime====================
     public void askPrime() {
         b = (int) (Math.random()*38+2);
         System.out.println("Is "+b+" prime?");
@@ -113,26 +119,62 @@ public abstract class Monster{
 	}
 	return true;
     } 
-    
+
+    //=======root===============
     public void askRoot() {
         a = (int) (Math.random()*5+1);
         System.out.println("Find a root of the quadratic:");
         System.out.println("\tx^2+"+2*a+"x"+"+"+a*a);
     }
-    
+
+    //=========sort==============================
     //CS array generator
-    public ArrayList populate( int size, int lo, int hi ) {
-    	ArrayList<Integer> retAL = new ArrayList<Integer>();
+    public void populate(int size, int lo, int hi) {
+    	data = new ArrayList<Integer>(size);
     	while( size > 0 ) {
     	    //     offset + rand int on interval [lo,hi]
-    	    retAL.add( lo + (int)( (hi-lo+1) * Math.random() ) );
+    	    data.add( lo + (int)(Math.random() * hi) );
     	    size--;
     	}
-    	return retAL;
+    }//populates array
+    
+    public void askSort() {//prints out ArrayList moves
+        String stuff = "Please sort this ArrayList in ascending order: \n";
+        for (int i = 0; i < data.size(); i ++) {
+            stuff += data.get(i) + ",";
+        }
+        stuff= stuff.substring(0,stuff.length()-1)+ "\n";
+        System.out.println(stuff);
+    }//prints array and asks about it
+    
+    private void sort() {
+        holder = new ArrayList<Integer>(data);
+        int pass = 0; //index of next value to be compared
+	while (pass < holder.size()) {
+	    //separates sorted from unsorted
+	    for( int i = pass; i > 0; i-- ) {
+		// swap the numbers if they are not in order
+		if ( holder.get(i).compareTo( holder.get(i-1) ) < 0 ) {
+		    holder.set( i, holder.set( i-1, holder.get(i) ) ); 
+		}
+		else {
+		    break;
+		}
+	    }
+	    pass ++;
+	}
     }
-    //Art
     
+    private void string() {
+        sorted = "";
+        for (int i = 0; i < holder.size(); i ++) {
+            sorted += holder.get(i) + ",";
+        }
+        sorted = sorted.substring(0,sorted.length()-1);
+    }
+
     
+    //===========art=============
     public void askArtist() {
         ArrayList<String> nameCopy = names;//copy of names
         ArrayList<String> titleCopy = works;//copy of works
@@ -208,9 +250,15 @@ public abstract class Monster{
     
     // more multiple choice questions with similar structure
     public void askQuestion() {
+	int size = (int)(Math.random() * 10) + 2;//used in populate
+        int hi = (int)(Math.random() * 100);//used in populate
+        int lo = (int)(Math.random() * 10);//used in populate
         randMethod = (int)(Math.random() * types.size());
         listOfNames();
         listOfWorks();
+	populate(size, lo, hi);//populates array
+        sort();
+        string();//answer with sorted array
         System.out.println(types.get(randMethod));
         if (types.get(randMethod) == "askArtist") {
             askArtist();
@@ -221,11 +269,9 @@ public abstract class Monster{
         else if (types.get(randMethod) == "askPrime") {
             askPrime();
         }
-        /*
-	  else if (types.get(random) == "populate") {
-	  populate();
-	  }
-        */
+        else if (types.get(randMethod) == "askSort") {
+            askSort();
+        }
     }
 }
 
