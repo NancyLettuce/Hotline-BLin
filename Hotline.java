@@ -502,7 +502,7 @@ public class Hotline {
 			//END CLUE 
 			storyline = "You walk furthur down the corridor and come upon Ernie.\n\nErnie:\n";
 			storyline += "\tHello. It's me. Ernie.\n";
-			storyline += "\tI was wondering if after all these years you have anything to say to me?\n";
+			storyline += "\tI was wondering if after all these years you have anything to tell me?\n";
 			System.out.print(storyline);
 		        response = "You gaze upon the face you used to know so well,\n";
 		        response +="amazed at the changes wrought by the unforgiving persistence of time,\n";
@@ -524,19 +524,48 @@ public class Hotline {
 			catch (Exception e){}
 		    }//end ernie
 
-		    //====
-		        	
-		}
-		if (floor == 2) {
-		    System.out.println("You are now within the Math Department.");
+		    //====		        	
+		}//end art/floor 1 
+		
+		if (floor == 2) {//if math
 		    floors.remove("\t2: Math Department\n");
-		    battle(teach);
-		}
-		if (floor == 3){
+		    storyline = "You are now within the Math Department.";
+		    System.out.println(storyline);
+	        		
+		    ///THE DROPPING OF THE CLUE
+		    System.out.print("But wait! What is that in the distance?\n");
+		    if (battle(teach)==false) {
+			return false;
+		    }
+		    else {
+			int randInd = (int) (Math.random()*5);
+			System.out.println("\tClue: " + teach.drake.get(randInd));
+		    }
+		    //END CLUE 
+		        	
+		    storyline = "Tell me, what is the square root of sixty nine?";
+		    System.out.println(storyline);
+		    System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
+		    try {
+			sc = new Scanner(System.in);
+			String finalAns = sc.nextLine();
+			finalAns = finalAns.toLowerCase();
+			if (finalAns.compareTo(teach.drakeAns) == 0) {
+			    team.add("Drake");
+			    System.out.println("Congratulations! You have added Drake to your team.");
+			}
+			else {
+			    System.out.println("Sorry, you were not persuasive enough.");
+			}
+		    }
+		    catch (Exception e){}		    
+		}//end math/floor 2
+		
+		if (floor == 3){//if cs
 		    System.out.println("You are now within the CS Department.");
 		    floors.remove("\t3: CS Department\n");
 		    battle(teach);
-		}
+		}//end cs
 	    }
 	    catch (Exception e) { 
 		return false;
