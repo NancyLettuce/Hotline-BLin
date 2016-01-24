@@ -28,7 +28,7 @@
 |             |          |  Declare Arraylist for teammates              |
 |  NL         |  1/21    |  Changed special attacks                      |
 |             |          |  Edited Hotline(slightly)                     |
-|             |          |                                               |
-|             |          |                                               |
+|  JL         |  1/23    |  Worked on Questions                          |
+|  JL         |  1/24    |  Add more artists (50)                        |
 |             |          |                                               |
 |             |          |                                               |
