@@ -7,7 +7,6 @@ IT IS SO CONFUSING TO KEEP TRACK OF OMG
 
 import java.io.*;
 import java.util.*;
-import java.util.ArrayList;
 
 public class Hotline {
 
@@ -427,9 +426,9 @@ public class Hotline {
 		    storyline += "\tHello there. My name is Alice. Who are you and how are you doing?\n";
 		    System.out.println(storyline);
 		    response = "Do you wish to choose Alice, or leave in pursuit of Ernie?\n";
-		    response += "/t1: Stay with Alice.\n";
-		    response += "/t2: Ernie is who I really want.\n";
-		    System.out.println(response);
+		    response += "\t1: Stay with Alice.\n";
+		    response += "\t2: Ernie is who I really want.\n";
+		    System.out.print(response);
 		    //===
 		    try {
 			sc = new Scanner(System.in);
@@ -438,10 +437,10 @@ public class Hotline {
 		    catch (Exception e) {}
 		    response = "Choose your response: \n";
 		    response += "\t1: My name is BLin and I'm doing well. What about you?\n";
-		    response += "\t2: My perfect world was torn apart by the disappearance of my one true love.\n";
+		    response += "\t2: My perfect world was torn apart by the disappearance of my true love.\n";
 		    response += "\tSo I guess you can say I could be doing better.\n";
 		    if (resp == 1) {//if alice
-			System.out.println(response);
+			System.out.print(response);
 			//=====
 			try {
 			    Scanner sca = new Scanner(System.in);
@@ -449,14 +448,23 @@ public class Hotline {
 			}
 			catch (Exception e) {}
 			if (resp == 1){//dialogue 1
-			    response = "My name is BLin and I'm doing well. What about you?\n";
+			    response = "\tMy name is BLin and I'm doing well. What about you?\n";
 			}
 			else {//dialogue 2
-			    response = "My perfect world was torn apart by the disappearance of my one true love.\n";
-			    response += "So I guess you can say I could be doing better.\n";
+			    response = "\tMy perfect world was torn apart by the disappearance of my one true love.\n";
+			    response += "\tSo I guess you can say I could be doing better.\n";
 			}
 			//=====
 			System.out.print("BLin: \n"+ response);
+			System.out.println("Alice: ");
+			storyline = "\tWell, My fall down the rabbit hole is nothing compared to the drastic drop\n";
+			storyline += "\tin my grades ever since I began attending Stuy.\n";
+			storyline += "\tI want to help you. In fact I have a lovely drawing of Rubik's Cube.\n";
+			storyline += "\tYou must, however, answer a question.\n";
+			System.out.print(storyline);
+			System.out.print("BLin:\n Anything to facilitate the process!\n");
+			System.out.println("Alice:\n\tOkay. I am thinking of a terrible place. What is it's name?");
+
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 		    }//end alice
 		    else if (resp == 2) {//if ernie
@@ -468,12 +476,6 @@ public class Hotline {
 		    }//end ernie
 
 		    //====
-		    System.out.println("BLin: ");
-		    System.out.println(response);
-		    System.out.println("Alice: ");
-		    storyline += "Well, My fall down the rabbit hole is nothing compared to the drastic drop\n";
-		    storyline += "in my grades ever since I began attending Stuy.\n";
-		    System.out.println(storyline);
 		        	
 		}
 		if (floor == 2) {
