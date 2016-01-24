@@ -13,6 +13,7 @@ public class Alice extends Character implements  ArtKid {
 	moves.add("Move1");
 	moves.add("Move2");
 	moves.add("Move3");
+	moves.add("Directly Answer");
 	answer = "Where is your answer";
     }
 	

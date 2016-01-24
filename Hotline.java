@@ -407,8 +407,7 @@ public class Hotline {
 		System.out.println(story);
 		story = "Starting last week, your girlfriend, Rubik's Cube, has been acting quite distant.\n";
 		story += "She did not return your texts, calls, or emails. Then you finally realized: She's missing.\n";
-		System.out.println(story);
-		story = "Here is a picture of the love of your life:\n";
+		story += "Here is a picture of the love of your life:\n";
 		pressAnyKeyToContinue();
 		System.out.println(story);
 		story = "    ___ ___ ___\n" +
@@ -421,8 +420,8 @@ public class Hotline {
             	"|___|___|___|/|/\n" +
             	"|   |   |   | /\n" +
 	            "|___|___|___|/\n";
-		System.out.println(story);
 		pressAnyKeyToContinue();
+		System.out.println(story);
 		story = "Mission: Help BLin find his true love, which will also magically guarantee his acceptance to his dream school, MIT.";
 		System.out.println(story);
 		pressAnyKeyToContinue();

@@ -15,6 +15,7 @@ public class MooCow extends Character implements CSKid {
 	moves.add("Convert");
 	moves.add("Binary");
 	moves.add("Sort");
+	moves.add("Directly Answer");
     }
 	
     public String about() {
