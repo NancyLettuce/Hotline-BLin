@@ -38,32 +38,32 @@ public class Hotline {
 
     // ~~~~~~~~~~ DEFAULT CONSTRUCTOR ~~~~~~~~~~~
     public Hotline() {
-	moveCount = 0;
-	gameOver = false;
-	isr = new InputStreamReader( System.in );
-	in = new BufferedReader( isr );
-	newGame();
+		moveCount = 0;
+		gameOver = false;
+		isr = new InputStreamReader( System.in );
+		in = new BufferedReader( isr );
+		newGame();
     }
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
     // ~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~~~~~
     
-    private void pressAnyKeyToContinue() { 
-	System.out.println("Press any key to continue...");
-	try {
-	    System.in.read();
-	}  
+    private static void pressAnyKeyToContinue() { 
+	    System.out.println("Press Enter to continue...");
+	    try {
+          	System.in.read();
+   	    }  
       	catch(Exception e){
         }  
     }
  	
-    /*=============================================
+ 	/*=============================================
       void newGame() -- facilitates info gathering to begin a new game
       pre:  
       post: according to user input, modifies instance var for difficulty 
       and instantiates a Warrior
-      =============================================*/
+    =============================================*/
     
     public void newGame() {
 
@@ -148,30 +148,74 @@ public class Hotline {
 
 
     //=============================================
-    //
-    public String answering(Monster generic) {
+    public boolean checkAnswer(Monster gen){
     	int i = 0;
     	String move = "";
-    	System.out.println("lol maybe later");
+    	
     	System.out.println("Choose your course of action: ");
-	System.out.print(player.toString()+"\nSelection: ");
+	System.out.print(player.toString());
+	System.out.print("I wish to: ");
+
 	try {
 	    i = Integer.parseInt( in.readLine() );
 	    move = player.moves.get(i-1);//the move you chose 
 	}
-	catch ( IOException e ) { }
+	catch ( IOException e ) {
+	    System.out.print("Your Move does not exist");
+	}
 	if (i == 1) {
-	    System.out.print("Your answer is: ");
-	    System.out.println(player.specialOne("17", "10"));
+	    System.out.print("The result of your move is: ");
+	    player.specialOne("17", "10");
+	    System.out.println(player.answer); //initialized in Character.java
 	}
 	else if (i ==2) {
 	    System.out.println("so much left");
+	    System.out.println(player.answer); //initialized in Character.java
 	}
 	else if (i == 3) {
 	    System.out.println("third move");
+	    System.out.println(player.answer); //initialized in Character.java
 	}
-	return player.answer; //initialized in Character.java
+	System.out.print("Enter your answer: ");
+		
+        if (gen.types.get(gen.randMethod) == "askRoot"){
+            try {
+                Scanner sc = new Scanner(System.in);
+                int ans = sc.nextInt();
+                if (ans==gen.a) return true;
+            }
+            catch (Exception e) { 
+                return false;
+            }
+        }
+        else if (gen.types.get(gen.randMethod) == "askArtist") {
+            try {
+                Scanner sc = new Scanner(System.in);
+                int ans = sc.nextInt();
+                if (ans == gen.correctArt) return true;
+            }
+            catch (Exception e) { 
+                return false;
+            }
+        }
+        
+        else if (gen.types.get(gen.randMethod) == "askPrime") {
+            try {
+                Scanner sc = new Scanner(System.in);
+                int ans = sc.nextInt();
+                if ((ans==1) && gen.isPrime(gen.b)) return true;
+                if ((ans==2) && !gen.isPrime(gen.b)) return true;
+                return false;
+            }
+            catch (Exception e) { 
+                return false;
+            }
+        }
+        
+        return false;
     }
+    
+    //================================================
       
     public boolean battle(Monster generic) {
 	
@@ -213,7 +257,7 @@ public class Hotline {
 		student = (Competitor)generic;
 		try {
 		    System.out.println( "What will you do?" );
-		    System.out.println("\t1: Attack\n\t2: Special\nSelection: " );
+		    System.out.print("\t1: Attack\n\t2: Special\nSelection: " );
 		    i = Integer.parseInt( in.readLine() );
 		}
 		catch ( IOException e ) { }
@@ -234,11 +278,11 @@ public class Hotline {
 		admin = (AdmissionsOfficer)generic; 
 		try {
 		    System.out.println( "What will you do?" );	
-		    System.out.print("\t1: Fight\n\t2: Answer Question\nSelection: " );
+		    System.out.println("\t1: Fight\n\t2: Answer Question\nSelection: " );
 		    choice =  Integer.parseInt( in.readLine() );
 		    if (choice == 1) {//fight
 			try{
-			    System.out.print("\t1: Attack\n\t2: Special\nSelection: " );
+			    System.out.println("\t1: Attack\n\t2: Special\nSelection: " );
 			    i = Integer.parseInt( in.readLine() );
 			}
 			catch ( IOException e ) { }
@@ -255,7 +299,8 @@ public class Hotline {
 					    player.getName() +d2 + " points of damage.");	
 		    }//end fight
 		    else if (choice == 2) {//question
-		        answering(admin);
+			admin.askQuestion();
+			System.out.println(checkAnswer(admin));
 		    }//end question
 		}
 		catch ( IOException e ) { }
@@ -281,13 +326,27 @@ public class Hotline {
 					    		
 			d1 = player.attack( teach );
 			d2 = teach.attack( player );
-			System.out.println( "\n" + player.getName() + " dealt "
-					    + d1 + " points of damage.");
+			System.out.print( "\n" + player.getName() + " dealt "
+					  + d1 + " points of damage.");
 			System.out.println( "\n" + "Teacher dealt " +
-					    player.getName() + " " + d2 + " points of damage.");	
+					    player.getName() + " " + d2 + " points of damage.\n");	
 		    }//end fight
 		    else if (choice == 2) {//question
-			answering(teach);
+			if (player.isAlive()) {
+			    teach.askQuestion();
+			}
+			if (checkAnswer(teach) == false) {
+			    player.HP -= 6;
+			    System.out.print("Oops, wrong answer.");
+			    System.out.println( "\n" + "Teacher dealt " +
+						player.getName() + " 6 points of damage.\n");	
+			}
+			else {
+			    teach.HP = -200;
+			    System.out.println("The dreadful Teacher begins to smoke around the edges.");
+			    System.out.println("A light flashes, and it is reduced to an explosion of ash.");
+			    System.out.println("All that is left is a clue for the remainder of your quest: ");
+			}
 		    }//end question
 		}
 		catch ( IOException e ) { }
@@ -325,29 +384,67 @@ public class Hotline {
 
 
     public static void main( String[] args ) {
-
-	//As usual, move the begin-comment bar down as you progressively 
-	//test each new bit of functionality...
+    	String story;
+		story = "This is Hotline BLin.\n";
+		story += "\n+          (.,------...__" +"\n"
+		+"         _.'\"             `."+"\n"
+		+"       .'  .'   `, `. `.    `"+"\n"
+		+"      . .'   .'/''--...__`.  \\"+"\n"
+		+"      . .--.`.  ' \"-.     '.  |"+"\n"
+		+"      ''  .'  _.' .())  .--\":/"+"\n"
+		+"      ''(  \\_\\      '   (()("+"\n"
+		+"      ''._'          (   \\ '"+"\n"
+		+"      ' `.            `--'  '"+"\n"
+		+"       `.:    .   `-.___.'  '"+"\n"
+		+"        `.     .    _  _  .'"+"\n"
+		+"          )       .____.-'"+"\n"
+		+"        .'`.        (--.."+"\n"
+		+"      .' \\  /\\      / /  `."+"\n"
+		+"    .'    \\(  \\    /|/     `."+"\n"
+		+"  .'           \\__/          `."+"\n"
+		+"/      |        o      |      \\"+"\n"
+		+"       |               |      |";
+		System.out.println(story);
+		story = "Starting last week, your girlfriend, Rubik's Cube, has been acting quite distant.\n";
+		story += "She did not return your texts, calls, or emails. Then you finally realized: She's missing.\n";
+		System.out.println(story);
+		story = "Here is a picture of the love of your life:\n";
+		pressAnyKeyToContinue();
+		System.out.println(story);
+		story = "    ___ ___ ___\n" +
+	            "   /___/___/___/|\n" +
+	            "  /___/___/___/||\n" +
+            	" /___/___/__ /|/|\n" +
+	            "|   |   |   | /||\n" +
+	            "|___|___|___|/|/|\n" +
+	            "|   |   |   | /||\n" +
+            	"|___|___|___|/|/\n" +
+            	"|   |   |   | /\n" +
+	            "|___|___|___|/\n";
+		System.out.println(story);
+		pressAnyKeyToContinue();
+		story = "Mission: Help BLin find his true love, which will also magically guarantee his acceptance to his dream school, MIT.";
+		System.out.println(story);
+		pressAnyKeyToContinue();
+		story = "Quest 1: Gather a team.";
+		System.out.println(story);
+		pressAnyKeyToContinue();
+		//loading...
+		Hotline game = new Hotline();
 	
-	System.out.println("This does not work yet for anything other than BLinCS because of organization+lack of code.");
-	System.out.println("Also, we need a helper function for answering questions because these nested if statements will will us before the quests do");
-
-	//loading...
-	Hotline game = new Hotline();
-
-	int encounters = 0;
-
-	while( encounters < MAX_ENCOUNTERS ) {
-	    if ( !game.questOne() )
-		break;
-	    encounters++;
-	    System.out.println();
-	}
-
-	System.out.println( "Game over." );
-	/*=============================================
-
-	  =============================================*/
+		int encounters = 0;
+	
+		while( encounters < MAX_ENCOUNTERS ) {
+		    if ( !game.questOne() )
+			break;
+		    encounters++;
+		    System.out.println();
+		}
+	
+		System.out.println( "Game over." );
+		/*=============================================
+	
+		  =============================================*/
 
     }//end main
 
