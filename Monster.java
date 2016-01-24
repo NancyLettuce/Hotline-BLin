@@ -205,7 +205,7 @@ public abstract class Monster{
             stuff += data.get(i) + ",";
         }
         stuff= stuff.substring(0,stuff.length()-1)+ "\n";
-        System.out.println(stuff);
+        System.out.print(stuff);
     }//prints array and asks about it
     
     private void sort() {
@@ -287,8 +287,6 @@ public abstract class Monster{
             random = (int)(Math.random() * (answerChoices.size()-1));
             D = answerChoices.get(random);
             System.out.println("\t4." + D);
-            
-            System.out.println();
             
         }
         

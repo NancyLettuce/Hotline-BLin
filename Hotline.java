@@ -362,9 +362,10 @@ public class Hotline {
 			}
 			else {
 			    teach.HP = -200;
+			    System.out.println("That is correct!");
 			    System.out.println("The dreadful Teacher begins to smoke around the edges.");
 			    System.out.println("A light flashes, and it is reduced to an explosion of ash.");
-			    System.out.println("All that is left is a clue for the remainder of your quest: ");
+			    System.out.println("All that is left is a clue for the remainder of your quest.");
 			}
 		    }//end question
 		}
@@ -416,13 +417,9 @@ public class Hotline {
 		    storyline += "But you cannot stay to admire the view.";
 		        	
 		    System.out.println(storyline);
-		        	
-		    if (battle(teach)==false){
-			return false;
-		    }
 
 		    storyline = "\nAt the far end of the corridors there emerges the figure of a girl.\n";
-		    storyline += "She is dressed in distinctive blue and white.\nAlice: \n";
+		    storyline += "She is dressed in distinctive blue and white.\n\nAlice: \n";
 		    storyline += "\tHello there. My name is Alice. Who are you and how are you doing?\n";
 		    System.out.println(storyline);
 		    response = "Do you wish to choose Alice, or leave in pursuit of Ernie?\n";
@@ -440,6 +437,17 @@ public class Hotline {
 		    response += "\t2: My perfect world was torn apart by the disappearance of my true love.\n";
 		    response += "\tSo I guess you can say I could be doing better.\n";
 		    if (resp == 1) {//if alice
+			///THE DROPPING OF THE CLUE
+			System.out.print("But wait! What is that in the distance?\n");
+			if (battle(teach)==false) {
+			    return false;
+			}
+			else {
+			    int randInd = (int) (Math.random()*5);
+			    System.out.println("\tClue: " + teach.alice.get(randInd));
+		        			
+			}
+			/////////////////END CLUE
 			System.out.print(response);
 			//=====
 			try {
@@ -455,24 +463,65 @@ public class Hotline {
 			    response += "\tSo I guess you can say I could be doing better.\n";
 			}
 			//=====
-			System.out.print("BLin: \n"+ response);
+			System.out.println("Now you turn to Alice");
+			System.out.print("\nBLin: \n"+ response);
 			System.out.println("Alice: ");
 			storyline = "\tWell, My fall down the rabbit hole is nothing compared to the drastic drop\n";
 			storyline += "\tin my grades ever since I began attending Stuy.\n";
 			storyline += "\tI want to help you. In fact I have a lovely drawing of Rubik's Cube.\n";
 			storyline += "\tYou must, however, answer a question.\n";
 			System.out.print(storyline);
-			System.out.print("BLin:\n Anything to facilitate the process!\n");
-			System.out.println("Alice:\n\tOkay. I am thinking of a terrible place. What is it's name?");
-
+			System.out.print("BLin:\n\tAnything to facilitate the process!\n");
+			System.out.println("Alice:\n\tOkay. I am thinking of a terrible place. What is its name?");
+			System.out.print("\nBLin:\n\tThat's honestly just a ridiculous question.\n");
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
+			try {
+			    sc = new Scanner(System.in);
+			    String finalAns = sc.nextLine();
+			    finalAns = finalAns.toLowerCase();
+			    if (finalAns.compareTo(teach.aliceAns) == 0) {
+				team.add("Alice");
+				System.out.println("Congratulations! You have added Alice to your team.");
+			    }
+			    else {
+				System.out.println("Sorry, you weren't persuasive enough.");
+			    }
+			}
+			catch (Exception e){}
 		    }//end alice
 		    else if (resp == 2) {//if ernie
-			storyline = "You walk furthur down the corridor and come upon Ernie.\nErnie:\n";
-			storyline += "\tHello. It's me.\n";
-			storyline += "\tAfter all these years there anything you want to say to me?\n";
+			///THE DROPPING OF THE CLUE
+			System.out.print("But wait! What is that in the distance?\n");
+			if (battle(teach)==false) {
+			    return false;
+			}
+			else {
+			    int randInd = (int) (Math.random()*5);
+			    System.out.println("\tClue: " + teach.ernie.get(randInd));
+			}
+			//END CLUE 
+			storyline = "You walk furthur down the corridor and come upon Ernie.\n\nErnie:\n";
+			storyline += "\tHello. It's me. Ernie.\n";
+			storyline += "\tI was wondering if after all these years you have anything to say to me?\n";
 			System.out.print(storyline);
+		        response = "You gaze upon the face you used to know so well,\n";
+		        response +="amazed at the changes wrought by the unforgiving persistence of time,\n";
+			response +="and can only say one thing...";
+			System.out.println(response);
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
+			try {
+			    sc = new Scanner(System.in);
+			    String finalAns = sc.nextLine();
+			    finalAns = finalAns.toLowerCase();
+			    if (finalAns.compareTo(teach.ernieAns) == 0) {
+				team.add("Ernie");
+				System.out.println("Congratulations! You have added Ernie to your team.");
+			    }
+			    else {
+				System.out.println("Sorry, you were not persuasive enough.");
+			    }
+			}
+			catch (Exception e){}
 		    }//end ernie
 
 		    //====
