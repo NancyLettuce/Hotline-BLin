@@ -395,8 +395,12 @@ public class Hotline {
     }//end battle()
     
     public boolean questOne() {
-    	teach = new Teacher();
-	while(floors.size() > 0) {
+	teach = new Teacher();
+    	int encounter = 7;
+    	int resp = -1;
+    	String storyline="";
+    	String response= "";
+    	while(floors.size() > 0) {
 	    System.out.println("Please choose a floor to proceed to: ");
 	    for (String x: floors) {
 		System.out.print(x);//prints out the floors
@@ -405,24 +409,91 @@ public class Hotline {
 		Scanner sc = new Scanner(System.in);
 		int floor = sc.nextInt();
 		if (floor == 1) {
-		    System.out.println("You are now in the Art Department.");
+	            	
 		    floors.remove("\t1: Art Department\n");
+	            	
+		    storyline= "You are now within the Art Department.\n";
+		    storyline += "The smell of paint permeates the floor and paintings decorate the walls.\n";
+		    storyline += "But you cannot stay to admire the view.";
+		        	
+		    System.out.println(storyline);
+		        	
+		    if (battle(teach)==false){
+			return false;
+		    }
+
+		    storyline = "\nAt the far end of the corridors there emerges the figure of a girl.\n";
+		    storyline += "She is dressed in distinctive blue and white.\nAlice: \n";
+		    storyline += "\tHello there. My name is Alice. Who are you and how are you doing?\n";
+		    System.out.println(storyline);
+		    response = "Do you wish to choose Alice, or leave in pursuit of Ernie?\n";
+		    response += "/t1: Stay with Alice.\n";
+		    response += "/t2: Ernie is who I really want.\n";
+		    System.out.println(response);
+		    //===
+		    try {
+			sc = new Scanner(System.in);
+			resp = sc.nextInt();//choice of team member
+		    }
+		    catch (Exception e) {}
+		    response = "Choose your response: \n";
+		    response += "\t1: My name is BLin and I'm doing well. What about you?\n";
+		    response += "\t2: My perfect world was torn apart by the disappearance of my one true love.\n";
+		    response += "\tSo I guess you can say I could be doing better.\n";
+		    if (resp == 1) {//if alice
+			System.out.println(response);
+			//=====
+			try {
+			    Scanner sca = new Scanner(System.in);
+			    resp = sca.nextInt();//choice of dialogue
+			}
+			catch (Exception e) {}
+			if (resp == 1){//dialogue 1
+			    response = "My name is BLin and I'm doing well. What about you?\n";
+			}
+			else {//dialogue 2
+			    response = "My perfect world was torn apart by the disappearance of my one true love.\n";
+			    response += "So I guess you can say I could be doing better.\n";
+			}
+			//=====
+			System.out.print("BLin: \n"+ response);
+			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
+		    }//end alice
+		    else if (resp == 2) {//if ernie
+			storyline = "You walk furthur down the corridor and come upon Ernie.\nErnie:\n";
+			storyline += "\tHello. It's me.\n";
+			storyline += "\tAfter all these years there anything you want to say to me?\n";
+			System.out.print(storyline);
+			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
+		    }//end ernie
+
+		    //====
+		    System.out.println("BLin: ");
+		    System.out.println(response);
+		    System.out.println("Alice: ");
+		    storyline += "Well, My fall down the rabbit hole is nothing compared to the drastic drop\n";
+		    storyline += "in my grades ever since I began attending Stuy.\n";
+		    System.out.println(storyline);
+		        	
 		}
 		if (floor == 2) {
-		    System.out.println("You are now in the Math Department.");
+		    System.out.println("You are now within the Math Department.");
 		    floors.remove("\t2: Math Department\n");
+		    battle(teach);
 		}
 		if (floor == 3){
-		    System.out.println("You are now in the CS Department.");
+		    System.out.println("You are now within the CS Department.");
 		    floors.remove("\t3: CS Department\n");
+		    battle(teach);
 		}
 	    }
 	    catch (Exception e) { 
 		return false;
 	    }
     	}
-    	return battle(teach);
+    	return true;
     }
+    
     
     
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
