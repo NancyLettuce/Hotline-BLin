@@ -24,6 +24,8 @@ public class Hotline {
     private Competitor student;
     int hero; //the role/number they choose to play
 
+    private ArrayList<String> floors;//the floors
+
     private int moveCount;
     private boolean gameOver;
     private int difficulty;
@@ -43,6 +45,10 @@ public class Hotline {
 		isr = new InputStreamReader( System.in );
 		in = new BufferedReader( isr );
 		newGame();
+		floors = new ArrayList<String>(3);
+		floors.add("\t1: Art Department\n");
+		floors.add("\t2: Math Department\n");
+		floors.add("\t3: CS Department\n");
     }
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -390,6 +396,31 @@ public class Hotline {
     
     public boolean questOne() {
     	teach = new Teacher();
+	while(floors.size() > 0) {
+	    System.out.println("Please choose a floor to proceed to: ");
+	    for (String x: floors) {
+		System.out.print(x);//prints out the floors
+	    }
+	    try {
+		Scanner sc = new Scanner(System.in);
+		int floor = sc.nextInt();
+		if (floor == 1) {
+		    System.out.println("You are now in the Art Department.");
+		    floors.remove("\t1: Art Department\n");
+		}
+		if (floor == 2) {
+		    System.out.println("You are now in the Math Department.");
+		    floors.remove("\t2: Math Department\n");
+		}
+		if (floor == 3){
+		    System.out.println("You are now in the CS Department.");
+		    floors.remove("\t3: CS Department\n");
+		}
+	    }
+	    catch (Exception e) { 
+		return false;
+	    }
+    	}
     	return battle(teach);
     }
     
