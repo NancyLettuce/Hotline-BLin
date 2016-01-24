@@ -28,6 +28,19 @@ public class Teacher extends Monster {
         ernie.add("The aftermath of college acceptance");
         ernie.add("Past tense");
         ernie.add("To become different");
+
+	mooCow.add("idk yet");
+        mooCow.add("idk yet");
+        mooCow.add("idk yet");
+        mooCow.add("idk yet");
+        mooCow.add("idk yet");
+        
+        mrBrown.add("idk yet");
+        mrBrown.add("idk yet");
+        mrBrown.add("idk yet");
+        mrBrown.add("idk yet");
+        mrBrown.add("idk yet");
+        
         
         aliceAns = "stuyvesant";
         drakeAns = "8 something";

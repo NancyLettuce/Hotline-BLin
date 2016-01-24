@@ -561,10 +561,79 @@ public class Hotline {
 		    catch (Exception e){}		    
 		}//end math/floor 2
 		
-		if (floor == 3){//if cs
-		    System.out.println("You are now within the CS Department.");
+		if (floor == 3){//if cs		   
 		    floors.remove("\t3: CS Department\n");
-		    battle(teach);
+		    System.out.println(floors);
+		    storyline = "You are now within the CS Department.\n";
+		    storyline += "You look to your right and you see your old friend MooCow approaching.\n";
+		    storyline += "\nMooCow:\n\tBLin! How are you doing?\n";
+		    storyline += "\nHere you are, left with the dilemma of the century:\n";
+		    storyline += "\nDo you continue in pursuit of Mr.Brown, or do you welcome your friend?\n";
+		    System.out.println(storyline);
+		    response = "\t1: Approach MooCow\n\t2: Forsake him for Mr.Brown\n";
+		    System.out.println(response);
+		    //==
+		    try {//who does he choose???
+			sc = new Scanner(System.in);
+			resp = sc.nextInt();//choice of team member
+		    }
+		    catch (Exception e) {}
+		    if (resp == 1) {//if MooCow
+			///THE DROPPING OF THE CLUE
+			System.out.print("Do not let down your guard yet.\n");
+			if (battle(teach) ==false) {
+			    System.out.println("whatttt");
+			    return false;
+			}
+			else {
+			    int randInd = (int) (Math.random()*5);
+			    System.out.println("\tClue: " + teach.mooCow.get(randInd));
+			}
+			/////////////////END CLUE
+		        		
+			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
+			try {//to get final clue answer
+			    sc = new Scanner(System.in);
+			    String finalAns = sc.nextLine();
+			    finalAns = finalAns.toLowerCase();
+			    if (finalAns.compareTo(teach.mooAns) == 0) {
+				team.add("MooCow");
+				System.out.println("Congratulations! You have added MooCow to your team.");
+			    }
+			    else {
+				System.out.println("Sorry, you were not persuasive enough.");
+			    }
+			}
+			catch (Exception e){}
+		        		
+		    }//end MooCow
+		    else if (resp == 2) {//if Mr Brown
+			///THE DROPPING OF THE CLUE
+			System.out.print("You shake off your guilt at abandoning MooCow\n");
+			if (battle(teach)==false) {
+			    return false;
+			}
+			else {
+			    int randInd = (int) (Math.random()*5);
+			    System.out.println("\tClue: " + teach.mooCow.get(randInd));
+			}
+			/////////////////END CLUE
+		        		
+			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
+			try {//to get final clue answer
+			    sc = new Scanner(System.in);
+			    String finalAns = sc.nextLine();
+			    finalAns = finalAns.toLowerCase();
+			    if (finalAns.compareTo(teach.brownAns) == 0) {
+				team.add("Mr.Brown");
+				System.out.println("Congratulations! You have added Mr.Brown to your team.");
+			    }
+			    else {
+				System.out.println("Sorry, you were not persuasive enough.");
+			    }
+			}
+			catch (Exception e){}
+		    }//end Brown
 		}//end cs
 	    }
 	    catch (Exception e) { 
