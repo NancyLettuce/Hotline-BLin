@@ -14,9 +14,7 @@ public class Ernie extends Character implements ArtKid {
 	talent = "failure";
 	name = "Ernie";
 	moves = new ArrayList<String>();
-	moves.add("Move1");
-	moves.add("Move2");
-	moves.add("Move3");
+	moves.add("Art");
 	moves.add("Directly Answer");
 	answer = "Where is your answer";
 
