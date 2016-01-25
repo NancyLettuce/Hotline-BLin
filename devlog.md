@@ -30,5 +30,5 @@
 |             |          |  Edited Hotline(slightly)                     |
 |  JL         |  1/23    |  Worked on Questions                          |
 |  JL         |  1/24    |  Add more artists (50)                        |
-|             |          |                                               |
+|  NL         |  1/24    |  Add to math department                       |
 |             |          |                                               |
