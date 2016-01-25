@@ -166,16 +166,21 @@ public class Hotline {
 	    System.out.print("Your Move does not exist");
 	}
 	if (i == 1) {
+	    System.out.println("You used " + player.moves.get(0));
 	    System.out.print("The result of your move is: ");
-	    player.specialOne("17", "10");
+	    player.specialOne(gen.b, gen.number);
 	    System.out.println(player.answer); //initialized in Character.java
 	}
 	else if (i ==2) {
-	    System.out.println("so much left");
+	    System.out.println("You used " + player.moves.get(1));
+	    System.out.print("The result of your move is: ");
+	    player.specialTwo(gen.number, gen.b);
 	    System.out.println(player.answer); //initialized in Character.java
 	}
 	else if (i == 3) {
-	    System.out.println("third move");
+	    System.out.println("You used " + player.moves.get(2));
+	    System.out.print("The result of your move is: ");
+	    player.specialThree(gen.a, gen.data); //initialized in Character.java
 	    System.out.println(player.answer); //initialized in Character.java
 	}
 	System.out.print("Enter your answer: ");

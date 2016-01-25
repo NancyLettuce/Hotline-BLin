@@ -11,9 +11,9 @@ public class Drake extends Character implements MathKid {
 	talent = "Only Character skilled in math";
 	name = "Drake";
 	moves = new ArrayList<String>();
-	moves.add("Move1");
-	moves.add("Move2");
-	moves.add("Move3");
+	moves.add("Quadratic");
+	moves.add("Prime");
+	moves.add("Multiply");
 	moves.add("Directly Answer");
 	answer = "Where is your answer";
     }
