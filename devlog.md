@@ -31,4 +31,6 @@
 |  JL         |  1/23    |  Worked on Questions                          |
 |  JL         |  1/24    |  Add more artists (50)                        |
 |  NL         |  1/24    |  Add to math department                       |
-|             |          |                                               |
+|             |          |  Fixed Bugs                                   |
+|             |          |  Added Quest 2                                |
+|             |  1/25    |  Made it work                                 |
