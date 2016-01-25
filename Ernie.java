@@ -81,7 +81,7 @@ public class Ernie extends Character implements ArtKid {
     }
     
     public String specialOne(String a, String b) {
-    	answer = map.get(a);
+    	answer = a;
     	return answer;
     }
     
