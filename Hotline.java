@@ -444,7 +444,8 @@ public class Hotline {
 			    else {
 				teach = new Teacher();//creates new teacher to reset values
 				int randInd = (int) (Math.random()*5);
-				System.out.println("\tClue: " + teach.alice.get(randInd));	     			
+				System.out.println("\tClue: " + teach.alice.get(randInd));
+				teach.alice.remove(teach.alice.get(randInd));
 			    }
 			    encounter --;
 			}
@@ -502,6 +503,7 @@ public class Hotline {
 				teach = new Teacher();//creates new teacher to reset values
 				int randInd = (int) (Math.random()*5);
 				System.out.println("\tClue: " + teach.ernie.get(randInd));
+				teach.ernie.remove(teach.ernie.get(randInd));
 			    }
 			    encounter --;
 			}
@@ -553,6 +555,7 @@ public class Hotline {
 			    teach = new Teacher();//creates new teacher to reset values
 			    int randInd = (int) (Math.random()*5);
 			    System.out.println("\tClue: " + teach.drake.get(randInd));
+			    teach.drake.remove(teach.drake.get(randInd));
 			}
 			encounter --;
 		    }
@@ -606,14 +609,15 @@ public class Hotline {
 		
 		if (floor == 3){//if cs		   
 		    floors.remove("\t3: CS Department\n");
-		    System.out.println(floors);
 		    storyline = "You are now within the CS Department.\n";
-		    storyline += "You look to your right and you see your old friend MooCow approaching.\n";
+		    storyline = "It is all gleaming metal and rows of computers.\n";
+		    System.out.print(storyline);
+		    storyline = "You look to your right and you see your old friend MooCow approaching.\n";
 		    storyline += "\nMooCow:\n\tBLin! How are you doing?\n";
 		    storyline += "\nHere you are, left with the dilemma of the century:\n";
-		    storyline += "\nDo you continue in pursuit of Mr.Brown, or do you welcome your friend?\n";
+		    storyline += "Do you continue in pursuit of Mr.Brown, or do you welcome your friend?\n";
 		    System.out.println(storyline);
-		    response = "\t1: Approach MooCow\n\t2: Forsake him for Mr.Brown\n";
+		    response = "Your choice:\n\t1: Approach MooCow\n\t2: Forsake him for Mr.Brown\n";
 		    System.out.println(response);
 		    //==
 		    try {//who does he choose???
@@ -632,6 +636,7 @@ public class Hotline {
 				teach = new Teacher();//creates new teacher to reset values
 				int randInd = (int) (Math.random()*5);
 				System.out.println("\tClue: " + teach.mooCow.get(randInd));
+				teach.mooCow.remove(teach.mooCow.get(randInd));
 			    }
 			    encounter --;
 			}
@@ -664,7 +669,8 @@ public class Hotline {
 			    else {
 				teach = new Teacher();//creates new teacher to reset values
 				int randInd = (int) (Math.random()*5);
-				System.out.println("\tClue: " + teach.mooCow.get(randInd));
+				System.out.println("\tClue: " + teach.mrBrown.get(randInd));
+				teach.mrBrown.remove(teach.mrBrown.get(randInd));
 			    }
 			    encounter --;
 			}
