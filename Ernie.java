@@ -2,23 +2,24 @@ import java.io.*;
 import java.util.*;
 
 public class Ernie extends Character implements ArtKid {
-
-    private Map<String, String> map = new HashMap<String, String>();
+	
+	private Map<String, String> map = new HashMap<String, String>();
 
     public Ernie() {
-	super();
-	HP = 30;
-	def = 0;
-	str = 5;
-	type = "art";
-	talent = "failure";
-	name = "Ernie";
-	moves = new ArrayList<String>();
-	moves.add("Art");
-	moves.add("Directly Answer");
-	answer = "Where is your answer";
+		super();
+		HP = 30;
+		def = 0;
+		str = 5;
+		type = "art";
+		talent = "failure";
+		name = "Ernie";
+		answer = "Where is your answer";
+		moves = new ArrayList<String>();
+		moves.add("Art");
+		moves.add("Directly Answer");
 
-	map.put("\"The Water Lily Pond\"", "Claude Monet");
+		
+	    map.put("\"The Water Lily Pond\"", "Claude Monet");
         map.put("Ballet Rehearsal", "Edgar Degas");
         map.put("\"The Basket of Apples\"", "Paul Cezanne");
         map.put("\"By the Seashore\"", "Pierre Renoir");
@@ -68,22 +69,22 @@ public class Ernie extends Character implements ArtKid {
         map.put("portraits of people in pain", "Francis Bacon");
         map.put("\"Red Headed Girl in Evening\"", "Modigliani");
         map.put("\"The Hunters in the Snow\"", "Pieter Bruegel the Elder");//50
-    }
+	}
 	
     public String about() {
         String ernie = "";
-	ernie += "Your name is Ernie.\n";
-	ernie += "You get offended easily, but you're more or less a good teammate.\n";
-	ernie += "BLin recruited you after you repeatedly asked him through facebook.\n";
-	ernie += "Now you are ready to help him and the rest of the squad to make sure BLin has a great prom night.\n";
-	return ernie;
+		ernie += "Your name is Ernie.\n";
+		ernie += "You get offended easily, but you're more or less a good teammate.\n";
+		ernie += "BLin recruited you after you repeatedly asked him through facebook.\n";
+		ernie += "Now you are ready to help him and the rest of the squad to make sure BLin has a great prom night.\n";
+		return ernie;
     }
-
-        
+    
     public String specialOne(String a, String b) {
-    	answer = a;
+    	answer = map.get(a);
     	return answer;
     }
+    
     public String specialTwo(String a, String b){
     	return "please work";
     }
