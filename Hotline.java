@@ -537,10 +537,14 @@ public class Hotline {
 		if (floor == 2) {//if math
 		    floors.remove("\t2: Math Department\n");
 		    storyline = "You are now within the Math Department.";
+		    storyline += "It is a dismal place, filled with lifeless students milling about.\n";
+		    storyline += "They do not respond to any of your speech or actions.\n";
+		    storyline += "But they are not of your concern right now.\n";
+		    storyline += "You move to quickly find your next ally.\n";
 		    System.out.println(storyline);
 	        		
 		    ///THE DROPPING OF THE CLUE
-		    System.out.print("But wait! What is that in the distance?\n");
+		    System.out.print("But wait! Darkness gathers in the distance.\n");
 		    while (encounter > 0) {
 			if (battle(teach)==false) {
 			    return false;
@@ -553,9 +557,36 @@ public class Hotline {
 			encounter --;
 		    }
 		    encounter = 5;//reset
-		    //END CLUE 
-		        	
-		    storyline = "Tell me, what is the square root of sixty nine?";
+		    //END CLUE
+
+		    storyline = "\nDrake:\n\tHey. Who are you? Why are you here.\n";
+		    System.out.print(storyline);
+		    response = "\nChoose your response: \n";
+		    response += "\t1: My name is BLin. My girl has been gone for a while.\n";
+		    response += "\tI need your help to find her\n";
+		    response += "\t2: My name is BLin. My girl's been wearing less and going out more these days.\n";
+		    response += "\tNow, she's been kidnapped and my life is meaningless without her.\n";
+		    System.out.println(response);
+		    //=====choose dialogue
+		    try {
+			Scanner sca = new Scanner(System.in);
+			resp = sca.nextInt();//choice of dialogue
+		    }
+		    catch (Exception e) {}
+		    if (resp == 1){//dialogue 1
+			response = "\t1: My name is BLin. My girl has been gone for a while.\n";
+			response += "\tI need your help to find her.\n";
+		    }
+		    else {//dialogue 2
+			response = "\tMy name is BLin.\n\tMy girl's been wearing less and going out more these days.\n";
+			response += "\tNow, she's been kidnapped and my life is meaningless without her.\n";
+		    }
+		    System.out.print("BLin: \n"+ response);//print dialogue
+		    //=====
+		    storyline = "Drake:\n\tDo not worry. I, too started from the bottom, but now I'm here.\n";
+		    storyline += "\tI understand the struggle of heartbreak.\n";
+		    storyline += "\tI will help you find your love, but you must answer this correctly: \n"; 
+		    storyline += "\tTell me, what is the square root of sixty nine?";
 		    System.out.println(storyline);
 		    System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 		    try {
