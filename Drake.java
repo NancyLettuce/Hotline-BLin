@@ -19,7 +19,7 @@ public class Drake extends Character implements MathKid {
     }
 	
     public String about() {
-	String story = "Your name is Drake.\n";
+	String story = "\nYour name is Drake.\n";
 	story += "Despite a lucrative stint in the music industry, your true calling is math.\n";
 	story += "BLin recruited you after a touching recount of his love story in an appeal to pathos.\n";
 	story += "Now you are ready to help him and the rest of the squad find Rubik's Cube\n";
