@@ -381,7 +381,7 @@ public abstract class Monster{
         else if (map.get(title) == D) {
             correctArt = 4;
         }
-            
+        b = Integer.toString(correctArt);   
     }
     
     // more multiple choice questions with similar structure
@@ -396,10 +396,7 @@ public abstract class Monster{
         sort();
         string();//answer with sorted array
         //System.out.println(types.get(randMethod));
-        if (types.get(randMethod) == "askArtist") {
-            askArtist();
-        }
-        else if (types.get(randMethod) == "askRoot") {
+        if (types.get(randMethod) == "askRoot") {
             askRoot();
         }
         else if (types.get(randMethod) == "askPrime") {
@@ -417,6 +414,11 @@ public abstract class Monster{
         else if (types.get(randMethod) == "askConversion") {
             askConversion();
         }
+    }
+    public void askArtQuestion() {
+        listOfNames();//creates list of artist names
+        listOfWorks();//creates list of works
+        askArtist();
     }
 }
 

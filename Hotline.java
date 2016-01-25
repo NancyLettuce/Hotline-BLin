@@ -164,7 +164,7 @@ public class Hotline {
 	catch ( IOException e ) {
 	    System.out.print("Your Move does not exist");
 	}
-	if (i == 1 && gen.types.get(gen.randMethod) == "quadratic" || gen.types.get(gen.randMethod) == "askDecimal" || gen.types.get(gen.randMethod) == "askArtist") {
+	if (i == 1 && gen.types.get(gen.randMethod) == "askRoot" || gen.types.get(gen.randMethod) == "askDecimal" || gen.types.get(gen.randMethod) == "askArtist") {
 	    System.out.println("You used " + player.moves.get(0));
 	    System.out.print("The result of your move is: ");
 	    player.specialOne(gen.b, gen.number);
@@ -176,13 +176,27 @@ public class Hotline {
 	    player.specialTwo(gen.number, gen.b);
 	    System.out.println(player.answer); //initialized in Character.java
 	}
-	else if (i == 3 && gen.types.get(gen.randMethod) == "askRoot" || gen.types.get(gen.randMethod) == "askProduct") {
+	else if (i == 3 && gen.types.get(gen.randMethod) == "askSort" || gen.types.get(gen.randMethod) == "askProduct") {
 	    System.out.println("You used " + player.moves.get(2));
 	    System.out.print("The result of your move is: ");
-	    player.specialThree(gen.a, gen.num, gen.data);
-	    System.out.println(player.answer); //initialized in Character.java
+	    player.specialThree(gen.a, gen.num, gen.data); //initialized in Character.java
+	    System.out.println(player.answer); 
 	}
-	System.out.print("Enter your answer: ");
+	else if (i ==4) {
+	    System.out.println("You chose to directly answer");
+	}
+	System.out.print("\n"+"Enter your answer: ");
+		
+	if (gen instanceof AdmissionsOfficer) {
+	    try {
+                Scanner sc = new Scanner(System.in);
+                int ans = sc.nextInt();
+                if (ans == gen.correctArt) return true;
+            }
+            catch (Exception e) { 
+                return false;
+            }
+	}
 		
         if (gen.types.get(gen.randMethod) == "askRoot"){
             try {
@@ -209,15 +223,15 @@ public class Hotline {
             try {
                 Scanner sc = new Scanner(System.in);
                 int ans = sc.nextInt();
-                if ((ans==1) && gen.isPrime(gen.a)) return true;
-                if ((ans==2) && !gen.isPrime(gen.a)) return true;
+                if ((ans==1) && gen.isPrime(gen.a)) return true;//used to be b
+                if ((ans==2) && !gen.isPrime(gen.a)) return true;//change back if need be
                 return false;
             }
             catch (Exception e) { 
                 return false;
             }
         }
-	else if (gen.types.get(gen.randMethod) == "askSort") {
+        else if (gen.types.get(gen.randMethod) == "askSort") {
 	    try {
 		Scanner sc = new Scanner(System.in);
 		String ans = sc.nextLine();
@@ -225,14 +239,14 @@ public class Hotline {
 		    return true;
 		}
 		else {
-		    System.out.println("why");
+		    return false;
 		}
 	    }
 	    catch (Exception e) { 
                 return false;
             }
         }
-	else if (gen.types.get(gen.randMethod) == "askProduct") {
+        else if (gen.types.get(gen.randMethod) == "askProduct") {
 	    try {
 		Scanner sc = new Scanner(System.in);
 		int ans = sc.nextInt();
@@ -259,7 +273,7 @@ public class Hotline {
             }
         }
         else if (gen.types.get(gen.randMethod) == "askConversion") {
-        	try {
+	    try {
                 Scanner sc = new Scanner(System.in);
                 String ans = sc.nextLine();
                 if (ans.compareTo(gen.conversion(gen.number, gen.a)) ==0) return true;
@@ -356,8 +370,18 @@ public class Hotline {
 					    player.getName() +d2 + " points of damage.");	
 		    }//end fight
 		    else if (choice == 2) {//question
-			admin.askQuestion();
-			System.out.println(checkAnswer(admin));
+		        if (player.isAlive() == true) {
+			    admin.askArtQuestion();
+			}
+			if (checkAnswer(teach) == false) {
+			    player.HP -= 6;
+			    System.out.print("Oops, wrong answer.");
+			    System.out.println( "\n" + "AdmissionsOfficer dealt  6 points of damage.\n");
+			}
+			else {
+			    teach.HP = -20;
+			    System.out.println("\nYou have earned 100 dollars!");
+			}
 		    }//end question
 		}
 		catch ( IOException e ) { }
@@ -391,6 +415,9 @@ public class Hotline {
 		    else if (choice == 2) {//question
 			if (player.isAlive()) {
 			    teach.askQuestion();
+			}
+			else {
+			    return false;
 			}
 		        if (checkAnswer(teach) == false) {
 			    if (onTeam("Mr.Brown") != true && onTeam("Mr.Brown")==false) {
@@ -758,116 +785,235 @@ public class Hotline {
     }
     
     public boolean questTwo() {
+    	admin = new AdmissionsOfficer();
+    	student = new Competitor();
     	String s;
     	String b; 
-		s = "";
-		s += "Choose the Character you wish to continue playing as: \n";
-		s += "BLin is present for the first and second quest.\n";
-		s += "All other characters are only present for the second quest.\n";
-		s += "A few have special, hidden talents that may aid you on the quest.\n";
-		s += "\t1: BLin: Our main character. You may choose his skill.\n";
-		s += "\t2: Drake: He is skilled in Math.\n";
-		s += "\t3: MooCow: He is skilled in CS.\n";
-		s += "\t4: Mr.Brown: He is skilled in CS.\n";
-		s += "\t5: Ernie: He is skilled in Art Appreciation.\n";
-		s += "\t6: Alice: She is skilled in Art Appreciation.\nSelection: ";
-		System.out.print(s);
+	s = "";
+	s += "Choose the Character you wish to continue playing as: \n";
+	s += "BLin is present for the first and second quest.\n";
+	s += "All other characters are only present for the second quest.\n";
+	s += "A few have special, hidden talents that may aid you on the quest.\n";
+	s += "\t1: BLin: Our main character. You may choose his skill.\n";
+	s += "\t2: Drake: He is skilled in Math.\n";
+	s += "\t3: MooCow: He is skilled in CS.\n";
+	s += "\t4: Mr.Brown: He is skilled in CS.\n";
+	s += "\t5: Ernie: He is skilled in Art Appreciation.\n";
+	s += "\t6: Alice: She is skilled in Art Appreciation.\nSelection: ";
+	System.out.print(s);
 			
+	try {
+	    hero = Integer.parseInt( in.readLine() );
+	    if (hero == 1) {//If choose BLin
+		b = "Think of the subject you are the most capable in:\n";
+		b += "\t1: CS\n";
+		b += "\t2: Math\n";
+		b += "\t3: Art Appreciation\n";
+		b += "Selection: ";
+		System.out.print( b );
+				
 		try {
-		    hero = Integer.parseInt( in.readLine() );
-		    if (hero == 1) {//If choose BLin
-			b = "Think of the subject you are the most capable in:\n";
-			b += "\t1: CS\n";
-			b += "\t2: Math\n";
-			b += "\t3: Art Appreciation\n";
-			b += "Selection: ";
-			System.out.print( b );
-				
-			try {
-			    vocation = Integer.parseInt( in.readLine() );
-			    if (vocation == 1 ){//BLin with CS skill
-				player = new BLinCS( );
-			    }
-			    else if (vocation == 2 ){//BLin with Math skill
-				player = new BLinMath( );
-			    }
-			    else if (vocation == 3 ){//BLin with Art Appreciation skill
-				player = new BLinArt( );
-			    }
-			}
-			catch ( IOException e ) { 
-			    player  = new BLinCS();
-			}
-			//System.out.println(player.about());	
-			System.out.println("Onwards to assembling a team!");
-			/////HERE WE WILL HAVE FLOOR CHOICES
+		    vocation = Integer.parseInt( in.readLine() );
+		    if (vocation == 1 ){//BLin with CS skill
+			player = new BLinCS( );
 		    }
+		    else if (vocation == 2 ){//BLin with Math skill
+			player = new BLinMath( );
+		    }
+		    else if (vocation == 3 ){//BLin with Art Appreciation skill
+			player = new BLinArt( );
+		    }
+		}
+		catch ( IOException e ) { 
+		    player  = new BLinCS();
+		}
+		//System.out.println(player.about());	
+		System.out.println("Onwards to assembling a team!");
+		/////HERE WE WILL HAVE FLOOR CHOICES
+	    }
 			
-		    else if (hero == 2) {//if choose Drake
-			player = new Drake();
-			//System.out.println(player.about());
-		    }
-		    else if (hero == 3) {//if choose MooCow
-			player = new MooCow();
-			//System.out.println(player.about());
-		    }
+	    else if (hero == 2) {//if choose Drake
+		player = new Drake();
+		team.add("Drake");
+	    }
+	    else if (hero == 3) {//if choose MooCow
+		player = new MooCow();
+		team.add("MooCow");
+	    }
 				
-		    else if (hero == 4) {//if choose Mr.Brown
-			player = new MrBrown();
-			//System.out.println(player.about());
-		    }
+	    else if (hero == 4) {//if choose Mr.Brown
+		player = new MrBrown();
+		team.add("MooCow");
+	    }
 				
-		    else if (hero == 5) {//if choose Ernie
+	    else if (hero == 5) {//if choose Ernie
+		player = new Ernie();
+		team.add("MooCow");
+	    }
+				
+	    else if (hero == 6) {//if choose Alice
+		player = new Alice();
+		team.add("MooCow");
+	    }
+	}
+	catch ( IOException e ) {
+	    player = new BLinCS();
+	}
+	System.out.println(player.about());
+	pressAnyKeyToContinue();
+		
+    	String story = "Quest 2: An Epic Journey.\n";
+    	story += "BLin:\n\tOkay Team. We are looking for Rubik's Cube.\n";
+	System.out.print(story);
+	System.out.println(team.get(0) +":\n\tThere's always the option of buying another one.");
+	story = "Drake:\n\tThat's disloyal. You can't just buy another Rubik's Cube.\n";
+	story += "\tYou find yourself one and then you cherish it.";
+	System.out.print(story);
+	pressAnyKeyToContinue();
+	if (team.get(1) != "BLinCS" || team.get(1) !="BLinArt" || team.get(1) !="BLinMath") {
+	    story = team.get(1) + ":\n\tIt's probably wandering around in MIT.";
+	    System.out.print(story);
+	    pressAnyKeyToContinue();
+	}
+	story = "BLin:\n\tI already told you I wasn't applying to that school.\n";
+	System.out.print(story);
+	pressAnyKeyToContinue();
+		
+	if (team.get(2) != "BLinCS" || team.get(2) != "BLinArt" || team.get(2) != "BLinMath") {
+	    story = team.get(1) + ":\n\tThat's all the more reason for your Rubik's Cube to go there.\n";
+	    story += "\tThink about it. You've been very clingy lately.\n";
+	    story += "\tIf she wanted a breath of fresh air, wouldn't she go somewhere you'd never want to go?\n";
+	    System.out.print(story);
+	    pressAnyKeyToContinue();
+	}
+	story = "BLin:\n\tI can't find fault in that. But how are we going to get into MIT?\n";
+	System.out.print(story);
+	pressAnyKeyToContinue();
+		
+	story = "Your next journey is to go to MIT where BLin's damsel in distress is sorrowfully awaiting.";
+	if(onTeam("Alice")) {
+	    story += "Alice had been walking up the broken escalators, when she noticed something.";
+	    story += "\nThere was a step that was missing, and in is place was a hole.";
+	    story += "\n'I wonder what's below these floors?' she wondered.";
+	    story += "\nThen she fell.";
+	    story += "\nAnd fell.";
+	    story += "\nAnd fell.";
+	    System.out.println(story);
+	    pressAnyKeyToContinue();
+	    story = "There was no word from Alice for a few hours.";
+	    pressAnyKeyToContinue();
+	    story += "\nThen she texted BLin.";
+	    story += "\n'OMG GUISE, I found a shortcut to MIT!'";//lol
+	}
+	else {
+	    story += "\nUnfortunately, you missed the easy way out.";
+	    story += "\nYou have to take the traditional route.";
+	    story += "\nIn order to pay for your plane ticket to MIT, you need a job.";
+	    story += "\nWhat's the perfect job for a group of teenagers looking to earn monday to travel to MIT?";
+	    story += "\nA museum curator.";
+	    System.out.println(story);
+	    pressAnyKeyToContinue();
+	    story = "\nIn order to get the job, you first have to answer several questions related to famous paintings";
+	    System.out.println(story);
+	    pressAnyKeyToContinue();
+	    story = "Unfortunately for you, this museum is run by a Monster.\n";
+	    story += "More specifically, the all powerfull AdmissionsOfficer";
+	    System.out.println(story);
+	    pressAnyKeyToContinue();
+	    story = "Fearsome Monster:\n";
+	    story += "\tIf you manage to defeat me, puny mortals, I will pay for your airfare.\n";
+	    System.out.print(story);
+	    pressAnyKeyToContinue();
+	    story = "Do you wish to take on art skills?\n";
+	    story += "\t1: Yes\n\t2: No\n";
+	    System.out.print(story);
+	    try {
+		vocation = Integer.parseInt( in.readLine() );
+		if (vocation == 1 ){
+		    if (onTeam("Ernie")) {
 			player = new Ernie();
-			//System.out.println(player.about());
 		    }
-				
-		    else if (hero == 6) {//if choose Alice
-			player = new Alice();
-			//System.out.println(player.about());
+		    else if (onTeam("BLinArt")) {
+			player = new BLinArt();
 		    }
 		}
-		catch ( IOException e ) {
-		    player = new BLinCS();
+		else if (vocation == 2 ){
+		    System.out.println("Good luck fearless warrior!");
 		}
-		System.out.println(player.about());
-
-    	String story = "Quest 2: Second Floor.";
-    	story += "Who would you like to play as now?";
-    	story += "\n"+ "depending on who you choose, your next journey may be easier.";
-    	story += "\n Who would you like to choose?";
-		System.out.println(story);
-		pressAnyKeyToContinue();
-		story = "Your next journey is to go to the Riker's Island where BLin's damsel in distress is sorrowfully awaiting.";
-		/* if(onTeam("Alice")) {
-			story += "Alice had been walking up the broken escalators, when she noticed something.";
-			story += "\nThere was a step that was missing, and in is place was a hole.";
-			story += "\n'I wonder what's below these floors?' she wondered.";
-			story += "\nThen she fell.";
-			story += "\nAnd fell.";
-			story += "\nAnd fell.";
-			System.out.println(story);
-			pressAnyKeyToContinue();
-			story = "There was no word from Alice for a few hours.";
-			pressAnyKeyToContinue();
-			story += "\nThen she texted BLin.";
-			story += "\n'OMG GUISE, I found a shortcut to jail!'";//lol
+	    }
+	    catch ( IOException e ) { 
+		player  = new BLinArt();
+	    }
+	    int encounter = 10;
+	    while (encounter > 0) {
+		if (battle(admin)==false) {
+		    return false;
 		}
 		else {
-			story += "\nUnfortunately, you missed the easy way out.";
-			story += "\nYou have to take the traditional route.";
-			story += "\nYou may want to get there by doing something illegal, but we are academically honest to goodness.";
-			story += "\nIn order to pay for your boat ticket to Riker's Island, you need a job.";
-			story += "\nWhat's the perfect job for a group of teenagers looking to earn monday to travel to jail?";
-			story += "\nA museum curator.";
-			System.out.println(story);
-			pressAnyKeyToContinue();
-			story = "\nIn order to get the job, you first have to answer several questions related to famous paintings";
-			pressAnyKeyToContinue();
+		    admin = new AdmissionsOfficer();//creates new teacher to reset values
 		}
-		*/
-		return true;//placeholderto compile
-}
+		encounter --;
+	    }
+	    System.out.println("Finally, you have enough money to fly to MIT.");
+	    pressAnyKeyToContinue();
+	}
+	story = "You and your friends have arrived at MIT.\n";
+	story += "There are hordes of Competitors outside, barring your entrance.\n";
+	story += "You know immediately that it will be an exhausting fight.\n";
+	System.out.print(story);
+	pressAnyKeyToContinue();
+	if (onTeam("MooCow")) {
+	    story = "Upon sight of MooCow, the crowds disperse. You are granted entrance.\n";
+	    story += "Now all that remains is to find Rubik's Cube";
+	    System.out.println(story);
+	    pressAnyKeyToContinue();
+	}
+	else {
+	    int encounter = 20;
+	    while (encounter > 0) {
+		if (battle(student)==false) {
+		    return false;
+		}
+		else {
+		    student = new Competitor();//creates new teacher to reset values
+		}
+		encounter --;
+	    }
+	    story = "You and the rest of the group and tired and worn out.\n";
+	    story += "There is a trail of carnage behind you.\n";
+	    story += "Now all that remains is to find Rubik's Cube";
+	    System.out.println(story);
+	    pressAnyKeyToContinue();
+	}
+		
+	story = "BLin:\n\tIt is hard for me to believe that I am this close to reuniting with my beloved.";
+	story += "\nThe Crew forged on, and finally, came across BLin's one true love on a stand,\n";
+	story += "enveloped in a halo of light.";
+	System.out.print(story);
+	pressAnyKeyToContinue();
+		
+				
+	if (player.isAlive() == false) {
+	    return false;
+	}
+		
+	if (onTeam("Ernie")) {
+	    story = "But alas, happy endings are ever elusive.\n";
+	    story += "When Ernie entered the room, the stones began to crumble.";
+	    System.out.print(story);
+	    return false;
+	}
+		
+	else {
+	    story = "BLin almost sobbed for joy as he gathered Rubik's Cube into his arms.\n";
+	    story += "And he swore to never be ridiculously insecure and jealous again.";
+	    System.out.print(story);
+	    return true;
+	}
+    }
+    
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -876,18 +1022,28 @@ public class Hotline {
 	System.out.println("Note: We recommend that you expand your terminal.");
 	pressAnyKeyToContinue();
 
-		Hotline game = new Hotline();
+
+	//loading...
+	Hotline game = new Hotline();
 	
-		int encounters = 0;
+	int encounters = 0;
 	
-		while( encounters < MAX_ENCOUNTERS ) {
-		    if ( !game.questOne() )
-			break;
-		    encounters++;
-		    System.out.println();
-		}
 	
-		System.out.println( "Game over." );
+	if ( game.questOne() == true ){
+	    pressAnyKeyToContinue();
+	    if (game.questTwo() == true) {
+		System.out.println("And they all lived happily ever after.");
+	    }
+	    else {
+		System.out.println("The door frame collapsed before you could reach her.\n");
+		System.out.println("Wails of agony emanated from the building as the stones crashed.\n");
+		System.out.println("Then, all that was left was silence as MIT was reduced to rubble.\n");
+	    }
+	}
+		
+	//game.questTwo();
+	
+	System.out.println( "Game over." );
 		/*=============================================
 	
 		  =============================================*/

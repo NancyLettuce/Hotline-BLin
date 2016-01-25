@@ -81,10 +81,11 @@ public class Ernie extends Character implements ArtKid {
 	return ernie;
     }
 
+        
     public String specialOne(String a, String b) {
-    	return "hi";
+    	answer = a;
+    	return answer;
     }
-
     public String specialTwo(String a, String b){
     	return "please work";
     }
