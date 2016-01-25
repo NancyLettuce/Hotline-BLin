@@ -245,7 +245,7 @@ public class Hotline {
 
 	//for Monster's description		
 	try {
-	    System.out.println("You see a Monster approaching.\n Do you wish to view its credentials?");
+	    System.out.println("\nYou see a Monster approaching.\n Do you wish to view its credentials?");
 	    System.out.print("\t1: Yes\n\t2: No\nSelection: ");
 	    descrip = Integer.parseInt( in.readLine() );
 	}
@@ -273,7 +273,7 @@ public class Hotline {
 	    if (generic instanceof Competitor) {
 		student = (Competitor)generic;
 		try {
-		    System.out.println( "What will you do?" );
+		    System.out.println( "\nWhat will you do?" );
 		    System.out.print("\t1: Attack\n\t2: Special\nSelection: " );
 		    i = Integer.parseInt( in.readLine() );
 		}
@@ -294,7 +294,7 @@ public class Hotline {
 	    else if (generic instanceof AdmissionsOfficer) {
 		admin = (AdmissionsOfficer)generic; 
 		try {
-		    System.out.println( "What will you do?" );	
+		    System.out.println( "\nWhat will you do?" );	
 		    System.out.println("\t1: Fight\n\t2: Answer Question\nSelection: " );
 		    choice =  Integer.parseInt( in.readLine() );
 		    if (choice == 1) {//fight
@@ -354,13 +354,13 @@ public class Hotline {
 			}
 			if (checkAnswer(teach) == false) {
 			    player.HP -= 6;
-			    System.out.print("Oops, wrong answer.");
+			    System.out.print("\nOops, wrong answer.");
 			    System.out.println( "\n" + "Teacher dealt " +
 						player.getName() + " 6 points of damage.\n");	
 			}
 			else {
 			    teach.HP = -200;
-			    System.out.println("That is correct!");
+			    System.out.println("\nThat is correct!");
 			    System.out.println("The dreadful Teacher begins to smoke around the edges.");
 			    System.out.println("A light flashes, and it is reduced to an explosion of ash.");
 			    System.out.println("All that is left is a clue for the remainder of your quest.");
