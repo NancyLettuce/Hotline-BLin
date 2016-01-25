@@ -10,8 +10,8 @@ public class Teacher extends Monster {
         HP = 300; 
         def = 20;
         str = 100;
-        
-        alice.add("The depths of hell");
+	
+	alice.add("The depths of hell");
         alice.add("The source of all my torment");
         alice.add("A raging inferno");
         alice.add("RIP my grades");
@@ -28,18 +28,19 @@ public class Teacher extends Monster {
         ernie.add("The aftermath of college acceptance");
         ernie.add("Past tense");
         ernie.add("To become different");
+
+	mooCow.add("Confusion");
+        mooCow.add("Slang");
+        mooCow.add("Letters");
+        mooCow.add("I really tried");
+        mooCow.add("Two Words");
         
-        mooCow.add("idk yet");
-        mooCow.add("idk yet");
-        mooCow.add("idk yet");
-        mooCow.add("idk yet");
-        mooCow.add("idk yet");
+        mrBrown.add("The stuff of dreams");
+        mrBrown.add("All of our hopes");
+        mrBrown.add("Plural, as a class");
+        mrBrown.add("This project");
+        mrBrown.add("So close to the deadline");
         
-        mrBrown.add("idk yet");
-        mrBrown.add("idk yet");
-        mrBrown.add("idk yet");
-        mrBrown.add("idk yet");
-        mrBrown.add("idk yet");
         
         aliceAns = "stuyvesant";
         drakeAns = "8 something";
@@ -47,19 +48,16 @@ public class Teacher extends Monster {
         mooAns = "idk yet";
         brownAns = "please pass us";
     }
-    
     //you can choose to answer question or to attack normally
     //if you answer one question correctly, you defeat a teacher
     //will take much longer to attack(more difficult)
     
     public String about() {
-        String story = "\n";
+        String story = "";
         story += "Teachers appear only in Quest 1.\n";
         story += "They will ask you questions to impede your progress.\n";
         story += "If you subdue this monster by giving the right answer, \n";
         story += "they will leave you with a clue to aid you in assembling your team.\n";
-        story += "However, you may also choose to fight it in the traditional fashion.\n";
         return story;
-    }
-    
+    }    
 }
