@@ -20,7 +20,7 @@ public class MrBrown extends Character implements CSKid {
 	
     public String about() {
         String story = "";
-	story += "Your name is Mr.Brown.\n";
+	story += "\nYour name is Mr.Brown.\n";
 	return story;
     }
 
