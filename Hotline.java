@@ -509,7 +509,6 @@ public class Hotline {
 		    response += "\t1: Stay with Alice.\n";
 		    response += "\t2: Ernie is who I really want.\n";
 		    System.out.print(response);
-		    pressAnyKeyToContinue();
 		    //===
 		    try {
 			sc = new Scanner(System.in);
@@ -538,6 +537,7 @@ public class Hotline {
 			encounter = 5;
 			/////////////////END CLUE
 			System.out.print(response);
+			pressAnyKeyToContinue();
 			//=====
 			try {
 			    Scanner sca = new Scanner(System.in);
@@ -597,6 +597,7 @@ public class Hotline {
 			    encounter --;
 			}
 			encounter = 5;//reset
+			pressAnyKeyToContinue();
 			//END CLUE 
 			storyline = "You walk furthur down the corridor and come upon Ernie.\n\nErnie:\n";
 			storyline += "\tHello. It's me. Ernie.\n";
@@ -652,6 +653,7 @@ public class Hotline {
 			encounter --;
 		    }
 		    encounter = 5;//reset
+		    pressAnyKeyToContinue();
 		    //END CLUE
 
 		    storyline = "\nDrake:\n\tHey. Who are you? Why are you here.\n";
@@ -700,7 +702,8 @@ public class Hotline {
 			    System.out.println("Sorry, you were not persuasive enough.");
 			}
 		    }
-		    catch (Exception e){}		    
+		    catch (Exception e){}
+		   pressAnyKeyToContinue();
 		}//end math/floor 2
 		
 		if (floor == 3){//if cs		   
@@ -741,6 +744,7 @@ public class Hotline {
 			    encounter --;
 			}
 			encounter = 5;
+			pressAnyKeyToContinue();
 			/////////////////END CLUE
 		        System.out.println("How do you feel right now?");		
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
@@ -757,7 +761,7 @@ public class Hotline {
 			    }
 			}
 			catch (Exception e){}
-		        		
+		        pressAnyKeyToContinue();		
 		    }//end MooCow
 		    else if (resp == 2) {//if Mr Brown
 			///THE DROPPING OF THE CLUE
@@ -775,6 +779,7 @@ public class Hotline {
 			    encounter --;
 			}
 			encounter = 5; //reset
+			pressAnyKeyToContinue();
 			/////////////////END CLUE
 		        System.out.println("Mr.Brown:\n\tWhat is it that everyone desires?");		
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
@@ -791,6 +796,7 @@ public class Hotline {
 			    }
 			}
 			catch (Exception e){}
+			pressAnyKeyToContinue();
 		    }//end Brown
 		}//end cs
 	    }
