@@ -52,7 +52,8 @@ public class Hotline {
 
     // ~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~~~~~
     
-    private static void pressAnyKeyToContinue() { 
+    private static void pressAnyKeyToContinue() {
+    	System.out.println("\n________________________________________________");
 	    System.out.println("Press Enter to continue...");
 	    try {
           	System.in.read();
