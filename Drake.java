@@ -25,13 +25,36 @@ public class Drake extends Character implements MathKid {
 	story += "Now you are ready to help him and the rest of the squad find Rubik's Cube\n";
 	return story;
     }
-    
-    public String specialOne(String a, String b) {
-    	return "hi";
-    }
 
+    //roots
+    public String specialOne(String a, String b) {
+    	//we don't need b here
+    	//b in this case is gen.num which we don't want
+    	answer = a;
+    	return answer;
+    }
+    
+    //is Prime?
     public String specialTwo(String a, String b){
-    	return "please work";
+    	//we don't need a here
+    	//a in this case is gen.num which we don't want
+    	int p = Integer.parseInt(b);//turn into integer
+    	if (p == 1) {
+            answer = "false";
+            return answer;
+        }
+        if (p == 2) {
+            answer = "true";
+            return answer;
+        }
+        for (int i = 2; i <= Math.sqrt(p) + 1; i++) {
+            if (p % i == 0) {
+                answer = "false";
+                return answer;
+            }
+        }
+        answer = "true";
+        return answer;
     }
     
     

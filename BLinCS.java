@@ -80,7 +80,8 @@ public class BLinCS extends Character implements CSKid {
    		
     }
 
-    public static void Sort( ArrayList<Comparable> data ) {
+    //Sort method 
+    public ArrayList<Integer> sorting(ArrayList<Integer> data ) {
 	int pass = 0; //index of next value to be compared
 	while (pass < data.size()) {
 	    //separates sorted from unsorted
@@ -94,5 +95,18 @@ public class BLinCS extends Character implements CSKid {
 	    }
 	    pass ++;
 	}
+	return data;
     }
+    
+    public String specialThree(int num, ArrayList<Integer> data) {
+    	//num is not used; signature must be kept constant
+        answer = "";
+        data = sorting(data);
+        for (int i = 0; i < data.size(); i ++) {
+            answer += data.get(i) + ",";
+        }
+        answer = answer.substring(0,answer.length()-1);
+        return answer;
+    }
+    ///end sort
 }

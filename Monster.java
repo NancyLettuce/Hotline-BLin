@@ -28,10 +28,12 @@ public abstract class Monster{
     //stores answer choices
     private String choice;
 
-    protected int a = (int) (Math.random()*5+1);
-    //correct answer for the math find root question
-    protected int b = (int) (Math.random()*38+2);
-    //correct answer for the math isPrime question
+    protected int a; //stores answers
+    protected int num; //stores answers
+    protected String b; //int a in String form (because desperation)
+                        //also String for bases
+    protected String number; //just to store answers (idk what else to do)
+    
     private String title; //should store the thing you are looking for
     //for artists, stores painting names
     protected String sorted;//correct answer for sorted array
@@ -163,8 +165,9 @@ public abstract class Monster{
     
     //====prime====================
     public void askPrime() {
-        b = (int) (Math.random()*38+2);
-        System.out.println("Is "+b+" prime?");
+	a = (int) (Math.random()*38+2);
+        b = Integer.toString(a);
+        System.out.println("Is "+ a +" prime?");//used to be b
         System.out.println("\t1. True");
         System.out.println("\t2. False");
     }
@@ -187,6 +190,7 @@ public abstract class Monster{
     //=======root===============
     public void askRoot() {
         a = (int) (Math.random()*5+1);
+        b = Integer.toString(a);
         System.out.println("Find a root of the quadratic:");
         System.out.println("\tx^2+"+2*a+"x"+"+"+a*a);
     }

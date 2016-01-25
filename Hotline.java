@@ -207,8 +207,8 @@ public class Hotline {
             try {
                 Scanner sc = new Scanner(System.in);
                 int ans = sc.nextInt();
-                if ((ans==1) && gen.isPrime(gen.b)) return true;
-                if ((ans==2) && !gen.isPrime(gen.b)) return true;
+                if ((ans==1) && gen.isPrime(gen.a)) return true;
+                if ((ans==2) && !gen.isPrime(gen.a)) return true;
                 return false;
             }
             catch (Exception e) { 

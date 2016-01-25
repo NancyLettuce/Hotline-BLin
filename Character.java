@@ -64,11 +64,18 @@ public abstract class Character{
     }
     
     //special moves
-    public abstract String specialOne(String a, String b);
+    public String specialOne(String a, String b){
+        return "this is some bad coding";
+    }
     
-    public abstract String specialTwo(String a, String b);
+    public String specialTwo(String a, String b){
+        return "this reeks of desperation";//why so negative
+    }
     
-    //    public abstract String specialThree(Object a);
+    public String specialThree(int num, ArrayList<Integer> a) {
+        return "we messed up";//what happened
+        //standardizing signatures rip
+    }
     
     
     public int attack (Monster other){
