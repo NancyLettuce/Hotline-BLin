@@ -1,5 +1,4 @@
-
-public class AdmissionsOfficer extends Monster {
+public class AdmissionsOfficer extends Monster{
     
     public AdmissionsOfficer() {
         super();
@@ -11,12 +10,13 @@ public class AdmissionsOfficer extends Monster {
     
     //you can fight them, or you can go on expedition to find object
     //this object will bypass the Admissions officers
-
+    
     public String about() {
-        String story = "";
+        String story = "\n";
         story += "Admissions Officers appear in the vicinity of Rubik's Cube's prison.\n";
         story += "They serve to prevent entry by any means necessary.\n";
         return story;
     }
+    
     
 }
