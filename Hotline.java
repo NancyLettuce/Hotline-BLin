@@ -353,11 +353,16 @@ public class Hotline {
 			if (player.isAlive()) {
 			    teach.askQuestion();
 			}
-			if (checkAnswer(teach) == false) {
-			    player.HP -= 6;
-			    System.out.print("\nOops, wrong answer.");
-			    System.out.println( "\n" + "Teacher dealt " +
-						player.getName() + " 6 points of damage.\n");	
+		        if (checkAnswer(teach) == false) {
+			    if (onTeam("Mr.Brown") != true && onTeam("Mr.Brown")==false) {
+				player.HP -= 6;
+				System.out.print("Oops, wrong answer.");
+				System.out.println( "\n" + "Teacher dealt " +
+						    player.getName() + " 6 points of damage.\n");
+			    }
+			    else {
+				System.out.println("Mr.Brown deflected the attack of the Teacher.\n");
+			    }
 			}
 			else {
 			    teach.HP = -200;
@@ -392,6 +397,17 @@ public class Hotline {
 	return true;
 	   
     }//end battle()
+
+    //////ON TEAM? YES?nO?===============================================
+    public boolean onTeam(String name) {
+    	for (int ctr = 0; ctr < team.size(); ctr ++) {
+	    if (team.get(ctr).compareTo(name) == 0) {
+		return true;
+	    }
+    	}
+    	return false;
+    }
+    //////////////////////////////////////////////////
     
     public boolean questOne() {
 	teach = new Teacher();
