@@ -14,6 +14,7 @@ public abstract class Monster{
     //end of properties
 
     //for asking questions==================================================
+    protected final static String DIGITS = "0123456789ABCDEF";
     public ArrayList<String> types;//no real use, just to track methods
     private Map<String, String> map = new HashMap<String, String>();
     private ArrayList<String> names;
@@ -250,8 +251,43 @@ public abstract class Monster{
         }
         sorted = sorted.substring(0,sorted.length()-1);
     }
-
+    //======decimal question=======
+    public void askDecimal() {
+        a = (int)(Math.random() * 14) + 2;
+        b = Integer.toString(a);
+        //a is the base
+        num = (int)(Math.random() * 2) + 1;
+        number = "";
+        for (int ctr = 0; ctr < num; ctr ++){
+            int randIndex = (int)(Math.random() * a);
+            number += DIGITS.charAt(randIndex);
+        }
+        System.out.println("Convert " + number + " of base " + b + " into a decimal number.");
+    }
     
+    public boolean isDecimal(String hi, int base) {
+	int dec = 0;
+	int power = 0;
+	String ans ="";
+	if (base == a) {//the bases must be the same
+	    for (int ctr = 0; ctr < number.length(); ctr ++ ) {
+		power = number.length() - ctr - 1;
+		//ctr and power increment at opposite ends
+		dec += (DIGITS.indexOf(number.substring(ctr,ctr+1))
+    			//goes through each char in string s
+    			//returns corresponding index of char in string HEXDIGITS
+    			* Math.pow(a, power));//number multiplied by base raised to th correct power
+	    }
+	}
+	ans += dec;
+	System.out.println(ans);
+	if (ans.compareTo(hi) == 0) {
+	    return true;
+	}
+	return false;
+    }
+
+//ART    
     //===========art=============
     public void askArtist() {
         ArrayList<String> nameCopy = names;//copy of names

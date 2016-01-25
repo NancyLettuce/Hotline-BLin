@@ -13,8 +13,8 @@ public class BLinCS extends Character implements CSKid {
 	talent = "lol";
 	name = "BLin";
 	moves = new ArrayList<String>();
-	moves.add("Convert");
 	moves.add("Decimal");
+	moves.add("Convert");
 	moves.add("Sort");
 	moves.add("Directly Answer");
     }
@@ -29,8 +29,8 @@ public class BLinCS extends Character implements CSKid {
     public String specialOne(String a, String b) {
 	//String a is the number being converted to base 10
 	//String b is the base it is being converted from
-	int base = Integer.parseInt(b);
-	String s = a;
+	int base = Integer.parseInt(a);
+	String s = b;
 	String answer ="";
 	int dec = 0;
 	int power = 0;
@@ -43,7 +43,7 @@ public class BLinCS extends Character implements CSKid {
 		    * Math.pow(base, power));
 	    //number multiplied by base raised to the correct power
 	}
-	answer += dec;
+        answer = Integer.toString(dec);
 	return answer;
     }
 

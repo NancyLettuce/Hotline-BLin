@@ -233,6 +233,32 @@ public class Hotline {
                 return false;
             }
         }
+	else if (gen.types.get(gen.randMethod) == "askProduct") {
+	    try {
+		Scanner sc = new Scanner(System.in);
+		int ans = sc.nextInt();
+		if (ans == (gen.num * gen.a)) {
+		    return true;
+		}
+		else {
+		    return false;
+		}
+	    }
+	    catch (Exception e) { 
+                return false;
+            }
+        }
+        else if (gen.types.get(gen.randMethod) == "askDecimal") {
+	    try {
+                Scanner sc = new Scanner(System.in);
+                String ans = sc.nextLine();
+                if (gen.isDecimal(ans, gen.a)) return true;
+                return false;
+            }
+            catch (Exception e) { 
+                return false;
+            }
+        }
         return false;
     }
     
