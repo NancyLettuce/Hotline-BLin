@@ -71,27 +71,53 @@ public class Hotline {
     
     public void newGame() {
 
-	String s;
-	String b; //what is displayed if you choose BLin
-	
-	///***********BLIN STUFF LATER WHEN WE HAVE ACCOUNT WORKING
-	
-	s = "";
-	s += "Choose the Character you wish to play as: \n";
-	s += "BLin is present for the first and second quest.\n";
-	s += "All other characters are only present for the second quest.\n";
-	s += "A few have special, hidden talents that may aid you on the quest.\n";
-	s += "\t1: BLin: Our main character. You may choose his skill.\n";
-	s += "\t2: Drake: He is skilled in Math.\n";
-	s += "\t3: MooCow: He is skilled in CS.\n";
-	s += "\t4: Mr.Brown: He is skilled in CS.\n";
-	s += "\t5: Ernie: He is skilled in Art Appreciation.\n";
-	s += "\t6: Alice: She is skilled in Art Appreciation.\nSelection: ";
-	System.out.print(s);
+		String story;
+		String b; //what is displayed if you choose BLin
+		story = "This is Hotline BLin.\n";
+		story += "\n          (.,------...__" +"\n"
+		+"         _.'\"             `."+"\n"
+		+"       .'  .'   `, `. `.    `"+"\n"
+		+"      . .'   .'/''--...__`.  \\"+"\n"
+		+"      . .--.`.  ' \"-.     '.  |"+"\n"
+		+"      ''  .'  _.' .())  .--\":/"+"\n"
+		+"      ''(  \\_\\      '   (()("+"\n"
+		+"      ''._'          (   \\ '"+"\n"
+		+"      ' `.            `--'  '"+"\n"
+		+"       `.:    .   `-.___.'  '"+"\n"
+		+"        `.     .    _  _  .'"+"\n"
+		+"          )       .____.-'"+"\n"
+		+"        .'`.        (--.."+"\n"
+		+"      .' \\  /\\      / /  `."+"\n"
+		+"    .'    \\(  \\    /|/     `."+"\n"
+		+"  .'           \\__/          `."+"\n"
+		+"/      |        o      |      \\"+"\n"
+		+"       |               |      |";
+		System.out.println(story);
+		story = "Starting last week, his girlfriend, Rubik's Cube, has been acting quite distant.\n";
+		story += "She did not return any of his texts, calls, or emails. Then he finally realized: She's missing.\n";
+		System.out.println(story);
+		story = "Here is a picture of the love of his life:\n";
+		pressAnyKeyToContinue();
+		System.out.println(story);
+		story = "    ___ ___ ___\n" +
+	            "   /___/___/___/|\n" +
+	            "  /___/___/___/||\n" +
+            	" /___/___/__ /|/|\n" +
+	            "|   |   |   | /||\n" +
+	            "|___|___|___|/|/|\n" +
+	            "|   |   |   | /||\n" +
+            	"|___|___|___|/|/\n" +
+            	"|   |   |   | /\n" +
+	            "|___|___|___|/\n";
+		System.out.println(story);
+		pressAnyKeyToContinue();
+		story = "\nMission: Help BLin find his true love, which will also magically guarantee his acceptance to his dream school, MIT.";
+		System.out.println(story);
+		pressAnyKeyToContinue();
+		story = "Quest 1: Gather a team.";
+		System.out.println(story);
+		pressAnyKeyToContinue();
 		
-	try {
-	    hero = Integer.parseInt( in.readLine() );
-	    if (hero == 1) {//If choose BLin
 		b = "Think of the subject you are the most capable in:\n";
 		b += "\t1: CS\n";
 		b += "\t2: Math\n";
@@ -101,53 +127,25 @@ public class Hotline {
 			
 		try {
 		    vocation = Integer.parseInt( in.readLine() );
-		    if (vocation == 1 ){//BLin with CS skill
-			player = new BLinCS( );
-		    }
-		    else if (vocation == 2 ){//BLin with Math skill
-			player = new BLinMath( );
-		    }
-		    else if (vocation == 3 ){//BLin with Art Appreciation skill
-			player = new BLinArt( );
-		    }
+			if (vocation == 1 ){//BLin with CS skill
+				player = new BLinCS( );
+				team.add("BLinCS");
+			}
+			else if (vocation == 2 ){//BLin with Math skill
+				player = new BLinMath( );
+				team.add("BLinMath");
+			}
+			else if (vocation == 3 ){//BLin with Art Appreciation skill
+				player = new BLinArt( );
+				team.add("BLinArt");
+			}
 		}
 		catch ( IOException e ) { 
-		    player  = new BLinCS();
+			player  = new BLinCS();
+			team.add("BLinCS");
 		}
-		//System.out.println(player.about());	
-		System.out.println("Onwards to assembling a team!");
-		/////HERE WE WILL HAVE FLOOR CHOICES
-	    }
-		
-	    else if (hero == 2) {//if choose Drake
-		player = new Drake();
-		//System.out.println(player.about());
-	    }
-	    else if (hero == 3) {//if choose MooCow
-		player = new MooCow();
-		//System.out.println(player.about());
-	    }
-			
-	    else if (hero == 4) {//if choose Mr.Brown
-		player = new MrBrown();
-		//System.out.println(player.about());
-	    }
-			
-	    else if (hero == 5) {//if choose Ernie
-		player = new Ernie();
-		//System.out.println(player.about());
-	    }
-			
-	    else if (hero == 6) {//if choose Alice
-		player = new Alice();
-		//System.out.println(player.about());
-	    }
-	}
-	catch ( IOException e ) {
-	    player = new BLinCS();
-	}
-	System.out.println(player.about());
-	return;
+		System.out.println(player.about());
+		return;
     }//end newGame()
 
 
