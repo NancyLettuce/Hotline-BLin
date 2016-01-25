@@ -66,7 +66,8 @@ public abstract class Monster{
         types.add("askPrime");
         types.add("askProduct");
         types.add("askSort");
-        types.add("askArtist");
+	types.add("askConvert");
+        types.add("askDecimal");
         map.put("\"The Water Lily Pond\"", "Claude Monet");
         map.put("Ballet Rehearsal", "Edgar Degas");
         map.put("\"The Basket of Apples\"", "Paul Cezanne");
