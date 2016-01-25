@@ -716,7 +716,117 @@ public class Hotline {
     	return true;
     }
     
-    
+    public boolean questTwo() {
+    	String s;
+    	String b; 
+		s = "";
+		s += "Choose the Character you wish to continue playing as: \n";
+		s += "BLin is present for the first and second quest.\n";
+		s += "All other characters are only present for the second quest.\n";
+		s += "A few have special, hidden talents that may aid you on the quest.\n";
+		s += "\t1: BLin: Our main character. You may choose his skill.\n";
+		s += "\t2: Drake: He is skilled in Math.\n";
+		s += "\t3: MooCow: He is skilled in CS.\n";
+		s += "\t4: Mr.Brown: He is skilled in CS.\n";
+		s += "\t5: Ernie: He is skilled in Art Appreciation.\n";
+		s += "\t6: Alice: She is skilled in Art Appreciation.\nSelection: ";
+		System.out.print(s);
+			
+		try {
+		    hero = Integer.parseInt( in.readLine() );
+		    if (hero == 1) {//If choose BLin
+			b = "Think of the subject you are the most capable in:\n";
+			b += "\t1: CS\n";
+			b += "\t2: Math\n";
+			b += "\t3: Art Appreciation\n";
+			b += "Selection: ";
+			System.out.print( b );
+				
+			try {
+			    vocation = Integer.parseInt( in.readLine() );
+			    if (vocation == 1 ){//BLin with CS skill
+				player = new BLinCS( );
+			    }
+			    else if (vocation == 2 ){//BLin with Math skill
+				player = new BLinMath( );
+			    }
+			    else if (vocation == 3 ){//BLin with Art Appreciation skill
+				player = new BLinArt( );
+			    }
+			}
+			catch ( IOException e ) { 
+			    player  = new BLinCS();
+			}
+			//System.out.println(player.about());	
+			System.out.println("Onwards to assembling a team!");
+			/////HERE WE WILL HAVE FLOOR CHOICES
+		    }
+			
+		    else if (hero == 2) {//if choose Drake
+			player = new Drake();
+			//System.out.println(player.about());
+		    }
+		    else if (hero == 3) {//if choose MooCow
+			player = new MooCow();
+			//System.out.println(player.about());
+		    }
+				
+		    else if (hero == 4) {//if choose Mr.Brown
+			player = new MrBrown();
+			//System.out.println(player.about());
+		    }
+				
+		    else if (hero == 5) {//if choose Ernie
+			player = new Ernie();
+			//System.out.println(player.about());
+		    }
+				
+		    else if (hero == 6) {//if choose Alice
+			player = new Alice();
+			//System.out.println(player.about());
+		    }
+		}
+		catch ( IOException e ) {
+		    player = new BLinCS();
+		}
+		System.out.println(player.about());
+
+    	String story = "Quest 2: Second Floor.";
+    	story += "Who would you like to play as now?";
+    	story += "\n"+ "depending on who you choose, your next journey may be easier.";
+    	story += "\n Who would you like to choose?";
+		System.out.println(story);
+		pressAnyKeyToContinue();
+		story = "Your next journey is to go to the Riker's Island where BLin's damsel in distress is sorrowfully awaiting.";
+		/* if(onTeam("Alice")) {
+			story += "Alice had been walking up the broken escalators, when she noticed something.";
+			story += "\nThere was a step that was missing, and in is place was a hole.";
+			story += "\n'I wonder what's below these floors?' she wondered.";
+			story += "\nThen she fell.";
+			story += "\nAnd fell.";
+			story += "\nAnd fell.";
+			System.out.println(story);
+			pressAnyKeyToContinue();
+			story = "There was no word from Alice for a few hours.";
+			pressAnyKeyToContinue();
+			story += "\nThen she texted BLin.";
+			story += "\n'OMG GUISE, I found a shortcut to jail!'";//lol
+		}
+		else {
+			story += "\nUnfortunately, you missed the easy way out.";
+			story += "\nYou have to take the traditional route.";
+			story += "\nYou may want to get there by doing something illegal, but we are academically honest to goodness.";
+			story += "\nIn order to pay for your boat ticket to Riker's Island, you need a job.";
+			story += "\nWhat's the perfect job for a group of teenagers looking to earn monday to travel to jail?";
+			story += "\nA museum curator.";
+			System.out.println(story);
+			pressAnyKeyToContinue();
+			story = "\nIn order to get the job, you first have to answer several questions related to famous paintings";
+			pressAnyKeyToContinue();
+		}
+		*/
+		return true;//placeholderto compile
+}
     
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
