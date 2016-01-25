@@ -164,19 +164,19 @@ public class Hotline {
 	catch ( IOException e ) {
 	    System.out.print("Your Move does not exist");
 	}
-	if (i == 1) {
+	if (i == 1 && gen.types.get(gen.randMethod) == "quadratic" || gen.types.get(gen.randMethod) == "askDecimal" || gen.types.get(gen.randMethod) == "askArtist") {
 	    System.out.println("You used " + player.moves.get(0));
 	    System.out.print("The result of your move is: ");
 	    player.specialOne(gen.b, gen.number);
 	    System.out.println(player.answer); //initialized in Character.java
 	}
-	else if (i ==2) {
+	else if (i ==2 && gen.types.get(gen.randMethod) == "askPrime" || gen.types.get(gen.randMethod) == "askConversion") {
 	    System.out.println("You used " + player.moves.get(1));
 	    System.out.print("The result of your move is: ");
 	    player.specialTwo(gen.number, gen.b);
 	    System.out.println(player.answer); //initialized in Character.java
 	}
-	else if (i == 3) {
+	else if (i == 3 && gen.types.get(gen.randMethod) == "askRoot" || gen.types.get(gen.randMethod) == "askProduct") {
 	    System.out.println("You used " + player.moves.get(2));
 	    System.out.print("The result of your move is: ");
 	    player.specialThree(gen.a, gen.num, gen.data);
