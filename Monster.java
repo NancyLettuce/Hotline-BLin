@@ -2,33 +2,34 @@ import java.io.*;
 import java.util.*;
 
 public abstract class Monster{
+    
     //Basic properties of all characters.
     public int HP;
     public int def;
     public int str;
-    
+
     //properties
     int strInitial = 0;
     int defInitial = 0;
     int hpInitial = 0;
     //end of properties
-
+    
     //for asking questions==================================================
     protected final static String DIGITS = "0123456789ABCDEF";
     public ArrayList<String> types;//no real use, just to track methods
     private Map<String, String> map = new HashMap<String, String>();
     private ArrayList<String> names;
     private ArrayList<String> works;
-    
     public ArrayList<Integer> data; //for sorting
-    private ArrayList<Integer> holder;//to copy data
-    
+    private ArrayList<Integer> holder;
     int random = -1; //randomly generated number 
     int randMethod = -1; //number to keep track of methods
     
     //stores answer choices
     private String choice;
 
+    //protected int a = (int) (Math.random()*5+1);//correct answer for the math find root question
+    //protected int b = (int) (Math.random()*38+2);//correct answer for the math isPrime question
     protected int a; //stores answers
     protected int num; //stores answers
     protected String b; //int a in String form (because desperation)
@@ -37,9 +38,9 @@ public abstract class Monster{
     
     private String title; //should store the thing you are looking for
     //for artists, stores painting names
+
     protected String sorted;//correct answer for sorted array
     protected int correctArt; //stores correct answer;
-
     //====for clues==================================================
     protected ArrayList<String> alice;
     protected ArrayList<String> drake;
@@ -57,7 +58,7 @@ public abstract class Monster{
     
     //constructor
     public Monster() {
-	HP = 200;
+        HP = 200;
         def = 200;
         str = 20;
         types = new ArrayList<String>();
@@ -65,20 +66,20 @@ public abstract class Monster{
         types.add("askRoot");
         types.add("askPrime");
         types.add("askProduct");
+        //types.add("askArtist"); This will be a special round
         types.add("askSort");
-	types.add("askConvert");
         types.add("askDecimal");
+        types.add("askConversion");
         map.put("\"The Water Lily Pond\"", "Claude Monet");
         map.put("Ballet Rehearsal", "Edgar Degas");
         map.put("\"The Basket of Apples\"", "Paul Cezanne");
         map.put("\"By the Seashore\"", "Pierre Renoir");
-        map.put("\"The Potato Eaters\"", "Vincent van Gogh");
+        map.put("\"The Potato Eaters\"", "Vincent van Gogh");//5
         map.put("\"The Persistence of Memory\"", "Salvador Dali");
         map.put("Canvas Covered in Paint Drops", "Jackson Pollock");
         map.put("\"Portrait of Adele Bloch-Bauer\"", "Gustave Klimt");
         map.put("The son of Man", "Rene Magritte");
-        map.put("Fruits", "Paul Cezanne");
-	        map.put("Knight, Devil, and Death", "Albrecht Durer");//10
+        map.put("Knight, Devil, and Death", "Albrecht Durer");//10
         map.put("\"Girl with a Pearl Earring\"", "Johannes Vermeer");
         map.put("chubby naked ladies", "Peter Paul Rubens");
         map.put("\"The Third of May\"", "Francisco Goya");
@@ -119,13 +120,18 @@ public abstract class Monster{
         map.put("portraits of people in pain", "Francis Bacon");
         map.put("\"Red Headed Girl in Evening\"", "Modigliani");
         map.put("\"The Hunters in the Snow\"", "Pieter Bruegel the Elder");//50
-
-	alice = new ArrayList<String>(5);    
-        drake = new ArrayList<String>(5);    
-        ernie = new ArrayList<String>(5);        
-        mooCow = new ArrayList<String>(5);        
+        
+        alice = new ArrayList<String>(5);
+        
+        drake = new ArrayList<String>(5);
+        
+        ernie = new ArrayList<String>(5);
+        
+        mooCow = new ArrayList<String>(5);
+        
         mrBrown = new ArrayList<String>(5);
     }
+    
     
     //Dead or alive?
     public boolean isAlive(){
@@ -150,11 +156,10 @@ public abstract class Monster{
         other.HP -= damage;
         return damage;
     }
-
-
+    
     //asking questions ================================================
     
-    //arrayList of artist names
+     //arrayList of artist names
     public void listOfNames() {
         names = new ArrayList<String>(map.values());
         //ArrayList names populated with keySet();
@@ -164,11 +169,11 @@ public abstract class Monster{
         works = new ArrayList<String>(map.keySet());
         //ArrayList works populated with values of dictionary map
     }
-
-//MATH    
-    //====prime====================
+  
+//=====MATH THINGS==============    
     public void askPrime() {
-	a = (int) (Math.random()*38+2);
+        //b = (int) (Math.random()*38+2);
+        a = (int) (Math.random()*38+2);
         b = Integer.toString(a);
         System.out.println("Is "+ a +" prime?");//used to be b
         System.out.println("\t1. True");
@@ -176,38 +181,37 @@ public abstract class Monster{
     }
     
     public boolean isPrime(int p) {
-	if (p == 1) {
-	    return false;
-	}
-	if (p == 2) {
-	    return true;
-	}
-	for (int i = 2; i <= Math.sqrt(p) + 1; i++) {
-	    if (p % i == 0) {
-		return false;
-	    }
-	}
-	return true;
-    } 
-
-    //=======root===============
+            if (p == 1) {
+                return false;
+            }
+            if (p == 2) {
+                return true;
+            }
+            for (int i = 2; i <= Math.sqrt(p) + 1; i++) {
+                if (p % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+    } //end isPrime
+    
+        //====================================
     public void askRoot() {
         a = (int) (Math.random()*5+1);
         b = Integer.toString(a);
         System.out.println("Find a root of the quadratic:");
         System.out.println("\tx^2+"+2*a+"x"+"+"+a*a);
-    }
+    }//end askRoot
     
-    //======product==============
+    ///
     public void askProduct() {
         a = (int) (Math.random()*50+1);
         num = (int) (Math.random()*5+1);
         //num is an int
         System.out.println("Find "+a+" times " +num+":");
-    }//end askRoot
-
-//CS    
-    //=========sort==============================
+    }//end askProduct
+    
+//=============CS THINGSSSSS========================
     //CS array generator
     public void populate(int size, int lo, int hi) {
     	data = new ArrayList<Integer>(size);
@@ -230,19 +234,18 @@ public abstract class Monster{
     private void sort() {
         holder = new ArrayList<Integer>(data);
         int pass = 0; //index of next value to be compared
-	while (pass < holder.size()) {
-	    //separates sorted from unsorted
-	    for( int i = pass; i > 0; i-- ) {
-		// swap the numbers if they are not in order
-		if ( holder.get(i).compareTo( holder.get(i-1) ) < 0 ) {
-		    holder.set( i, holder.set( i-1, holder.get(i) ) ); 
+		while (pass < holder.size()) {
+		    //separates sorted from unsorted
+		    for( int i = pass; i > 0; i-- ) {
+			// swap the numbers if they are not in order
+			if ( holder.get(i).compareTo( holder.get(i-1) ) < 0 ) {
+			    holder.set( i, holder.set( i-1, holder.get(i) ) ); 
+			}
+			else 
+			    break; 
+		    }
+		    pass ++;
 		}
-		else {
-		    break;
-		}
-	    }
-	    pass ++;
-	}
     }
     
     private void string() {
@@ -252,6 +255,7 @@ public abstract class Monster{
         }
         sorted = sorted.substring(0,sorted.length()-1);
     }
+    
     //======decimal question=======
     public void askDecimal() {
         a = (int)(Math.random() * 14) + 2;
@@ -267,27 +271,27 @@ public abstract class Monster{
     }
     
     public boolean isDecimal(String hi, int base) {
-	int dec = 0;
-	int power = 0;
-	String ans ="";
-	if (base == a) {//the bases must be the same
-	    for (int ctr = 0; ctr < number.length(); ctr ++ ) {
-		power = number.length() - ctr - 1;
-		//ctr and power increment at opposite ends
-		dec += (DIGITS.indexOf(number.substring(ctr,ctr+1))
+   		int dec = 0;
+		int power = 0;
+		String ans ="";
+		if (base == a) {//the bases must be the same
+    		for (int ctr = 0; ctr < number.length(); ctr ++ ) {
+    		    power = number.length() - ctr - 1;
+    		    //ctr and power increment at opposite ends
+    		    dec += (DIGITS.indexOf(number.substring(ctr,ctr+1))
     			//goes through each char in string s
     			//returns corresponding index of char in string HEXDIGITS
     			* Math.pow(a, power));//number multiplied by base raised to th correct power
-	    }
-	}
-	ans += dec;
-	System.out.println(ans);
-	if (ans.compareTo(hi) == 0) {
-	    return true;
-	}
-	return false;
+    		}
+		}
+		ans += dec;
+		System.out.println(ans);
+		if (ans.compareTo(hi) == 0) {
+		    return true;
+		}
+		return false;
     }
-
+    
     //====conversion question=======
     //convert from decimal into other bases
     public void askConversion() {
@@ -304,16 +308,15 @@ public abstract class Monster{
         base = a;//the base
         String ret = "";
         while (h > 0){
-	    ret = DIGITS.substring(h%base, (h%base)+1) + ret;
-	    //ret is the hexdigit whose index corresponds with the remainder of n%16
-	    h /= base;
-	    //n divided by 16 each time until it reaches 0
-	}
+		ret = DIGITS.substring(h%base, (h%base)+1) + ret;
+		//ret is the hexdigit whose index corresponds with the remainder of n%16
+		h /= base;
+		//n divided by 16 each time until it reaches 0
+	    }
         return ret;
     }
-
-//ART    
-    //===========art=============
+    
+//=====ART THINGSSSSS==================================
     public void askArtist() {
         ArrayList<String> nameCopy = names;//copy of names
         ArrayList<String> titleCopy = works;//copy of works
@@ -351,7 +354,7 @@ public abstract class Monster{
             A = answerChoices.get(random);//artist name
             System.out.println("\t1." + A);
             answerChoices.remove(answerChoices.get(random));//removes to avoid repetition
-            //basically the same code repeated
+            
             random = (int)(Math.random() * (answerChoices.size()-1));
             B = answerChoices.get(random);
             System.out.println("\t2." + B);
@@ -365,6 +368,7 @@ public abstract class Monster{
             random = (int)(Math.random() * (answerChoices.size()-1));
             D = answerChoices.get(random);
             System.out.println("\t4." + D);
+            //no new line here please
             
         }
         
@@ -382,21 +386,25 @@ public abstract class Monster{
         else if (map.get(title) == D) {
             correctArt = 4;
         }
-        b = Integer.toString(correctArt);   
+        b = Integer.toString(correctArt);
+            
     }
     
     // more multiple choice questions with similar structure
     public void askQuestion() {
-	int size = (int)(Math.random() * 10) + 2;//used in populate
+        int size = (int)(Math.random() * 10) + 2;//used in populate
         int hi = (int)(Math.random() * 100);//used in populate
         int lo = (int)(Math.random() * 10);//used in populate
         randMethod = (int)(Math.random() * types.size());
-        listOfNames();
-        listOfWorks();
-	populate(size, lo, hi);//populates array
+        listOfNames();//creates list of artist names
+        listOfWorks();//creates list of works
+        populate(size, lo, hi);//populates array
         sort();
         string();//answer with sorted array
-        //System.out.println(types.get(randMethod));
+        /*
+        if (types.get(randMethod) == "askArtist") { Part of curator thing now
+            askArtist();
+        }*/ 
         if (types.get(randMethod) == "askRoot") {
             askRoot();
         }
@@ -406,20 +414,22 @@ public abstract class Monster{
         else if (types.get(randMethod) == "askSort") {
             askSort();
         }
-	else if (types.get(randMethod) == "askProduct") {
+        else if (types.get(randMethod) == "askProduct") {
             askProduct();
         }
-	else if (types.get(randMethod) == "askDecimal") {
+        else if (types.get(randMethod) == "askDecimal") {
             askDecimal();
         }
         else if (types.get(randMethod) == "askConversion") {
             askConversion();
         }
+        
     }
+    
     public void askArtQuestion() {
         listOfNames();//creates list of artist names
         listOfWorks();//creates list of works
         askArtist();
     }
-}
 
+}

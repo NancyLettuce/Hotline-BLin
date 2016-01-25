@@ -1,24 +1,24 @@
 import java.io.*;
 import java.util.*;
 
-
 public class BLinArt extends Character implements ArtKid {
-    private Map<String, String> map = new HashMap<String, String>();
-
-    public BLinArt() {
-	super();
-	HP = 50;
-	def = 10;
-	str = 10;
-	type = "art";
-	talent = "lol";
-	name = "BLin";
-	moves = new ArrayList<String>();
-        moves.add("Art");
-	moves.add("Directly Answer");
-	answer = "Where is your answer";
 	
-	map.put("\"The Water Lily Pond\"", "Claude Monet");
+	private Map<String, String> map = new HashMap<String, String>();
+    
+    public BLinArt() {
+		super();
+		HP = 50;
+		def = 10;
+		str = 10;
+		type = "art";
+		talent = "lol";
+		name = "BLin";
+		moves = new ArrayList<String>();
+		moves.add("Art");
+		moves.add("Directly Answer");
+		
+
+        map.put("\"The Water Lily Pond\"", "Claude Monet");
         map.put("Ballet Rehearsal", "Edgar Degas");
         map.put("\"The Basket of Apples\"", "Paul Cezanne");
         map.put("\"By the Seashore\"", "Pierre Renoir");
@@ -68,18 +68,19 @@ public class BLinArt extends Character implements ArtKid {
         map.put("portraits of people in pain", "Francis Bacon");
         map.put("\"Red Headed Girl in Evening\"", "Modigliani");
         map.put("\"The Hunters in the Snow\"", "Pieter Bruegel the Elder");//50
-    }
+	}
 	
     public String about() {
-        String story = "Despite the fact that you draw cooked stick figures, you love art.\n";
-	story += "Your knowledge of art may come in handy to your teammates.\n";
-	return story;
-    }
+		String story = "\nDespite the fact that you draw crooked stick figures, you love art.\n";
+		story += "Your knowledge of art may come in handy to your teammates.\n";
 
+		return story;
+    }
+    
     public String specialOne(String a, String b) {
     	answer = a;
     	return answer;
     }
     
-    
+
 }

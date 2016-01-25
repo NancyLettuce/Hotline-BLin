@@ -2,31 +2,31 @@ import java.util.ArrayList;
 
 public class Drake extends Character implements MathKid {
 	
-    public Drake() {
-	super();
-	HP = 100;
-	def = 10;
-	str = 20;
-	type = "math";
-	talent = "Only Character skilled in math";
-	name = "Drake";
-	moves = new ArrayList<String>();
-	moves.add("Quadratic");
-	moves.add("Prime");
-	moves.add("Multiply");
-	moves.add("Directly Answer");
-	answer = "Where is your answer";
-    }
+	public Drake() {
+		super();
+		HP = 100;
+		def = 10;
+		str = 20;
+		type = "math";
+		talent = "Only Character skilled in math";
+		name = "Drake";
+		answer = "Where is your answer";
+		moves = new ArrayList<String>();
+		moves.add("Move1");
+		moves.add("Move2");
+		moves.add("Move3");
+		moves.add("Directly Answer");
+	}
 	
     public String about() {
-	String story = "\nYour name is Drake.\n";
-	story += "Despite a lucrative stint in the music industry, your true calling is math.\n";
-	story += "BLin recruited you after a touching recount of his love story in an appeal to pathos.\n";
-	story += "Now you are ready to help him and the rest of the squad find Rubik's Cube\n";
-	return story;
+		String story = "\nYour name is Drake.\n";
+		story += "Despite having a lucrative occupation in the music industry, your true calling is math.\n";
+		story += "BLin recruited you after a touching recount of his love story in an appeal to pathos.\n";
+		story += "Now you are ready to help him and the rest of the squad find Rubik's Cube\n";
+		return story;
     }
-
-    //roots
+    
+    
     public String specialOne(String a, String b) {
     	//we don't need b here
     	//b in this case is gen.num which we don't want
@@ -55,6 +55,14 @@ public class Drake extends Character implements MathKid {
         }
         answer = "true";
         return answer;
+    }
+    
+    //multiply
+    public String specialThree(int a, int b, ArrayList<Integer> data) {
+        //data not needed
+    	int ans = a * b;
+    	answer = Integer.toString(ans);
+    	return answer;
     }
     
     

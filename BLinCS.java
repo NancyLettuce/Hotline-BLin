@@ -25,13 +25,13 @@ public class BLinCS extends Character implements CSKid {
 	return story;
     }
 
+    
     //convert to Decimal from any base
     public String specialOne(String a, String b) {
 	//String a is the number being converted to base 10
 	//String b is the base it is being converted from
 	int base = Integer.parseInt(a);
 	String s = b;
-	String answer ="";
 	int dec = 0;
 	int power = 0;
 	for (int ctr = 0; ctr < s.length(); ctr ++ ) {
@@ -40,12 +40,12 @@ public class BLinCS extends Character implements CSKid {
 	    dec += (DIGITS.indexOf(s.substring(ctr,ctr+1))
 		    //goes through each char in string s
 		    //returns corresponding index of char in string HEXDIGITS
-		    * Math.pow(base, power));
-	    //number multiplied by base raised to the correct power
+		    * Math.pow(base, power));//number multiplied by base raised to th correct power
 	}
-        answer = Integer.toString(dec);
+	answer = Integer.toString(dec);
 	return answer;
     }
+   	
 
     //convert binary to another base(2 to 16)   	   	
     public String specialTwo(String a, String b) {

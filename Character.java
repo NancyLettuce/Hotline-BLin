@@ -12,10 +12,11 @@ public abstract class Character{
     protected String type; //the skill they possess
     protected String talent; //their special talent
     
+    protected final static String DIGITS = "0123456789ABCDEF";
+    
     protected ArrayList<String> moves; //the attacks they can use
     public String answer; //to store answers to the questions
-
-    //constructor
+    
     public Character() {
         HP = 30;
         def = 10;
@@ -33,11 +34,10 @@ public abstract class Character{
     public int getDefense(){
         return def;
     }
-  
     public String getName() {
-	return name;
+	    return name;
     }//end of accessors
-
+    
     public String toString() {//prints out ArrayList moves
         String stuff = "";
         for (int i = 0; i < moves.size(); i ++) {
@@ -45,7 +45,6 @@ public abstract class Character{
         }
         return stuff;
     }
-
     
     public abstract String about();
 
@@ -78,6 +77,8 @@ public abstract class Character{
     }
     
     
+    
+    //
     public int attack (Monster other){
         int damage = (int)( (str * attack) - other.getDefense() );
         if (damage < 0) {
