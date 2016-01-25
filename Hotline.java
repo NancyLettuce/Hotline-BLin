@@ -776,7 +776,7 @@ public class Hotline {
 			}
 			encounter = 5; //reset
 			/////////////////END CLUE
-		        		
+		        System.out.println("Mr.Brown:\n\tWhat is it that everyone desires?");		
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 			try {//to get final clue answer
 			    sc = new Scanner(System.in);
