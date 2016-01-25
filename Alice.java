@@ -1,25 +1,26 @@
 import java.io.*;
 import java.util.*;
 
+
 public class Alice extends Character implements  ArtKid {
-
-    private Map<String, String> map = new HashMap<String, String>();
-    
-    public Alice() {
-	super();
-	HP = 50;
-	def = 5;
-	str = 15;
-	type = "art";
-	name ="Alice";
-	moves = new ArrayList<String>();
-	moves.add("Move1");
-	moves.add("Move2");
-	moves.add("Move3");
-	moves.add("Directly Answer");
-	answer = "Where is your answer";
-
-	map.put("\"The Water Lily Pond\"", "Claude Monet");
+	
+	private Map<String, String> map = new HashMap<String, String>();
+	
+	public Alice() {
+		super();
+		HP = 50;
+		def = 5;
+		str = 15;
+		type = "art";
+		name = "Alice";
+		answer = "Where is your answer";
+		moves = new ArrayList<String>();
+		moves.add("Move1");
+		moves.add("Move2");
+		moves.add("Move3");
+		moves.add("Directly Answer");
+		
+		map.put("\"The Water Lily Pond\"", "Claude Monet");
         map.put("Ballet Rehearsal", "Edgar Degas");
         map.put("\"The Basket of Apples\"", "Paul Cezanne");
         map.put("\"By the Seashore\"", "Pierre Renoir");
@@ -69,22 +70,25 @@ public class Alice extends Character implements  ArtKid {
         map.put("portraits of people in pain", "Francis Bacon");
         map.put("\"Red Headed Girl in Evening\"", "Modigliani");
         map.put("\"The Hunters in the Snow\"", "Pieter Bruegel the Elder");//50
-    }
+	}
 	
     public String about() {
         String alice = "";
-	alice += "\nYour name is Alice.\n";
-	alice += "Although you have a tendency to eat whatever you see, you are highly skilled in art.\n";
-	alice += "BLin recruited you after your heartrending drawing of a Rubik's Cube in the perfect lighting.\n";
-	alice += "Now you are ready to help him and the rest of the squad find your painting model.\n";
-	return alice;
+		alice += "Your name is Alice.\n";
+		alice += "Although you have a tendency to eat whatever you see, you are highly skilled in art.\n";
+		alice += "BLin recruited you after your heartrendering drawing of a Rubik's Cube in the perfect lighting.\n";
+		alice += "Now you are ready to help him and the rest of the squad find your painting model.\n";
+		return alice;
     }
     
-    public String specialOne(String a, String b) {
+	public String specialOne(String a, String b) {
     	return "hi";
     }
-
+    
     public String specialTwo(String a, String b){
     	return "please work";
     }
+    
+
+   	
 }
