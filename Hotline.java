@@ -52,101 +52,100 @@ public class Hotline {
 
     // ~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~~~~~
     
+    
     private static void pressAnyKeyToContinue() {
-    	System.out.println("\n________________________________________________");
-	    System.out.println("Press Enter to continue...");
-	    try {
-          	System.in.read();
-   	    }  
-      	catch(Exception e){
-        }  
+	System.out.println("\n______________________________________________");
+        System.out.println("Press enter to continue...");
+	Scanner keyboard = new Scanner(System.in);
+	keyboard.nextLine();
     }
  	
- 	/*=============================================
+    /*=============================================
       void newGame() -- facilitates info gathering to begin a new game
       pre:  
       post: according to user input, modifies instance var for difficulty 
       and instantiates a Warrior
-    =============================================*/
-    
+      =============================================*/
     public void newGame() {
 
-		String story;
-		String b; //what is displayed if you choose BLin
-		story = "This is Hotline BLin.\n";
-		story += "\n          (.,------...__" +"\n"
-		+"         _.'\"             `."+"\n"
-		+"       .'  .'   `, `. `.    `"+"\n"
-		+"      . .'   .'/''--...__`.  \\"+"\n"
-		+"      . .--.`.  ' \"-.     '.  |"+"\n"
-		+"      ''  .'  _.' .())  .--\":/"+"\n"
-		+"      ''(  \\_\\      '   (()("+"\n"
-		+"      ''._'          (   \\ '"+"\n"
-		+"      ' `.            `--'  '"+"\n"
-		+"       `.:    .   `-.___.'  '"+"\n"
-		+"        `.     .    _  _  .'"+"\n"
-		+"          )       .____.-'"+"\n"
-		+"        .'`.        (--.."+"\n"
-		+"      .' \\  /\\      / /  `."+"\n"
-		+"    .'    \\(  \\    /|/     `."+"\n"
-		+"  .'           \\__/          `."+"\n"
-		+"/      |        o      |      \\"+"\n"
-		+"       |               |      |";
-		System.out.println(story);
-		story = "Starting last week, his girlfriend, Rubik's Cube, has been acting quite distant.\n";
-		story += "She did not return any of his texts, calls, or emails. Then he finally realized: She's missing.\n";
-		System.out.println(story);
-		story = "Here is a picture of the love of his life:\n";
-		pressAnyKeyToContinue();
-		System.out.println(story);
-		story = "    ___ ___ ___\n" +
-	            "   /___/___/___/|\n" +
-	            "  /___/___/___/||\n" +
-            	" /___/___/__ /|/|\n" +
-	            "|   |   |   | /||\n" +
-	            "|___|___|___|/|/|\n" +
-	            "|   |   |   | /||\n" +
-            	"|___|___|___|/|/\n" +
-            	"|   |   |   | /\n" +
-	            "|___|___|___|/\n";
-		System.out.println(story);
-		pressAnyKeyToContinue();
-		story = "\nMission: Help BLin find his true love, which will also magically guarantee his acceptance to his dream school, MIT.";
-		System.out.println(story);
-		pressAnyKeyToContinue();
-		story = "Quest 1: Gather a team.";
-		System.out.println(story);
-		pressAnyKeyToContinue();
+	String story;
+	String b; //what is displayed if you choose BLin
+	story = "This is Hotline BLin.\n";
+	story += "\n          (.,------...__" +"\n"
+	    +"         _.'\"             `."+"\n"
+	    +"       .'  .'   `, `. `.    `"+"\n"
+	    +"      . .'   .'/''--...__`.  \\"+"\n"
+	    +"      . .--.`.  ' \"-.     '.  |"+"\n"
+	    +"      ''  .'  _.' .())  .--\":/"+"\n"
+	    +"      ''(  \\_\\      '   (()("+"\n"
+	    +"      ''._'          (   \\ '"+"\n"
+	    +"      ' `.            `--'  '"+"\n"
+	    +"       `.:    .   `-.___.'  '"+"\n"
+	    +"        `.     .    _  _  .'"+"\n"
+	    +"          )       .____.-'"+"\n"
+	    +"        .'`.        (--.."+"\n"
+	    +"      .' \\  /\\      / /  `."+"\n"
+	    +"    .'    \\(  \\    /|/     `."+"\n"
+	    +"  .'           \\__/          `."+"\n"
+	    +"/      |        o      |      \\"+"\n"
+	    +"       |               |      |";
+	System.out.println(story);
+	story = "Starting last week, his girlfriend, Rubik's Cube, has been acting quite distant.\n";
+	story += "She did not return any of his texts, calls, or emails. Then he finally realized: She's missing.\n";
+	System.out.println(story);
+	story = "Here is a picture of the love of his life:\n";
+	pressAnyKeyToContinue();
+	System.out.println(story);
+	story = "    ___ ___ ___\n" +
+	    "   /___/___/___/|\n" +
+	    "  /___/___/___/||\n" +
+	    " /___/___/__ /|/|\n" +
+	    "|   |   |   | /||\n" +
+	    "|___|___|___|/|/|\n" +
+	    "|   |   |   | /||\n" +
+	    "|___|___|___|/|/\n" +
+	    "|   |   |   | /\n" +
+	    "|___|___|___|/\n";
+	System.out.println(story);
+	pressAnyKeyToContinue();
+	story = "\nMission: Help BLin find his true love, which will also magically guarantee his acceptance to his dream school, MIT.";
+	System.out.println(story);
+	pressAnyKeyToContinue();
+	story = "Quest 1: Gather a team.";
+	System.out.println(story);
+	pressAnyKeyToContinue();
 		
-		b = "Think of the subject you are the most capable in:\n";
-		b += "\t1: CS\n";
-		b += "\t2: Math\n";
-		b += "\t3: Art Appreciation\n";
-		b += "Selection: ";
-		System.out.print( b );
+	b = "Think of the subject you are the most capable in:\n";
+	b += "\t1: CS\n";
+	b += "\t2: Math\n";
+	b += "\t3: Art Appreciation\n";
+	b += "Selection: ";
+	System.out.print( b );
 			
-		try {
-		    vocation = Integer.parseInt( in.readLine() );
-			if (vocation == 1 ){//BLin with CS skill
-				player = new BLinCS( );
-				team.add("BLinCS");
-			}
-			else if (vocation == 2 ){//BLin with Math skill
-				player = new BLinMath( );
-				team.add("BLinMath");
-			}
-			else if (vocation == 3 ){//BLin with Art Appreciation skill
-				player = new BLinArt( );
-				team.add("BLinArt");
-			}
-		}
-		catch ( IOException e ) { 
-			player  = new BLinCS();
-			team.add("BLinCS");
-		}
-		System.out.println(player.about());
-		return;
+	try {
+	    vocation = Integer.parseInt( in.readLine() );
+	    if (vocation == 1 ){//BLin with CS skill
+		player = new BLinCS( );
+		team.add("BLinCS");
+	    }
+	    else if (vocation == 2 ){//BLin with Math skill
+		player = new BLinMath( );
+		team.add("BLinMath");
+	    }
+	    else if (vocation == 3 ){//BLin with Art Appreciation skill
+		player = new BLinArt( );
+		team.add("BLinArt");
+	    }
+	}
+	catch ( IOException e ) { 
+	    player  = new BLinCS();
+	    team.add("BLinCS");
+	}
+	System.out.println(player.about());
+	return;
     }//end newGame()
+
+
 
 
     //=============================================
@@ -863,51 +862,9 @@ public class Hotline {
 
 
     public static void main( String[] args ) {
-    	String story;
-		story = "This is Hotline BLin.\n";
-		story += "\n+          (.,------...__" +"\n"
-		+"         _.'\"             `."+"\n"
-		+"       .'  .'   `, `. `.    `"+"\n"
-		+"      . .'   .'/''--...__`.  \\"+"\n"
-		+"      . .--.`.  ' \"-.     '.  |"+"\n"
-		+"      ''  .'  _.' .())  .--\":/"+"\n"
-		+"      ''(  \\_\\      '   (()("+"\n"
-		+"      ''._'          (   \\ '"+"\n"
-		+"      ' `.            `--'  '"+"\n"
-		+"       `.:    .   `-.___.'  '"+"\n"
-		+"        `.     .    _  _  .'"+"\n"
-		+"          )       .____.-'"+"\n"
-		+"        .'`.        (--.."+"\n"
-		+"      .' \\  /\\      / /  `."+"\n"
-		+"    .'    \\(  \\    /|/     `."+"\n"
-		+"  .'           \\__/          `."+"\n"
-		+"/      |        o      |      \\"+"\n"
-		+"       |               |      |";
-		System.out.println(story);
-		story = "Starting last week, your girlfriend, Rubik's Cube, has been acting quite distant.\n";
-		story += "She did not return your texts, calls, or emails. Then you finally realized: She's missing.\n";
-		story += "Here is a picture of the love of your life:\n";
-		pressAnyKeyToContinue();
-		System.out.println(story);
-		story = "    ___ ___ ___\n" +
-	            "   /___/___/___/|\n" +
-	            "  /___/___/___/||\n" +
-            	" /___/___/__ /|/|\n" +
-	            "|   |   |   | /||\n" +
-	            "|___|___|___|/|/|\n" +
-	            "|   |   |   | /||\n" +
-            	"|___|___|___|/|/\n" +
-            	"|   |   |   | /\n" +
-	            "|___|___|___|/\n";
-		pressAnyKeyToContinue();
-		System.out.println(story);
-		story = "Mission: Help BLin find his true love, which will also magically guarantee his acceptance to his dream school, MIT.";
-		System.out.println(story);
-		pressAnyKeyToContinue();
-		story = "Quest 1: Gather a team.";
-		System.out.println(story);
-		pressAnyKeyToContinue();
-		//loading...
+	System.out.println("Note: We recommend that you expand your terminal.");
+	pressAnyKeyToContinue();
+
 		Hotline game = new Hotline();
 	
 		int encounters = 0;
