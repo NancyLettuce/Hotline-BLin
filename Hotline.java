@@ -498,15 +498,18 @@ public class Hotline {
 		    storyline += "But you cannot stay to admire the view.";
 		        	
 		    System.out.println(storyline);
+		    pressAnyKeyToContinue();
 
 		    storyline = "\nAt the far end of the corridors there emerges the figure of a girl.\n";
 		    storyline += "She is dressed in distinctive blue and white.\n\nAlice: \n";
 		    storyline += "\tHello there. My name is Alice. Who are you and how are you doing?\n";
 		    System.out.println(storyline);
+		    pressAnyKeyToContinue();
 		    response = "Do you wish to choose Alice, or leave in pursuit of Ernie?\n";
 		    response += "\t1: Stay with Alice.\n";
 		    response += "\t2: Ernie is who I really want.\n";
 		    System.out.print(response);
+		    pressAnyKeyToContinue();
 		    //===
 		    try {
 			sc = new Scanner(System.in);
@@ -551,15 +554,18 @@ public class Hotline {
 			//=====
 			System.out.println("Now you turn to Alice");
 			System.out.print("\nBLin: \n"+ response);
+			pressAnyKeyToContinue();
 			System.out.println("Alice: ");
 			storyline = "\tWell, My fall down the rabbit hole is nothing compared to the drastic drop\n";
 			storyline += "\tin my grades ever since I began attending Stuy.\n";
 			storyline += "\tI want to help you. In fact I have a lovely drawing of Rubik's Cube.\n";
 			storyline += "\tYou must, however, answer a question.\n";
 			System.out.print(storyline);
+			pressAnyKeyToContinue();
 			System.out.print("BLin:\n\tAnything to facilitate the process!\n");
 			System.out.println("Alice:\n\tOkay. I am thinking of a terrible place. What is its name?");
 			System.out.print("\nBLin:\n\tThat's honestly just a ridiculous question.\n");
+			pressAnyKeyToContinue();
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 			try {
 			    sc = new Scanner(System.in);
@@ -596,10 +602,12 @@ public class Hotline {
 			storyline += "\tHello. It's me. Ernie.\n";
 			storyline += "\tI was wondering if after all these years you have anything to tell me?\n";
 			System.out.print(storyline);
+			pressAnyKeyToContinue();
 		        response = "You gaze upon the face you used to know so well,\n";
 		        response +="amazed at the changes wrought by the unforgiving persistence of time,\n";
 			response +="and can only say one thing...";
 			System.out.println(response);
+			pressAnyKeyToContinue();
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 			try {
 			    sc = new Scanner(System.in);
@@ -627,6 +635,7 @@ public class Hotline {
 		    storyline += "But they are not of your concern right now.\n";
 		    storyline += "You move to quickly find your next ally.\n";
 		    System.out.println(storyline);
+		    pressAnyKeyToContinue();
 	        		
 		    ///THE DROPPING OF THE CLUE
 		    System.out.print("But wait! Darkness gathers in the distance.\n");
@@ -647,12 +656,14 @@ public class Hotline {
 
 		    storyline = "\nDrake:\n\tHey. Who are you? Why are you here.\n";
 		    System.out.print(storyline);
+		    pressAnyKeyToContinue();
 		    response = "\nChoose your response: \n";
 		    response += "\t1: My name is BLin. My girl has been gone for a while.\n";
 		    response += "\tI need your help to find her\n";
 		    response += "\t2: My name is BLin. My girl's been wearing less and going out more these days.\n";
 		    response += "\tNow, she's been kidnapped and my life is meaningless without her.\n";
 		    System.out.println(response);
+		    pressAnyKeyToContinue();
 		    //=====choose dialogue
 		    try {
 			Scanner sca = new Scanner(System.in);
@@ -668,12 +679,14 @@ public class Hotline {
 			response += "\tNow, she's been kidnapped and my life is meaningless without her.\n";
 		    }
 		    System.out.print("BLin: \n"+ response);//print dialogue
+		    pressAnyKeyToContinue();
 		    //=====
 		    storyline = "Drake:\n\tDo not worry. I, too started from the bottom, but now I'm here.\n";
 		    storyline += "\tI understand the struggle of heartbreak.\n";
 		    storyline += "\tI will help you find your love, but you must answer this correctly: \n"; 
 		    storyline += "\tTell me, what is the square root of sixty nine?";
 		    System.out.println(storyline);
+		    pressAnyKeyToContinue();
 		    System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 		    try {
 			sc = new Scanner(System.in);
@@ -695,11 +708,15 @@ public class Hotline {
 		    storyline = "You are now within the CS Department.\n";
 		    storyline = "It is all gleaming metal and rows of computers.\n";
 		    System.out.print(storyline);
+		    pressAnyKeyToContinue();
 		    storyline = "You look to your right and you see your old friend MooCow approaching.\n";
 		    storyline += "\nMooCow:\n\tBLin! How are you doing?\n";
-		    storyline += "\nHere you are, left with the dilemma of the century:\n";
+		    System.out.println(storyline);
+		    pressAnyKeyToContinue();
+		    storyline = "\nHere you are, left with the dilemma of the century:\n";
 		    storyline += "Do you continue in pursuit of Mr.Brown, or do you welcome your friend?\n";
 		    System.out.println(storyline);
+		    pressAnyKeyToContinue();
 		    response = "Your choice:\n\t1: Approach MooCow\n\t2: Forsake him for Mr.Brown\n";
 		    System.out.println(response);
 		    //==
@@ -725,7 +742,7 @@ public class Hotline {
 			}
 			encounter = 5;
 			/////////////////END CLUE
-		        		
+		        System.out.println("How do you feel right now?");		
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 			try {//to get final clue answer
 			    sc = new Scanner(System.in);
