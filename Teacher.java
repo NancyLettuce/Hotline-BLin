@@ -29,17 +29,17 @@ public class Teacher extends Monster {
         ernie.add("Past tense");
         ernie.add("To become different");
 
-	mooCow.add("idk yet");
-        mooCow.add("idk yet");
-        mooCow.add("idk yet");
-        mooCow.add("idk yet");
-        mooCow.add("idk yet");
+	mooCow.add("Confusion");
+        mooCow.add("Slang");
+        mooCow.add("Letters");
+        mooCow.add("I really tried");
+        mooCow.add("Two Words");
         
-        mrBrown.add("idk yet");
-        mrBrown.add("idk yet");
-        mrBrown.add("idk yet");
-        mrBrown.add("idk yet");
-        mrBrown.add("idk yet");
+        mrBrown.add("The stuff of dreams");
+        mrBrown.add("All of our hopes");
+        mrBrown.add("Plural, as a class");
+        mrBrown.add("This project");
+        mrBrown.add("So close to the deadline");
         
         
         aliceAns = "stuyvesant";
