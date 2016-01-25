@@ -258,6 +258,17 @@ public class Hotline {
                 return false;
             }
         }
+        else if (gen.types.get(gen.randMethod) == "askConversion") {
+        	try {
+                Scanner sc = new Scanner(System.in);
+                String ans = sc.nextLine();
+                if (ans.compareTo(gen.conversion(gen.number, gen.a)) ==0) return true;
+                return false;
+            }
+            catch (Exception e) { 
+                return false;
+            }
+        }
         return false;
     }
     

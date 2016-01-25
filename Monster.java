@@ -287,6 +287,30 @@ public abstract class Monster{
 	return false;
     }
 
+    //====conversion question=======
+    //convert from decimal into other bases
+    public void askConversion() {
+        a = (int)(Math.random() * 14) + 2;//base
+        b = Integer.toString(a);
+        num = (int)(Math.random() * 50) + 1;
+        number = Integer.toString(num);
+        System.out.println("Convert decimal number " + number + " into base " + b);
+    }
+    
+    public String conversion(String hi, int base) {
+        hi = number;//the random base nymber
+        int h = Integer.parseInt(hi);
+        base = a;//the base
+        String ret = "";
+        while (h > 0){
+	    ret = DIGITS.substring(h%base, (h%base)+1) + ret;
+	    //ret is the hexdigit whose index corresponds with the remainder of n%16
+	    h /= base;
+	    //n divided by 16 each time until it reaches 0
+	}
+        return ret;
+    }
+
 //ART    
     //===========art=============
     public void askArtist() {
@@ -386,6 +410,12 @@ public abstract class Monster{
         }
 	else if (types.get(randMethod) == "askProduct") {
             askProduct();
+        }
+	else if (types.get(randMethod) == "askDecimal") {
+            askDecimal();
+        }
+        else if (types.get(randMethod) == "askConversion") {
+            askConversion();
         }
     }
 }
