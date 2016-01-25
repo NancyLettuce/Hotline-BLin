@@ -62,9 +62,10 @@ public abstract class Monster{
         types = new ArrayList<String>();
         random = (int)(Math.random() * (types.size()+1));
         types.add("askRoot");
-        types.add("askArtist");
-        types.add("askSort");
         types.add("askPrime");
+        types.add("askProduct");
+        types.add("askSort");
+        types.add("askArtist");
         map.put("\"The Water Lily Pond\"", "Claude Monet");
         map.put("Ballet Rehearsal", "Edgar Degas");
         map.put("\"The Basket of Apples\"", "Paul Cezanne");
@@ -162,7 +163,7 @@ public abstract class Monster{
         //ArrayList works populated with values of dictionary map
     }
 
-    
+//MATH    
     //====prime====================
     public void askPrime() {
 	a = (int) (Math.random()*38+2);
@@ -194,7 +195,16 @@ public abstract class Monster{
         System.out.println("Find a root of the quadratic:");
         System.out.println("\tx^2+"+2*a+"x"+"+"+a*a);
     }
+    
+    //======product==============
+    public void askProduct() {
+        a = (int) (Math.random()*50+1);
+        num = (int) (Math.random()*5+1);
+        //num is an int
+        System.out.println("Find "+a+" times " +num+":");
+    }//end askRoot
 
+//CS    
     //=========sort==============================
     //CS array generator
     public void populate(int size, int lo, int hi) {
@@ -337,6 +347,9 @@ public abstract class Monster{
         }
         else if (types.get(randMethod) == "askSort") {
             askSort();
+        }
+	else if (types.get(randMethod) == "askProduct") {
+            askProduct();
         }
     }
 }

@@ -72,7 +72,7 @@ public abstract class Character{
         return "this reeks of desperation";//why so negative
     }
     
-    public String specialThree(int num, ArrayList<Integer> a) {
+    public String specialThree(int a, int b, ArrayList<Integer> data) {
         return "we messed up";//what happened
         //standardizing signatures rip
     }

@@ -180,7 +180,7 @@ public class Hotline {
 	else if (i == 3) {
 	    System.out.println("You used " + player.moves.get(2));
 	    System.out.print("The result of your move is: ");
-	    player.specialThree(gen.a, gen.data); //initialized in Character.java
+	    player.specialThree(gen.a, gen.num, gen.data);
 	    System.out.println(player.answer); //initialized in Character.java
 	}
 	System.out.print("Enter your answer: ");

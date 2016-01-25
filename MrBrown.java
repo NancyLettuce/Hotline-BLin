@@ -85,8 +85,8 @@ public class MrBrown extends Character implements CSKid {
 	return data;
     }
     
-    public String specialThree(int num, ArrayList<Integer> data) {
-    	//num is not used; signature must be kept constant
+    public String specialThree(int a, int b, ArrayList<Integer> data) {
+    	//a and b not used; signature must be kept constant
         answer = "";
         data = sorting(data);
         for (int i = 0; i < data.size(); i ++) {
