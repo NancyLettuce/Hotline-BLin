@@ -14,12 +14,15 @@ public abstract class Character{
     
     protected ArrayList<String> moves; //the attacks they can use
     public String answer; //to store answers to the questions
-    
-    /*      WHAT IS THIS USED FOR?**********************************************
-    int strInitial = 0;
-    int defInitial = 0;
-    int hpInitial = 0;
-    */
+
+    //constructor
+    public Character() {
+        HP = 30;
+        def = 10;
+        str = 20;
+        name = "hero";
+        attack = .2;
+    }
     
     //Dead or alive?
     public boolean isAlive(){

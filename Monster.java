@@ -54,6 +54,9 @@ public abstract class Monster{
     
     //constructor
     public Monster() {
+	HP = 200;
+        def = 200;
+        str = 20;
         types = new ArrayList<String>();
         random = (int)(Math.random() * (types.size()+1));
         types.add("askRoot");
@@ -318,7 +321,7 @@ public abstract class Monster{
 	populate(size, lo, hi);//populates array
         sort();
         string();//answer with sorted array
-        System.out.println(types.get(randMethod));
+        //System.out.println(types.get(randMethod));
         if (types.get(randMethod) == "askArtist") {
             askArtist();
         }

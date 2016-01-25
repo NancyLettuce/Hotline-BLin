@@ -1,8 +1,6 @@
 /*=============================================
 ************************IMPORTANT*****************************************
-I THINK WE WILL HAVE TO WRITE A HELPER FUNCTION TO ANSWER THE QUESTIONS
-OTHERWISE I WILL DIE FROM NESTED IF STATEMENTS
-IT IS SO CONFUSING TO KEEP TRACK OF OMG
+
   =============================================*/
 
 import java.io.*;
@@ -396,7 +394,7 @@ public class Hotline {
     
     public boolean questOne() {
 	teach = new Teacher();
-    	int encounter = 7;
+    	int encounter = 5;
     	int resp = -1;
     	String storyline="";
     	String response= "";
@@ -439,14 +437,18 @@ public class Hotline {
 		    if (resp == 1) {//if alice
 			///THE DROPPING OF THE CLUE
 			System.out.print("But wait! What is that in the distance?\n");
-			if (battle(teach)==false) {
-			    return false;
+			while (encounter > 0) {
+			    if (battle(teach)==false) {
+				return false;
+			    }
+			    else {
+				teach = new Teacher();//creates new teacher to reset values
+				int randInd = (int) (Math.random()*5);
+				System.out.println("\tClue: " + teach.alice.get(randInd));	     			
+			    }
+			    encounter --;
 			}
-			else {
-			    int randInd = (int) (Math.random()*5);
-			    System.out.println("\tClue: " + teach.alice.get(randInd));
-		        			
-			}
+			encounter = 5;
 			/////////////////END CLUE
 			System.out.print(response);
 			//=====
@@ -492,13 +494,18 @@ public class Hotline {
 		    else if (resp == 2) {//if ernie
 			///THE DROPPING OF THE CLUE
 			System.out.print("But wait! What is that in the distance?\n");
-			if (battle(teach)==false) {
-			    return false;
+			while (encounter > 0) {
+			    if (battle(teach)==false) {
+				return false;
+			    }
+			    else {
+				teach = new Teacher();//creates new teacher to reset values
+				int randInd = (int) (Math.random()*5);
+				System.out.println("\tClue: " + teach.ernie.get(randInd));
+			    }
+			    encounter --;
 			}
-			else {
-			    int randInd = (int) (Math.random()*5);
-			    System.out.println("\tClue: " + teach.ernie.get(randInd));
-			}
+			encounter = 5;//reset
 			//END CLUE 
 			storyline = "You walk furthur down the corridor and come upon Ernie.\n\nErnie:\n";
 			storyline += "\tHello. It's me. Ernie.\n";
@@ -534,13 +541,18 @@ public class Hotline {
 	        		
 		    ///THE DROPPING OF THE CLUE
 		    System.out.print("But wait! What is that in the distance?\n");
-		    if (battle(teach)==false) {
-			return false;
+		    while (encounter > 0) {
+			if (battle(teach)==false) {
+			    return false;
+			}
+			else {
+			    teach = new Teacher();//creates new teacher to reset values
+			    int randInd = (int) (Math.random()*5);
+			    System.out.println("\tClue: " + teach.drake.get(randInd));
+			}
+			encounter --;
 		    }
-		    else {
-			int randInd = (int) (Math.random()*5);
-			System.out.println("\tClue: " + teach.drake.get(randInd));
-		    }
+		    encounter = 5;//reset
 		    //END CLUE 
 		        	
 		    storyline = "Tell me, what is the square root of sixty nine?";
@@ -581,14 +593,18 @@ public class Hotline {
 		    if (resp == 1) {//if MooCow
 			///THE DROPPING OF THE CLUE
 			System.out.print("Do not let down your guard yet.\n");
-			if (battle(teach) ==false) {
-			    System.out.println("whatttt");
-			    return false;
+			while (encounter > 0) {
+			    if (battle(teach) == false) {
+				return false;
+			    }
+			    else {
+				teach = new Teacher();//creates new teacher to reset values
+				int randInd = (int) (Math.random()*5);
+				System.out.println("\tClue: " + teach.mooCow.get(randInd));
+			    }
+			    encounter --;
 			}
-			else {
-			    int randInd = (int) (Math.random()*5);
-			    System.out.println("\tClue: " + teach.mooCow.get(randInd));
-			}
+			encounter = 5;
 			/////////////////END CLUE
 		        		
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
@@ -609,14 +625,19 @@ public class Hotline {
 		    }//end MooCow
 		    else if (resp == 2) {//if Mr Brown
 			///THE DROPPING OF THE CLUE
-			System.out.print("You shake off your guilt at abandoning MooCow\n");
-			if (battle(teach)==false) {
-			    return false;
+			System.out.print("You shake off your guilt at abandoning MooCow.\n");
+			while (encounter > 0) {
+			    if (battle(teach)==false) {
+				return false;
+			    }
+			    else {
+				teach = new Teacher();//creates new teacher to reset values
+				int randInd = (int) (Math.random()*5);
+				System.out.println("\tClue: " + teach.mooCow.get(randInd));
+			    }
+			    encounter --;
 			}
-			else {
-			    int randInd = (int) (Math.random()*5);
-			    System.out.println("\tClue: " + teach.mooCow.get(randInd));
-			}
+			encounter = 5; //reset
 			/////////////////END CLUE
 		        		
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
