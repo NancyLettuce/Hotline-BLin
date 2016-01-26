@@ -15,5 +15,3 @@ BLin’s love life and leave him dateless for Prom. BLin has to complete multipl
 assembling a team among those available, battling opponents and answering questions correctly.
 
 Will BLin be able to save his damsel in distress?
-
-#How to Launch:
