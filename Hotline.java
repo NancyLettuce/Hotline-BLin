@@ -163,6 +163,7 @@ public class Hotline {
 	System.out.print("I wish to: ");
 
 	if (gen instanceof AdmissionsOfficer) {
+	    System.out.println ("what is going on");
 	    try {
 		Scanner please = new Scanner(System.in);
 		i = please.nextInt();
@@ -263,6 +264,7 @@ public class Hotline {
                 return false;
             }
         }
+	/*
         else if (gen.types.get(gen.randMethod) == "askArtist") {
             try {
                 Scanner sc = new Scanner(System.in);
@@ -273,6 +275,7 @@ public class Hotline {
                 return false;
             }
         }
+	*/
         
         else if (gen.types.get(gen.randMethod) == "askPrime") {
             try {
@@ -916,7 +919,8 @@ public class Hotline {
 	System.out.print(s);
 			
 	try {
-	    hero = Integer.parseInt( in.readLine() );
+	    Scanner gg = new Scanner(System.in);
+	    hero = gg.nextInt();
 	    if (hero == 1) {//If choose BLin
 		b = "Think of the subject you are the most capable in:\n";
 		b += "\t1: CS\n";
@@ -926,7 +930,8 @@ public class Hotline {
 		System.out.print( b );
 				
 		try {
-		    vocation = Integer.parseInt( in.readLine() );
+		    Scanner help  = new Scanner(System.in);
+		    vocation = help.nextInt();
 		    if (vocation == 1 ){//BLin with CS skill
 			player = new BLinCS( );
 		    }
@@ -940,7 +945,7 @@ public class Hotline {
 			player  = new BLinCS();
 		    }
 		}
-		catch ( IOException e ) { 
+		catch ( Exception e ) { 
 		    player  = new BLinCS();
 		}
 		//System.out.println(player.about());	
@@ -977,7 +982,7 @@ public class Hotline {
 	    }
 	    
 	}
-	catch ( IOException e ) {
+	catch ( Exception e ) {
 	    player = new BLinCS();
 	}
 	System.out.println(player.about());
