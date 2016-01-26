@@ -123,7 +123,8 @@ public class Hotline {
 	System.out.print( b );
 			
 	try {
-	    vocation = Integer.parseInt( in.readLine() );
+	    Scanner stuff = new Scanner(System.in);
+	    vocation = stuff.nextInt();
 	    if (vocation == 1 ){//BLin with CS skill
 		player = new BLinCS( );
 		team.add("BLinCS");
@@ -141,7 +142,7 @@ public class Hotline {
 		team.add("BLinCS");
 	    }
 	}
-	catch ( IOException e ) { 
+	catch ( Exception e ) { 
 	    player  = new BLinCS();
 	    team.add("BLinCS");
 	}
@@ -165,7 +166,7 @@ public class Hotline {
 	    try {
 		i = Integer.parseInt( in.readLine() ); 
 	    }
-	    catch (IOException e) { 
+	    catch (Exception e) { 
                 System.out.println("Your move does not exist");
             }
 	    if (i == 1) {
@@ -173,17 +174,22 @@ public class Hotline {
 		    System.out.println("You chose to directly answer");
 		}
 		else {
-		    System.out.println("You used " + player.moves.get(0));
+		    //System.out.println("You used " + player.moves.get(0));
 		    System.out.print("The result of your move is: ");
 		    player.specialOne(gen.b, gen.number);
 		    System.out.println(player.answer); //initialized in Character.java
 		}
 	    }
 	    else if (i == 2) {
-		System.out.println("You used " + player.moves.get(0));
-		System.out.print("The result of your move is: ");
-		player.specialOne(gen.b, gen.number);
-		System.out.println(player.answer); //initialized in Character.java
+		if (player instanceof BLinArt) {
+		    System.out.println("You used " + player.moves.get(1));
+		}
+		else {
+		    System.out.println("You used " + player.moves.get(1));
+		    System.out.print("The result of your move is: ");
+		    player.specialOne(gen.b, gen.number);
+		    System.out.println(player.answer); //initialized in Character.java
+		}
 	    }
 	    else if (i == 3) {
 		System.out.println("You used " + player.moves.get(2));
@@ -191,16 +197,19 @@ public class Hotline {
 		player.specialThree(gen.a, gen.num, gen.data); //initialized in Character.java
 		System.out.println(player.answer); 
 	    }
-	    else  {
+	    else if (i ==4) {
+		System.out.println("You used " + player.moves.get(2));
+		System.out.println("You chose to directly answer");
+	    }	    
+	    else {
 		System.out.println("You chose to directly answer");
 	    }
-	    
 	}
 	else {
 	    try {
 		i = Integer.parseInt( in.readLine() );
 	    }
-	    catch ( IOException e ) {
+	    catch ( Exception e ) {
 		System.out.print("Your Move does not exist");
 	    }
 	    if (i == 1 && gen.types.get(gen.randMethod) == "askRoot" || gen.types.get(gen.randMethod) == "askDecimal" || gen.types.get(gen.randMethod) == "askArtist") {
