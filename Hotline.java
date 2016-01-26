@@ -696,7 +696,6 @@ public class Hotline {
 			    encounter --;
 			}
 			encounter = 5;//reset
-			pressAnyKeyToContinue();
 			//END CLUE 
 			storyline = "You walk furthur down the corridor and come upon Ernie.\n\nErnie:\n";
 			storyline += "\tHello. It's me. Ernie.\n";
@@ -756,7 +755,7 @@ public class Hotline {
 			encounter --;
 		    }
 		    encounter = 5;//reset
-		    pressAnyKeyToContinue();
+
 		    //END CLUE
 
 		    storyline = "\nDrake:\n\tHey. Who are you? Why are you here.\n";
@@ -854,7 +853,7 @@ public class Hotline {
 			    encounter --;
 			}
 			encounter = 5;
-			pressAnyKeyToContinue();
+		        
 			/////////////////END CLUE
 		        storyline = "MooCow:\n\tLong time no see old friend.\n";
 			storyline += "\tI've heard about your plight, and I want to help.\n";
