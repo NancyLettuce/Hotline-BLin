@@ -32,6 +32,7 @@ public class Hotline {
     
     private int vocation = 0;
     public ArrayList<String> team = new ArrayList<String>();
+    public String role;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -967,19 +968,24 @@ public class Hotline {
 		    Scanner help  = new Scanner(System.in);
 		    vocation = help.nextInt();
 		    if (vocation == 1 ){//BLin with CS skill
+			role = "BLinCS";
 			player = new BLinCS( );
 		    }
 		    else if (vocation == 2 ){//BLin with Math skill
+			role = "BLinMath";
 			player = new BLinMath( );
 		    }
 		    else if (vocation == 3 ){//BLin with Art Appreciation skill
+			role = "BLinArt";
 			player = new BLinArt( );
 		    }
 		    else {
+			role = "BLinCS";
 			player  = new BLinCS();
 		    }
 		}
-		catch ( Exception e ) { 
+		catch ( Exception e ) {
+		    role = "BLinCS";
 		    player  = new BLinCS();
 		}
 		//System.out.println(player.about());	
@@ -988,35 +994,42 @@ public class Hotline {
 	    }
 			
 	    else if (hero == 2) {//if choose Drake
+		role = "Drake";
 		player = new Drake();
 		team.add("Drake");
 	    }
 	    else if (hero == 3) {//if choose MooCow
+		role = "MooCow";
 		player = new MooCow();
 		team.add("MooCow");
 	    }
 				
 	    else if (hero == 4) {//if choose Mr.Brown
+		role = "Mr.Brown";
 		player = new MrBrown();
 		team.add("MrBrown");
 	    }
 				
 	    else if (hero == 5) {//if choose Ernie
+		role = "Ernie";
 		player = new Ernie();
 		team.add("Ernie");
 	    }
 				
 	    else if (hero == 6) {//if choose Alice
+		role = "Alice";
 		player = new Alice();
 		team.add("Alice");
 	    }
 	    else {
+		role = "Drake";
 		player = new Drake();
 		team.add("Drake");
 	    }
 	    
 	}
 	catch ( Exception e ) {
+	    role = "BLinCS";
 	    player = new BLinCS();
 	}
 	System.out.println(player.about());
@@ -1025,7 +1038,12 @@ public class Hotline {
     	String story = "Quest 2: An Epic Journey.\n";
     	story += "BLin:\n\tOkay Team. We are looking for Rubik's Cube.\n";
 	System.out.print(story);
-	System.out.println(team.get(0) +":\n\tThere's always the option of buying another one.");
+	if (team.size() > 3) {
+	    System.out.println(team.get(3) +":\n\tThere's always the option of buying another one.");
+	}
+	else {
+	    System.out.println(team.get(0) +":\n\tThere's always the option of buying another one.");
+	}
 	story = "Drake:\n\tThat's disloyal. You can't just buy another Rubik's Cube.\n";
 	story += "\tYou find yourself one and then you cherish it.";
 	System.out.print(story);

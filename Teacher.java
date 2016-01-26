@@ -17,35 +17,35 @@ public class Teacher extends Monster {
         alice.add("RIP my grades");
         alice.add("Where hopes and dreams go to die");
         
-        drake.add("He is a famous singer");
-        drake.add("He was featured on a Rihanna song");
+        drake.add("Drake is a famous singer");
+        drake.add("Drake was once featured on a Rihanna song");
         drake.add("Pure, lyrical genius");
         drake.add("Revolutionary math");
         drake.add("Thinking outside of the box");
         
         ernie.add("The only constant in life is change");
-        ernie.add("Second term senior");
+        ernie.add("Second term seniors");
         ernie.add("The aftermath of college acceptance");
-        ernie.add("Past tense");
+        ernie.add("Two words, one of which is a contraction");
         ernie.add("To become different");
 
 	mooCow.add("Confusion");
         mooCow.add("Slang");
-        mooCow.add("Letters");
-        mooCow.add("I really tried");
-        mooCow.add("Two Words");
+        mooCow.add("The answer is ever elusive");
+        mooCow.add("The futility of life");
+        mooCow.add("Three words encapsulated in one");
         
         mrBrown.add("The stuff of dreams");
         mrBrown.add("All of our hopes");
         mrBrown.add("Plural, as a class");
         mrBrown.add("This project");
-        mrBrown.add("So close to the deadline");
+        mrBrown.add("Everything I've ever wanted");
         
         
         aliceAns = "stuyvesant";
         drakeAns = "8 something";
         ernieAns = "you've changed";
-        mooAns = "idk yet";
+        mooAns = "idk";
         brownAns = "please pass us";
     }
     //you can choose to answer question or to attack normally
