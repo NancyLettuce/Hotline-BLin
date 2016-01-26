@@ -136,6 +136,10 @@ public class Hotline {
 		player = new BLinArt( );
 		team.add("BLinArt");
 	    }
+	    else {
+		player = new BLinCS( );
+		team.add("BLinCS");
+	    }
 	}
 	catch ( IOException e ) { 
 	    player  = new BLinCS();
@@ -367,7 +371,9 @@ public class Hotline {
 		    System.out.print("\t1: Attack\n\t2: Special\nSelection: " );
 		    i = Integer.parseInt( in.readLine() );
 		}
-		catch ( IOException e ) { }
+		catch ( IOException e ) {
+		    i = 1;
+		}
 		if ( i == 2 )
 		    player.specialize();
 		else
@@ -392,7 +398,9 @@ public class Hotline {
 			    System.out.println("\t1: Attack\n\t2: Special\nSelection: " );
 			    i = Integer.parseInt( in.readLine() );
 			}
-			catch ( IOException e ) { }
+			catch ( IOException e ) {
+			    i = 1;
+			}
 			if ( i == 2 )
 			    player.specialize();
 			else
@@ -420,7 +428,9 @@ public class Hotline {
 			}
 		    }//end question
 		}
-		catch ( IOException e ) { }
+		catch ( IOException e ) {
+		    choice = 2;
+		}
 	
 	    }//ends Admission officer choice
 				
@@ -435,7 +445,9 @@ public class Hotline {
 			    System.out.print("\t1: Attack\n\t2: Special\nSelection: " );
 			    i = Integer.parseInt( in.readLine() );
 			}
-			catch ( IOException e ) { }
+			catch ( IOException e ) {
+			    i = 1;
+			}
 			if ( i == 2 )
 			    player.specialize();
 			else
@@ -475,7 +487,9 @@ public class Hotline {
 			}
 		    }//end question
 		}
-		catch ( IOException e ) { }
+		catch ( IOException e ) {
+		    choice = 2;
+		}
 		    	
 	    }//ends Teacher choice
 	}//ends while loop
@@ -550,7 +564,9 @@ public class Hotline {
 			sc = new Scanner(System.in);
 			resp = sc.nextInt();//choice of team member
 		    }
-		    catch (Exception e) {}
+		    catch (Exception e) {
+			resp =2;
+		    }
 		    response = "Choose your response: \n";
 		    response += "\t1: My name is BLin and I'm doing well. What about you?\n";
 		    response += "\t2: My perfect world was torn apart by the disappearance of my true love.\n";
@@ -579,7 +595,9 @@ public class Hotline {
 			    Scanner sca = new Scanner(System.in);
 			    resp = sca.nextInt();//choice of dialogue
 			}
-			catch (Exception e) {}
+			catch (Exception e) {
+			    resp = 2;
+			}
 			if (resp == 1){//dialogue 1
 			    response = "\tMy name is BLin and I'm doing well. What about you?\n";
 			}
@@ -615,7 +633,9 @@ public class Hotline {
 				System.out.println("Sorry, you weren't persuasive enough.");
 			    }
 			}
-			catch (Exception e){}
+			catch (Exception e){
+			    System.out.println("Sorry, you weren't persuasive enough.");
+			}
 		    }//end alice
 		    else if (resp == 2) {//if ernie
 			///THE DROPPING OF THE CLUE
@@ -658,7 +678,9 @@ public class Hotline {
 				System.out.println("Sorry, you were not persuasive enough.");
 			    }
 			}
-			catch (Exception e){}
+			catch (Exception e){
+			    System.out.println("Sorry, you were not persuasive enough.");
+			}
 		    }//end ernie
 
 		    //====		        	
@@ -701,13 +723,14 @@ public class Hotline {
 		    response += "\t2: My name is BLin. My girl's been wearing less and going out more these days.\n";
 		    response += "\tNow, she's been kidnapped and my life is meaningless without her.\n";
 		    System.out.println(response);
-		    pressAnyKeyToContinue();
 		    //=====choose dialogue
 		    try {
 			Scanner sca = new Scanner(System.in);
 			resp = sca.nextInt();//choice of dialogue
 		    }
-		    catch (Exception e) {}
+		    catch (Exception e) {
+			pressAnyKeyToContinue();
+		    }
 		    if (resp == 1){//dialogue 1
 			response = "\t1: My name is BLin. My girl has been gone for a while.\n";
 			response += "\tI need your help to find her.\n";
@@ -738,7 +761,9 @@ public class Hotline {
 			    System.out.println("Sorry, you were not persuasive enough.");
 			}
 		    }
-		    catch (Exception e){}
+		    catch (Exception e){
+			System.out.println("Sorry, you were not persuasive enough.");
+		    }
 		   pressAnyKeyToContinue();
 		}//end math/floor 2
 		
@@ -763,7 +788,9 @@ public class Hotline {
 			sc = new Scanner(System.in);
 			resp = sc.nextInt();//choice of team member
 		    }
-		    catch (Exception e) {}
+		    catch (Exception e) {
+			resp =2;
+		    }
 		    if (resp == 1) {//if MooCow
 			///THE DROPPING OF THE CLUE
 			System.out.print("Do not let down your guard yet.\n");
@@ -796,7 +823,9 @@ public class Hotline {
 				System.out.println("Sorry, you were not persuasive enough.");
 			    }
 			}
-			catch (Exception e){}
+			catch (Exception e){
+			    System.out.println("Sorry, you were not persuasive enough.");
+			}
 		        pressAnyKeyToContinue();		
 		    }//end MooCow
 		    else if (resp == 2) {//if Mr Brown
@@ -828,10 +857,12 @@ public class Hotline {
 				System.out.println("Congratulations! You have added Mr.Brown to your team.");
 			    }
 			    else {
-				System.out.println("Sorry, you were not persuasive enough.");
+				System.out.println("Sorry, you were did not have the keys to succes.");
 			    }
 			}
-			catch (Exception e){}
+			catch (Exception e){
+			    System.out.println("Sorry, you were did not have the keys to succes.");
+			}
 			pressAnyKeyToContinue();
 		    }//end Brown
 		}//end cs
