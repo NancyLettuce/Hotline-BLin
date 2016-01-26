@@ -162,7 +162,6 @@ public class Hotline {
 	System.out.print(player.toString());
 	System.out.print("I wish to: ");
 
-	System.out.println(gen instanceof AdmissionsOfficer);
 	if (gen instanceof AdmissionsOfficer) {
 	    try {
 		Scanner please = new Scanner(System.in);
@@ -201,7 +200,7 @@ public class Hotline {
 		}
 	    }
 	    catch (Exception e) { 
-                System.out.println("Your move does not exist");
+                System.out.println("Wrong Move.");
             }
 
 	}
@@ -233,6 +232,9 @@ public class Hotline {
 		System.out.print("The result of your move is: ");
 		player.specialThree(gen.a, gen.num, gen.data); //initialized in Character.java
 		System.out.println(player.answer); 
+	    }
+	    else if (i==4) {
+		System.out.println("You chose to directly answer");
 	    }
 	    else  {
 		System.out.println("You chose to directly answer");
@@ -445,7 +447,7 @@ public class Hotline {
 			}
 			else {
 			    teach.HP = -20;
-			    System.out.println("\nYou have earned 100 dollars!");
+			    System.out.println("You are correct!\nYou have earned 100 dollars!");
 			}
 		    }//end question
 		}
@@ -880,6 +882,7 @@ public class Hotline {
 		        storyline +="BLin:\n\tMr.Brown! I finally found you!\n\tPlease, help me save Rubik's Cube.";
 			storyline += "Mr.Brown:\n\tAh, Young BLin. Tell me this first:";
 			storyline += "What is it that resonates in the mind of all my students?";
+			System.out.println(storyline);
 			pressAnyKeyToContinue();
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 			try {//to get final clue answer
@@ -891,11 +894,11 @@ public class Hotline {
 				System.out.println("Congratulations! You have added Mr.Brown to your team.");
 			    }
 			    else {
-				System.out.println("Sorry, you were did not have the keys to succes.");
+				System.out.println("Sorry, you did not have the keys to succes.");
 			    }
 			}
 			catch (Exception e){
-			    System.out.println("Sorry, you were did not have the keys to succes.");
+			    System.out.println("Sorry, you did not have the keys to succes.");
 			}
 			pressAnyKeyToContinue();
 		    }//end Brown
