@@ -164,7 +164,8 @@ public class Hotline {
 
 	if (gen instanceof AdmissionsOfficer) {
 	    try {
-		i = Integer.parseInt( in.readLine() ); 
+		Scanner please = new Scanner(System.in);
+		i = please.nextInt();
 	    }
 	    catch (Exception e) { 
                 System.out.println("Your move does not exist");
@@ -207,7 +208,8 @@ public class Hotline {
 	}
 	else {
 	    try {
-		i = Integer.parseInt( in.readLine() );
+		Scanner please = new Scanner(System.in);
+	        i = please.nextInt();
 	    }
 	    catch ( Exception e ) {
 		System.out.print("Your Move does not exist");
@@ -381,9 +383,10 @@ public class Hotline {
 		try {
 		    System.out.println( "\nWhat will you do?" );
 		    System.out.print("\t1: Attack\n\t2: Special\nSelection: " );
-		    i = Integer.parseInt( in.readLine() );
+		    Scanner work = new Scanner(System.in);
+		    i = work.nextInt();
 		}
-		catch ( IOException e ) {
+		catch ( Exception e ) {
 		    i = 1;
 		}
 		if ( i == 2 )
@@ -404,13 +407,15 @@ public class Hotline {
 		try {
 		    System.out.println( "\nWhat will you do?" );	
 		    System.out.println("\t1: Fight\n\t2: Answer Question\nSelection: " );
-		    choice =  Integer.parseInt( in.readLine() );
+		    Scanner why = new Scanner(System.in);
+		    choice = why.nextInt();
 		    if (choice == 1) {//fight
 			try{
 			    System.out.println("\t1: Attack\n\t2: Special\nSelection: " );
-			    i = Integer.parseInt( in.readLine() );
+			    Scanner work = new Scanner(System.in);
+			    i = work.nextInt();
 			}
-			catch ( IOException e ) {
+			catch ( Exception e ) {
 			    i = 1;
 			}
 			if ( i == 2 )
@@ -440,7 +445,7 @@ public class Hotline {
 			}
 		    }//end question
 		}
-		catch ( IOException e ) {
+		catch ( Exception e ) {
 		    choice = 2;
 		}
 	
@@ -451,13 +456,15 @@ public class Hotline {
 		try {
 		    System.out.println( "What will you do?" );	
 		    System.out.print("\t1: Fight\n\t2: Answer Question\nSelection: " );
-		    choice =  Integer.parseInt( in.readLine() );
+		    Scanner why = new Scanner(System.in);
+		    choice = why.nextInt();
 		    if (choice == 1) {//fight
 			try{
 			    System.out.print("\t1: Attack\n\t2: Special\nSelection: " );
-			    i = Integer.parseInt( in.readLine() );
+			    Scanner work = new Scanner(System.in);
+			    i = work.nextInt();
 			}
-			catch ( IOException e ) {
+			catch ( Exception e ) {
 			    i = 1;
 			}
 			if ( i == 2 )
@@ -499,7 +506,7 @@ public class Hotline {
 			}
 		    }//end question
 		}
-		catch ( IOException e ) {
+		catch ( Exception e ) {
 		    choice = 2;
 		}
 		    	
