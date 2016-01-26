@@ -793,7 +793,7 @@ public class Hotline {
 		if (floor == 3){//if cs		   
 		    floors.remove("\t3: CS Department\n");
 		    storyline = "You are now within the CS Department.\n";
-		    storyline = "It is all gleaming metal and rows of computers.\n";
+		    storyline += "It is all gleaming metal and rows of computers.\n";
 		    System.out.print(storyline);
 		    pressAnyKeyToContinue();
 		    storyline = "You look to your right and you see your old friend MooCow approaching.\n";
@@ -832,7 +832,11 @@ public class Hotline {
 			encounter = 5;
 			pressAnyKeyToContinue();
 			/////////////////END CLUE
-		        System.out.println("How do you feel right now?");		
+		        storyline = "MooCow:\n\tLong time no see old friend.\n";
+			storyline += "\tI've heard about your plight, and I want to help.\n";
+			storyline += "But first, tell me, how do you feel right now?";
+			System.out.println(storyline);
+			pressAnyKeyToContinue();
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 			try {//to get final clue answer
 			    sc = new Scanner(System.in);
@@ -853,7 +857,9 @@ public class Hotline {
 		    }//end MooCow
 		    else if (resp == 2) {//if Mr Brown
 			///THE DROPPING OF THE CLUE
-			System.out.print("You shake off your guilt at abandoning MooCow.\n");
+		        storyline = "You shake off your guilt at abandoning MooCow.\n";
+			storyline += "You tell yourself that tough decisions are part of life.\n";
+			System.out.println(storyline);
 			while (encounter > 0) {
 			    if (battle(teach)==false) {
 				return false;
@@ -869,7 +875,11 @@ public class Hotline {
 			encounter = 5; //reset
 			pressAnyKeyToContinue();
 			/////////////////END CLUE
-		        System.out.println("Mr.Brown:\n\tWhat is it that resonates in the mind of all my students?");
+
+			storyline = "When the Monsters clear, you see Mr.Brown approaching.\n";
+		        storyline +="BLin:\n\tMr.Brown! I finally found you!\n\tPlease, help me save Rubik's Cube.";
+			storyline += "Mr.Brown:\n\tAh, Young BLin. Tell me this first:";
+			storyline += "What is it that resonates in the mind of all my students?";
 			pressAnyKeyToContinue();
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 			try {//to get final clue answer
@@ -1068,7 +1078,7 @@ public class Hotline {
 	    catch ( IOException e ) { 
 		player  = new BLinArt();
 	    }
-	    int encounter = 10;
+	    int encounter = 5;
 	    while (encounter > 0) {
 		if (battle(admin)==false) {
 		    return false;
@@ -1130,7 +1140,8 @@ public class Hotline {
 		
 	else {
 	    story = "BLin almost sobbed for joy as he gathered Rubik's Cube into his arms.\n";
-	    story += "And he swore to never be ridiculously insecure and jealous again.";
+	    story += "They were tears of happiness, unlike the ones this project has caused me.\n";
+	    story += "And he swore to never be ridiculously insecure and jealous again.\n";
 	    System.out.print(story);
 	    return true;
 	}
