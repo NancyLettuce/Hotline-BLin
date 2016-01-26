@@ -157,33 +157,69 @@ public class Hotline {
 	System.out.print(player.toString());
 	System.out.print("I wish to: ");
 
-	try {
-	    i = Integer.parseInt( in.readLine() );
-	    move = player.moves.get(i-1);//the move you chose 
+	if (gen instanceof AdmissionsOfficer) {
+	    try {
+		i = Integer.parseInt( in.readLine() ); 
+	    }
+	    catch (IOException e) { 
+                System.out.println("Your move does not exist");
+            }
+	    if (i == 1) {
+		if (player instanceof Ernie || player instanceof BLinArt) {
+		    System.out.println("You chose to directly answer");
+		}
+		else {
+		    System.out.println("You used " + player.moves.get(0));
+		    System.out.print("The result of your move is: ");
+		    player.specialOne(gen.b, gen.number);
+		    System.out.println(player.answer); //initialized in Character.java
+		}
+	    }
+	    else if (i == 2) {
+		System.out.println("You used " + player.moves.get(0));
+		System.out.print("The result of your move is: ");
+		player.specialOne(gen.b, gen.number);
+		System.out.println(player.answer); //initialized in Character.java
+	    }
+	    else if (i == 3) {
+		System.out.println("You used " + player.moves.get(2));
+		System.out.print("The result of your move is: ");
+		player.specialThree(gen.a, gen.num, gen.data); //initialized in Character.java
+		System.out.println(player.answer); 
+	    }
+	    else  {
+		System.out.println("You chose to directly answer");
+	    }
+	    
 	}
-	catch ( IOException e ) {
-	    System.out.print("Your Move does not exist");
-	}
-	if (i == 1 && gen.types.get(gen.randMethod) == "askRoot" || gen.types.get(gen.randMethod) == "askDecimal" || gen.types.get(gen.randMethod) == "askArtist") {
-	    System.out.println("You used " + player.moves.get(0));
-	    System.out.print("The result of your move is: ");
-	    player.specialOne(gen.b, gen.number);
-	    System.out.println(player.answer); //initialized in Character.java
-	}
-	else if (i ==2 && gen.types.get(gen.randMethod) == "askPrime" || gen.types.get(gen.randMethod) == "askConversion") {
-	    System.out.println("You used " + player.moves.get(1));
-	    System.out.print("The result of your move is: ");
-	    player.specialTwo(gen.number, gen.b);
-	    System.out.println(player.answer); //initialized in Character.java
-	}
-	else if (i == 3 && gen.types.get(gen.randMethod) == "askSort" || gen.types.get(gen.randMethod) == "askProduct") {
-	    System.out.println("You used " + player.moves.get(2));
-	    System.out.print("The result of your move is: ");
-	    player.specialThree(gen.a, gen.num, gen.data); //initialized in Character.java
-	    System.out.println(player.answer); 
-	}
-	else if (i ==4) {
-	    System.out.println("You chose to directly answer");
+	else {
+	    try {
+		i = Integer.parseInt( in.readLine() );
+	    }
+	    catch ( IOException e ) {
+		System.out.print("Your Move does not exist");
+	    }
+	    if (i == 1 && gen.types.get(gen.randMethod) == "askRoot" || gen.types.get(gen.randMethod) == "askDecimal" || gen.types.get(gen.randMethod) == "askArtist") {
+		System.out.println("You used " + player.moves.get(0));
+		System.out.print("The result of your move is: ");
+		player.specialOne(gen.b, gen.number);
+		System.out.println(player.answer); //initialized in Character.java
+	    }
+	    else if (i ==2 && gen.types.get(gen.randMethod) == "askPrime" || gen.types.get(gen.randMethod) == "askConversion") {
+		System.out.println("You used " + player.moves.get(1));
+		System.out.print("The result of your move is: ");
+		player.specialTwo(gen.number, gen.b);
+		System.out.println(player.answer); //initialized in Character.java
+	    }
+	    else if (i == 3 && gen.types.get(gen.randMethod) == "askSort" || gen.types.get(gen.randMethod) == "askProduct") {
+		System.out.println("You used " + player.moves.get(2));
+		System.out.print("The result of your move is: ");
+		player.specialThree(gen.a, gen.num, gen.data); //initialized in Character.java
+		System.out.println(player.answer); 
+	    }
+	    else  {
+		System.out.println("You chose to directly answer");
+	    }
 	}
 	System.out.print("\n"+"Enter your answer: ");
 		
@@ -504,7 +540,7 @@ public class Hotline {
 		    storyline += "She is dressed in distinctive blue and white.\n\nAlice: \n";
 		    storyline += "\tHello there. My name is Alice. Who are you and how are you doing?\n";
 		    System.out.println(storyline);
-		    pressAnyKeyToContinue();
+		    
 		    response = "Do you wish to choose Alice, or leave in pursuit of Ernie?\n";
 		    response += "\t1: Stay with Alice.\n";
 		    response += "\t2: Ernie is who I really want.\n";
