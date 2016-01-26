@@ -561,6 +561,7 @@ public class Hotline {
 	    for (String x: floors) {
 		System.out.print(x);//prints out the floors
 	    }
+	    System.out.print("Floor: ");
 	    try {
 		Scanner sc = new Scanner(System.in);
 		int floor = sc.nextInt();
@@ -596,6 +597,7 @@ public class Hotline {
 		    response += "\t1: My name is BLin and I'm doing well. What about you?\n";
 		    response += "\t2: My perfect world was torn apart by the disappearance of my true love.\n";
 		    response += "\tSo I guess you can say I could be doing better.\n";
+		    response += "Choice: \n";
 		    if (resp == 1) {//if alice
 			///THE DROPPING OF THE CLUE
 			System.out.print("But wait! What is that in the distance?\n");
@@ -614,7 +616,7 @@ public class Hotline {
 			encounter = 5;
 			/////////////////END CLUE
 			System.out.print(response);
-			pressAnyKeyToContinue();
+			
 			//=====
 			try {
 			    Scanner sca = new Scanner(System.in);
@@ -630,13 +632,14 @@ public class Hotline {
 			    response = "\tMy perfect world was torn apart by the disappearance of my one true love.\n";
 			    response += "\tSo I guess you can say I could be doing better.\n";
 			}
+			pressAnyKeyToContinue();
 			//=====
 			System.out.println("Now you turn to Alice");
 			System.out.print("\nBLin: \n"+ response);
 			pressAnyKeyToContinue();
 			System.out.println("Alice: ");
-			storyline = "\tWell, My fall down the rabbit hole is nothing compared to the drastic drop\n";
-			storyline += "\tin my grades ever since I began attending Stuy.\n";
+			storyline = "\tWell, My fall down the rabbit hole is nothing compared to the drastic\n";
+			storyline += "\t drop in my grades ever since I began attending Stuy.\n";
 			storyline += "\tI want to help you. In fact I have a lovely drawing of Rubik's Cube.\n";
 			storyline += "\tYou must, however, answer a question.\n";
 			System.out.print(storyline);
@@ -880,7 +883,7 @@ public class Hotline {
 
 			storyline = "When the Monsters clear, you see Mr.Brown approaching.\n";
 		        storyline +="BLin:\n\tMr.Brown! I finally found you!\n\tPlease, help me save Rubik's Cube.\n";
-			storyline += "Mr.Brown:\n\tAh, Young BLin. Tell me this first:";
+			storyline += "Mr.Brown:\n\tAh, Young BLin. Tell me this first:\n";
 			storyline += "What is it that resonates in the mind of all my students?";
 			System.out.println(storyline);
 			pressAnyKeyToContinue();
@@ -1029,7 +1032,7 @@ public class Hotline {
 		
 	story = "Your next journey is to go to MIT where BLin's damsel in distress is sorrowfully awaiting.";
 	if(onTeam("Alice")==true) {
-	    story += "Alice had been walking up the broken escalators, when she noticed something.";
+	    story += "Alice had been walking up the broken escalators, when she noticed something.\n";
 	    story += "\nThere was a step that was missing, and in is place was a hole.";
 	    story += "\n'I wonder what's below these floors?' she wondered.";
 	    story += "\nThen she fell.";
@@ -1038,9 +1041,11 @@ public class Hotline {
 	    System.out.println(story);
 	    pressAnyKeyToContinue();
 	    story = "There was no word from Alice for a few hours.";
+	    System.out.println(story);
 	    pressAnyKeyToContinue();
-	    story += "\nThen she texted BLin.";
+	    story = "\nThen she texted BLin.";
 	    story += "\n'OMG GUISE, I found a shortcut to MIT!'";//lol
+	    System.out.println(story);
 	}
 	else {
 	    story += "\nUnfortunately, you missed the easy way out.";
@@ -1099,7 +1104,7 @@ public class Hotline {
 	story += "You know immediately that it will be an exhausting fight.\n";
 	System.out.print(story);
 	pressAnyKeyToContinue();
-	if (onTeam("MooCow")) {
+	if (onTeam("MooCow") == true) {
 	    story = "Upon sight of MooCow, the crowds disperse. You are granted entrance.\n";
 	    story += "Now all that remains is to find Rubik's Cube";
 	    System.out.println(story);
@@ -1134,7 +1139,7 @@ public class Hotline {
 	    return false;
 	}
 		
-	if (onTeam("Ernie")) {
+	if (onTeam("Ernie")== true) {
 	    story = "But alas, happy endings are ever elusive.\n";
 	    story += "When Ernie entered the room, the stones began to crumble.";
 	    System.out.print(story);
