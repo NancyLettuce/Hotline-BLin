@@ -199,7 +199,7 @@ public abstract class Monster{
     public void askRoot() {
         a = (int) (Math.random()*5+1);
         b = Integer.toString(a);
-        System.out.println("Find a root of the quadratic:");
+        System.out.println("Find a positive root of the quadratic:");
         System.out.println("\tx^2+"+2*a+"x"+"+"+a*a);
     }//end askRoot
     
@@ -330,7 +330,9 @@ public abstract class Monster{
         random = (int)(Math.random() * titleCopy.size());//generates random int
         title = titleCopy.get(random);//used to determine random work to ask about
         titleCopy.remove(title);//deleted to avoid repetition
-        
+	
+	b = title;
+	
         String multiChoice1[] = {"Who is the artist who painted " + title + "?"};
         int scorePro;
         int score;
@@ -386,7 +388,7 @@ public abstract class Monster{
         else if (map.get(title) == D) {
             correctArt = 4;
         }
-        b = Integer.toString(correctArt);
+        //b = Integer.toString(correctArt);
             
     }
     

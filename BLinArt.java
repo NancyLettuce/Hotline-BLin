@@ -78,7 +78,7 @@ public class BLinArt extends Character implements ArtKid {
     }
     
     public String specialOne(String a, String b) {
-    	answer = a;
+    	answer = map.get(a);
     	return answer;
     }
     

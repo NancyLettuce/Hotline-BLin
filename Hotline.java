@@ -446,7 +446,7 @@ public class Hotline {
 			    System.out.println( "\n" + "AdmissionsOfficer dealt  6 points of damage.\n");
 			}
 			else {
-			    teach.HP = -20;
+			    admin.HP = -200;
 			    System.out.println("You are correct!\nYou have earned 100 dollars!");
 			}
 		    }//end question
@@ -879,7 +879,7 @@ public class Hotline {
 			/////////////////END CLUE
 
 			storyline = "When the Monsters clear, you see Mr.Brown approaching.\n";
-		        storyline +="BLin:\n\tMr.Brown! I finally found you!\n\tPlease, help me save Rubik's Cube.";
+		        storyline +="BLin:\n\tMr.Brown! I finally found you!\n\tPlease, help me save Rubik's Cube.\n";
 			storyline += "Mr.Brown:\n\tAh, Young BLin. Tell me this first:";
 			storyline += "What is it that resonates in the mind of all my students?";
 			System.out.println(storyline);
@@ -1081,13 +1081,13 @@ public class Hotline {
 	    catch ( IOException e ) { 
 		player  = new BLinArt();
 	    }
-	    int encounter = 5;
+	    int encounter = 10;
 	    while (encounter > 0) {
 		if (battle(admin)==false) {
 		    return false;
 		}
 		else {
-		    admin = new AdmissionsOfficer();//creates new teacher to reset values
+		    admin = new AdmissionsOfficer();//creates new admin to reset values
 		}
 		encounter --;
 	    }
