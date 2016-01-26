@@ -978,17 +978,17 @@ public class Hotline {
 				
 	    else if (hero == 4) {//if choose Mr.Brown
 		player = new MrBrown();
-		team.add("MooCow");
+		team.add("MrBrown");
 	    }
 				
 	    else if (hero == 5) {//if choose Ernie
 		player = new Ernie();
-		team.add("MooCow");
+		team.add("Ernie");
 	    }
 				
 	    else if (hero == 6) {//if choose Alice
 		player = new Alice();
-		team.add("MooCow");
+		team.add("Alice");
 	    }
 	    else {
 		player = new Drake();
