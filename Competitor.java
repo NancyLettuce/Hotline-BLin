@@ -2,9 +2,9 @@ public class Competitor extends Monster {
     
     public Competitor() {
         super();
-        HP = 100; 
-        def = 20;
-        str = 20;
+        HP = 20; 
+        def = 15;
+        str = 10;
     }
     
     public String about() {

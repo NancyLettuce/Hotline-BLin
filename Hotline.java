@@ -405,7 +405,12 @@ public class Hotline {
 		System.out.println( "\n" + player.getName() + " dealt " + d1 +
 				    " points of damage.");
 		System.out.println( "\n" + "Competitor dealt " + player.getName() + " " +
-				    d2 + " points of damage.");	
+				    d2 + " points of damage.");
+		if (student.isAlive() == false) {
+		    System.out.println("The Competitor fought long and hard, but it simply could not keep up.");
+		    System.out.println("With its last, breath, it wheezed out it's final words.");
+		    System.out.println("Competitor:\n\tYou don't deserve to get into MIT.");
+		}
 	    } //ends Competitor choice
 				
 	    else if (generic instanceof AdmissionsOfficer) {
