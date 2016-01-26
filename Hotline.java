@@ -199,7 +199,7 @@ public class Hotline {
 		System.out.println(player.answer); 
 	    }
 	    else if (i ==4) {
-		System.out.println("You used " + player.moves.get(2));
+		//System.out.println("You used " + player.moves.get(2));
 		System.out.println("You chose to directly answer");
 	    }	    
 	    else {
@@ -219,6 +219,9 @@ public class Hotline {
 		System.out.print("The result of your move is: ");
 		player.specialOne(gen.b, gen.number);
 		System.out.println(player.answer); //initialized in Character.java
+	    }
+	    else if (i == 2 && (player instanceOf BLinArt)){
+		System.out.println("You chose to directly answer");
 	    }
 	    else if (i ==2 && gen.types.get(gen.randMethod) == "askPrime" || gen.types.get(gen.randMethod) == "askConversion") {
 		System.out.println("You used " + player.moves.get(1));
