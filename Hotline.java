@@ -162,51 +162,48 @@ public class Hotline {
 	System.out.print(player.toString());
 	System.out.print("I wish to: ");
 
+	System.out.println(gen instanceof AdmissionsOfficer);
 	if (gen instanceof AdmissionsOfficer) {
-	    System.out.println ("what is going on");
 	    try {
 		Scanner please = new Scanner(System.in);
 		i = please.nextInt();
+		if (i == 1) {
+		    System.out.println("You used " + player.moves.get(0));
+		    System.out.print("The result of your move is: ");
+		    player.specialOne(gen.b, gen.number);
+		    System.out.println(player.answer); //initialized in Character.java
+		
+		}
+	    
+		else if (i == 2) {
+		    if (player instanceof BLinArt || player instanceof Ernie) {
+			System.out.println("You chose to directly answer");
+		    }
+		    else {
+			System.out.println("You used " + player.moves.get(1));
+			System.out.print("The result of your move is: ");
+			player.specialOne(gen.b, gen.number);
+			System.out.println(player.answer); //initialized in Character.java
+		    }
+		}
+		else if (i == 3) {
+		    System.out.println("You used " + player.moves.get(2));
+		    System.out.print("The result of your move is: ");
+		    player.specialThree(gen.a, gen.num, gen.data); //initialized in Character.java
+		    System.out.println(player.answer); 
+		}
+		else if (i ==4) {
+		    //System.out.println("You used " + player.moves.get(2));
+		    System.out.println("You chose to directly answer");
+		}	    
+		else {
+		    System.out.println("You chose to directly answer");
+		}
 	    }
 	    catch (Exception e) { 
                 System.out.println("Your move does not exist");
             }
-	    if (i == 1) {
-		if (player instanceof Ernie || player instanceof BLinArt) {
-		    System.out.println("You chose to directly answer");
-		}
-		else {
-		    //System.out.println("You used " + player.moves.get(0));
-		    System.out.print("The result of your move is: ");
-		    player.specialOne(gen.b, gen.number);
-		    System.out.println(player.answer); //initialized in Character.java
-		}
-	    }
-	    
-	    else if (i == 2) {
-		if (player instanceof BLinArt) {
-		    System.out.println("You used " + player.moves.get(1));
-		}
-		else {
-		    System.out.println("You used " + player.moves.get(1));
-		    System.out.print("The result of your move is: ");
-		    player.specialOne(gen.b, gen.number);
-		    System.out.println(player.answer); //initialized in Character.java
-		}
-	    }
-	    else if (i == 3) {
-		System.out.println("You used " + player.moves.get(2));
-		System.out.print("The result of your move is: ");
-		player.specialThree(gen.a, gen.num, gen.data); //initialized in Character.java
-		System.out.println(player.answer); 
-	    }
-	    else if (i ==4) {
-		//System.out.println("You used " + player.moves.get(2));
-		System.out.println("You chose to directly answer");
-	    }	    
-	    else {
-		System.out.println("You chose to directly answer");
-	    }
+
 	}
 	else {
 	    try {
@@ -441,7 +438,7 @@ public class Hotline {
 		        if (player.isAlive() == true) {
 			    admin.askArtQuestion();
 			}
-			if (checkAnswer(teach) == false) {
+			if (checkAnswer(admin) == false) {
 			    player.HP -= 6;
 			    System.out.print("Oops, wrong answer.");
 			    System.out.println( "\n" + "AdmissionsOfficer dealt  6 points of damage.\n");
@@ -872,7 +869,8 @@ public class Hotline {
 			encounter = 5; //reset
 			pressAnyKeyToContinue();
 			/////////////////END CLUE
-		        System.out.println("Mr.Brown:\n\tWhat is it that everyone desires?");		
+		        System.out.println("Mr.Brown:\n\tWhat is it that resonates in the mind of all my students?");
+			pressAnyKeyToContinue();
 			System.out.print("What is your answer to the riddle posed?\n\tYour answer:");
 			try {//to get final clue answer
 			    sc = new Scanner(System.in);
