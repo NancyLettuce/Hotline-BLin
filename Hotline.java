@@ -526,17 +526,20 @@ public class Hotline {
 		
 	//option 1: both die
 	if ( !generic.isAlive() && !player.isAlive() ) {
-	    System.out.println( "Oops you both die" );
+	    System.out.println( "\nOops you both die" );
+	    pressAnyKeyToContinue();
 	    return false;
 	}
 	//option 2: you defeat the Monster
 	else if ( !generic.isAlive() ) {
-	    System.out.println( "You have defeated the Monster!" );
+	    System.out.println( "\nYou have defeated the Monster!" );
+	    pressAnyKeyToContinue();
 	    return true;
 	}
 	//option 3: the monster kills you
 	else if ( !player.isAlive() ) {
-	    System.out.println( "You are dead." );
+	    System.out.println( "\nYou are dead." );
+	    pressAnyKeyToContinue();
 	    return false;
 	}
 	    
@@ -588,8 +591,9 @@ public class Hotline {
 		    
 		    response = "Do you wish to choose Alice, or leave in pursuit of Ernie?\n";
 		    response += "\t1: Stay with Alice.\n";
-		    response += "\t2: Ernie is who I really want.\n";
+		    response += "\t2: Ernie is who I really want.\nChoice: ";
 		    System.out.print(response);
+      
 		    //===
 		    try {
 			sc = new Scanner(System.in);
@@ -598,11 +602,7 @@ public class Hotline {
 		    catch (Exception e) {
 			resp =2;
 		    }
-		    response = "Choose your response: \n";
-		    response += "\t1: My name is BLin and I'm doing well. What about you?\n";
-		    response += "\t2: My perfect world was torn apart by the disappearance of my true love.\n";
-		    response += "\tSo I guess you can say I could be doing better.\n";
-		    response += "Choice: \n";
+		    
 		    if (resp == 1) {//if alice
 			///THE DROPPING OF THE CLUE
 			System.out.print("But wait! What is that in the distance?\n");
@@ -613,13 +613,21 @@ public class Hotline {
 			    else {
 				teach = new Teacher();//creates new teacher to reset values
 				int randInd = (int) (Math.random()*5);
+				System.out.println("You pick up the clue to read it.");
 				System.out.println("\tClue: " + teach.alice.get(randInd));
 				teach.alice.remove(teach.alice.get(randInd));
+				pressAnyKeyToContinue();
 			    }
 			    encounter --;
 			}
 			encounter = 5;
+			pressAnyKeyToContinue();
 			/////////////////END CLUE
+			response = "Choose your response: \n";
+			response += "\t1: My name is BLin and I'm doing well. What about you?\n";
+			response += "\t2: My perfect world was torn apart by the disappearance of my true love.\n";
+			response += "\tSo I guess you can say I could be doing better.\n";
+			response += "Choice: \n";
 			System.out.print(response);
 			
 			//=====
@@ -680,8 +688,10 @@ public class Hotline {
 			    else {
 				teach = new Teacher();//creates new teacher to reset values
 				int randInd = (int) (Math.random()*5);
+				System.out.println("You pick up the clue to read it.");
 				System.out.println("\tClue: " + teach.ernie.get(randInd));
 				teach.ernie.remove(teach.ernie.get(randInd));
+				pressAnyKeyToContinue();
 			    }
 			    encounter --;
 			}
@@ -738,8 +748,10 @@ public class Hotline {
 			else {
 			    teach = new Teacher();//creates new teacher to reset values
 			    int randInd = (int) (Math.random()*5);
+			    System.out.println("You pick up the clue to read it.");
 			    System.out.println("\tClue: " + teach.drake.get(randInd));
 			    teach.drake.remove(teach.drake.get(randInd));
+			    pressAnyKeyToContinue();
 			}
 			encounter --;
 		    }
@@ -834,8 +846,10 @@ public class Hotline {
 			    else {
 				teach = new Teacher();//creates new teacher to reset values
 				int randInd = (int) (Math.random()*5);
+				System.out.println("You pick up the clue to read it.");
 				System.out.println("\tClue: " + teach.mooCow.get(randInd));
 				teach.mooCow.remove(teach.mooCow.get(randInd));
+				pressAnyKeyToContinue();
 			    }
 			    encounter --;
 			}
@@ -877,8 +891,10 @@ public class Hotline {
 			    else {
 				teach = new Teacher();//creates new teacher to reset values
 				int randInd = (int) (Math.random()*5);
+				System.out.println("You pick up the clue to read it.");
 				System.out.println("\tClue: " + teach.mrBrown.get(randInd));
 				teach.mrBrown.remove(teach.mrBrown.get(randInd));
+				pressAnyKeyToContinue();
 			    }
 			    encounter --;
 			}
