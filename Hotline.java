@@ -323,6 +323,9 @@ public class Hotline {
                 return false;
             }
         }
+	else {
+	    System.out.println("What is going on");
+	}
         return false;
     }
     
@@ -913,6 +916,9 @@ public class Hotline {
 		    else if (vocation == 3 ){//BLin with Art Appreciation skill
 			player = new BLinArt( );
 		    }
+		    else {
+			player  = new BLinCS();
+		    }
 		}
 		catch ( IOException e ) { 
 		    player  = new BLinCS();
@@ -945,6 +951,11 @@ public class Hotline {
 		player = new Alice();
 		team.add("MooCow");
 	    }
+	    else {
+		player = new Drake();
+		team.add("Drake");
+	    }
+	    
 	}
 	catch ( IOException e ) {
 	    player = new BLinCS();
@@ -981,7 +992,7 @@ public class Hotline {
 	pressAnyKeyToContinue();
 		
 	story = "Your next journey is to go to MIT where BLin's damsel in distress is sorrowfully awaiting.";
-	if(onTeam("Alice")) {
+	if(onTeam("Alice")==true) {
 	    story += "Alice had been walking up the broken escalators, when she noticed something.";
 	    story += "\nThere was a step that was missing, and in is place was a hole.";
 	    story += "\n'I wonder what's below these floors?' she wondered.";
@@ -1020,14 +1031,14 @@ public class Hotline {
 	    try {
 		vocation = Integer.parseInt( in.readLine() );
 		if (vocation == 1 ){
-		    if (onTeam("Ernie")) {
+		    if (onTeam("Ernie")==true) {
 			player = new Ernie();
 		    }
-		    else if (onTeam("BLinArt")) {
+		    else if (onTeam("BLinArt")==true) {
 			player = new BLinArt();
 		    }
 		}
-		else if (vocation == 2 ){
+		else {
 		    System.out.println("Good luck fearless warrior!");
 		}
 	    }
